@@ -9,6 +9,12 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var ctrlProjects = require('./routes/projects');
 
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/osborn');
+
+var Project = require('./components/project/project.model');
+
 var app = express();
 
 // view engine setup
@@ -19,7 +25,7 @@ app.set('view engine', 'jade');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
