@@ -18,8 +18,7 @@ mongoose.connection.on('connected', function() {
   console.log('Mongoose conectado em ' + dbURI);
 });
 
-var Project = require('./components/project/project.model');
-var project_routes = require('./components/project/project.routes');
+var projectRoutes = require('./components/project/project-routes');
 
 var app = express();
 
@@ -37,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/projects', project_routes);
+app.use('/projects', projectRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
