@@ -10,7 +10,13 @@ var users = require('./routes/users');
 
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/osborn');
+var dbURI = 'mongodb://localhost/osborn';
+
+mongoose.connect(dbURI);
+
+mongoose.connection.on('connected', function() {
+  console.log('Mongoose conectado em ' + dbURI);
+});
 
 var Project = require('./components/project/project.model');
 var project_routes = require('./components/project/project.routes');
