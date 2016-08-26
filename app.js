@@ -19,8 +19,13 @@ mongoose.connection.on('connected', function() {
 });
 
 var projectRoutes = require('./components/project/project-routes');
+var Project = require('./components/project/project-model');
 
-var app = express();
+Project.find(function(err, item){
+  console.log(item);
+});
+
+var app = express(); 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
