@@ -4,8 +4,18 @@ block content
   h1= title
   p Welcome to #{title}
 
-  projects 
-
-  ul
+  table(class='table table-bordered table-hover')
+    thead
+      tr
+        th(class='col-md-1')= "Code"
+        th(class='col-md-5')= "Name"
+        th(class='col-md-2')= "Start date"
+        th(class='col-md-2')= "End date"
+        th(class='col-md-2')= ""
     each project in projects
-      li= project.name
+      tr
+        td= project.code
+        td= project.name
+        td= project.start_date
+        td= project.end_date
+        td= ""
