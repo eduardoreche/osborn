@@ -22,7 +22,7 @@ block content
             td= project.code
             td= project.name
             td= project.start_date ? moment(project.start_date).format("DD/MM/YYYY") : ''
-            td= moment(project.end_date).zone("-03:00").format("DD/MM/YYYY")
+            td= moment(project.end_date).format("DD/MM/YYYY")
             td 
               a(class='btn btn-default' href=`/projects/${project.id}`) Edit 
               span= ' '
