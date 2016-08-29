@@ -1,0 +1,29 @@
+extends ../../views/layout.pug
+
+block content
+  h1= "Project"
+
+  form(action='/projects/save', method='post')
+    input(type='hidden', name='id', value= project.id)
+
+    div(class='form-group')
+      label(for='name') Name
+      input(type='text', class='form-control', name='name', value= project.name)
+
+    div(class='form-group')
+      label(for='name') Code
+      input(type='text', class='form-control', name='code', value= project.code)
+
+    div(class='form-group')
+      label(for='name') Start date    
+      input(type='date', class='form-control', name='start_date', value= project.start_date)
+
+    div(class='form-group')
+      label(for='name') End date
+      input(type='date', class='form-control', name='end_date', value= project.end_date)
+
+    div(class='form-group')
+      div(class='text-right')
+        a(href='/projects/' class='btn btn-default') Cancelar
+        span= ' '
+        button(type='submit' class='btn btn-primary') Salvar

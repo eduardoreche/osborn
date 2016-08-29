@@ -13,10 +13,6 @@ require('./components/common/db.js');
 var projectRoutes = require('./components/project/project-routes');
 var Project = require('./components/project/project-model');
 
-Project.find(function(err, item){
-  console.log(item);
-});
-
 var app = express(); 
 
 // view engine setup
@@ -34,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/projects', projectRoutes);
+
+app.locals.moment = require('moment')
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

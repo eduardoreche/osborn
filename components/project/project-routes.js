@@ -14,6 +14,32 @@ router.get('/', function(req, res, next) {
       });  
     });
     
+})
+
+router.post('/save', function(req, res, next) {
+  var project = new Project({name: req.body.name, code: req.body.code, start_date: req.body.start_date, end_date: req.body.end_date});
+  project.save(function(err, data) {
+    res.redirect('/projects');
+  });
 });
+
+router.get('/new', function(req, res, next) {
+  var project = {};
+
+  res.render(__dirname +'/project-form', {
+    project: project
+  })
+})
+
+router.get('/:id', function(req, res, next){
+  var project = {};
+  Project.find({id: req.params.id}, function(err, result){
+    project = result;
+
+    res.render(__dirname +'/project-form', {
+      project: project
+    })
+  })
+})
 
 module.exports = router;

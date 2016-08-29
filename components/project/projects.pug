@@ -2,20 +2,28 @@ extends ../../views/layout.pug
 
 block content
   h1= title
-  p Welcome to #{title}
 
-  table(class='table table-bordered table-hover')
-    thead
-      tr
-        th(class='col-md-1')= "Code"
-        th(class='col-md-5')= "Name"
-        th(class='col-md-2')= "Start date"
-        th(class='col-md-2')= "End date"
-        th(class='col-md-2')= ""
-    each project in projects
-      tr
-        td= project.code
-        td= project.name
-        td= project.start_date
-        td= project.end_date
-        td= ""
+  div(class='row')
+    div(class='col-md-12 text-right') 
+      a(class='btn btn-primary' href='/projects/new') New Project
+
+  div(class='row')
+    div(class='col-md-12')
+      table(class='table table-bordered table-hover')
+        thead
+          tr
+            th(class='col-md-1')= "Code"
+            th(class='col-md-5')= "Name"
+            th(class='col-md-2')= "Start date"
+            th(class='col-md-2')= "End date"
+            th(class='col-md-2')= ""
+        each project in projects
+          tr
+            td= project.code
+            td= project.name
+            td= project.start_date ? moment(project.start_date).format("DD/MM/YYYY GMT-3") : ''
+            td= moment(project.end_date).format("DD/MM/YYYY")
+            td 
+              a(class='btn btn-default' href=`/projects/${project.id}`) Edit 
+              span= ' '
+              a(class='btn btn-danger' href=`/projects/${project.id}`) Delete 

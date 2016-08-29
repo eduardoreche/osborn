@@ -4,9 +4,9 @@ var Schema = mongoose.Schema;
 var ProjectSchema = new Schema({
     name: String, 
     description: String, 
-    SCO: String, 
-    startDate: Date, 
-    endDate: Date
+    code: String, 
+    start_date: Date, 
+    end_date: Date
 });
 
 module.exports = mongoose.model('Project', ProjectSchema);
