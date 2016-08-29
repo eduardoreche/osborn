@@ -8,15 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var mongoose = require('mongoose');
-
-var dbURI = 'mongodb://localhost/osborn';
-
-mongoose.connect(dbURI);
-
-mongoose.connection.on('connected', function() {
-  console.log('Mongoose conectado em ' + dbURI);
-});
+require('./components/common/db.js');
 
 var projectRoutes = require('./components/project/project-routes');
 var Project = require('./components/project/project-model');
