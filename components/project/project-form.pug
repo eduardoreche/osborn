@@ -16,11 +16,11 @@ block content
 
     div(class='form-group')
       label(for='name') Start date    
-      input(type='date', class='form-control', name='start_date', value= project.start_date)
+      input(type='date', class='form-control', name='start_date', value= moment(project.start_date).format("YYYY-MM-DD"))
 
     div(class='form-group')
       label(for='name') End date
-      input(type='date', class='form-control', name='end_date', value= project.end_date)
+      input(type='date', class='form-control', name='end_date', value= moment(project.end_date).format("YYYY-MM-DD"))
 
     div(class='form-group')
       div(class='text-right')
