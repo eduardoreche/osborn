@@ -52,6 +52,14 @@ router.get('/:id', function(req, res, next){
   })
 })
 
+router.get('/delete/:id', function(req, res, next) {
+  Project.findById(req.params.id, function(err, project) {
+    project.remove(function() {
+      res.redirect('/projects');
+    });
+  })
+});
+
 var _create = function(req, success) {
   project = new Project({
       name: req.body.name, 

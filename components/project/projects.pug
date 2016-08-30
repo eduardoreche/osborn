@@ -26,4 +26,4 @@ block content
             td 
               a(class='btn btn-default' href=`/projects/${project.id}`) Edit 
               span= ' '
-              a(class='btn btn-danger' href=`/projects/${project.id}`) Delete 
+              a(data-confirm='Are you sure?' class='btn btn-danger' href=`/projects/delete/${project.id}`) Delete 
