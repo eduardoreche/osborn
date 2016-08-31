@@ -1,0 +1,30 @@
+<h1>Project list</h1>
+
+<div class="row">
+  <a ui-sref="projects.new" class="btn btn-primary">New project</a>
+</div>
+<div class="row">
+  <table class="table table-stripped">
+    <thead>
+      <th class="col-md-2">Code</th>
+      <th class="col-md-2">Name</th>
+      <th class="col-md-3">Description</th>
+      <th class="col-md-1">Start date</th>
+      <th class="col-md-1">End date</th>
+      <th class="col-md-2">&nbsp;</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="project in pc.projects">
+        <td>{{project.code}}</td>
+        <td>{{project.name}}</td>
+        <td>{{project.description}}</td>
+        <td>{{project.start_date | date : 'dd/MM/yyyy'}}</td>
+        <td>{{project.end_date | date : 'dd/MM/yyyy'}}</td>
+        <td class="text-center">
+          <a ui-sref="projects.edit({id: project._id})" class="btn btn-primary">Edit</a>
+          <a ng-confirm="Sure?" href="" ng-click="pc.delete(project)" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
