@@ -3,7 +3,7 @@
 <div class="row">
   <a ui-sref="projects.new" class="btn btn-primary">New project</a>
 </div>
-<div class="row">
+<div class="row" ng-if="pc.projects.length > 0">
   <table class="table table-stripped">
     <thead>
       <th class="col-md-2">Code</th>

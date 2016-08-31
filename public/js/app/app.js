@@ -7,7 +7,8 @@ angular
     'ngConfirm',
 
     'osborn.home',
-    'osborn.project'
+    'osborn.project',
+    'osborn.resource'
   ])
 
   .config(function($urlRouterProvider, $httpProvider){

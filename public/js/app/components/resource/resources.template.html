@@ -1,0 +1,28 @@
+<h1>Resource list</h1>
+
+<div class="row">
+  <a ui-sref="resources.new" class="btn btn-primary">New resource</a>
+</div>
+<div class="row" ng-if="rc.resources.length > 0">
+  <table class="table table-stripped">
+    <thead>
+      <th class="col-md-2">Code</th>
+      <th class="col-md-4">Name</th>
+      <th class="col-md-2">Position</th>
+      <th class="col-md-1">Active</th>
+      <th class="col-md-2">&nbsp;</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="resource in rc.resources">
+        <td>{{resource.code}}</td>
+        <td>{{resource.name}}</td>
+        <td>{{resource.position}}</td>
+        <td>{{resource.active}}</td>
+        <td class="text-center">
+          <a ui-sref="resources.edit({id: resource._id})" class="btn btn-primary">Edit</a>
+          <a ng-confirm="Sure?" href="" ng-click="rc.delete(resource)" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

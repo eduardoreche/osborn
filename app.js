@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 require('./api/v1/db.js');
 
 var projectRoutes = require('./api/v1/projects');
+var resourceRoutes = require('./api/v1/resources');
 
 var app = express(); 
 
@@ -20,6 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1/projects', projectRoutes);
+app.use('/api/v1/resources', resourceRoutes);
 
 app.get('*', function(req, res) {
   res.sendfile('./public/js/app/index.html'); // load our public/index.html file
