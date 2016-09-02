@@ -7,7 +7,7 @@ var config = require('../config');
 router.post('/', function(req, res) {
   // find the user
   User.findOne({
-    name: req.body.name
+    email: req.body.email
   }, function(err, user) {
 
     if (err) throw err;
@@ -24,6 +24,10 @@ router.post('/', function(req, res) {
       // return the information including token as JSON
       res.json({
         success: true,
+        user: {
+          name: user.name, 
+          email: user.email
+        },
         message: 'Enjoy your token!',
         token: token
       });

@@ -24,8 +24,8 @@ router.use(function(req, res, next) {
   }
 });
 
-router.use('/api/v1/projects', require('./projects'));
-router.use('/api/v1/resources', require('./resources'));
-router.use('/api/v1/users', require('./users'));
+router.use('/v1/projects', require('./projects'));
+router.use('/v1/resources', require('./resources'));
+router.use('/v1/users', require('./users'));
 
 module.exports = router;

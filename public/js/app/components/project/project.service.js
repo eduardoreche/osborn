@@ -6,9 +6,9 @@
     .module('osborn.project')
     .factory('projectService', projectService);
 
-  angular.$inject = ['$resource'];
+  angular.$inject = ['$resource', '$auth'];
 
-  function projectService($resource) {
+  function projectService($resource, $auth, $http) {
 
     var service = $resource('/api/v1/projects/:id', {id: '@id'}, {
       update: {

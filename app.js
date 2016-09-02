@@ -17,14 +17,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/authenticate', require('./controllers/authenticate'));
+app.use('/api/v1/auth', require('./controllers/authenticate'));
 
-app.get('*', function(req, res) {
+app.use('/api', require('./api/v1'));
+
+app.get('/*', function(req, res) {
   res.sendfile('./public/js/app/index.html'); // load our public/index.html file
 });
 
-app.use(require('./api/v1'));
-
-app.locals.moment = require('moment')
+app.locals.moment = require('moment')  
 
 module.exports = app;
