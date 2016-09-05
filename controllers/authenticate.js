@@ -4,7 +4,7 @@ var User = require('../models/user');
 var jwt = require('jsonwebtoken');
 var config = require('../config');
 
-router.post('/', function(req, res) {
+router.post('/', function(req, res, next) {
   // find the user
   User.findOne({
     email: req.body.email

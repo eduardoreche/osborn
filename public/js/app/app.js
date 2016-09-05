@@ -16,8 +16,10 @@ angular
   .config(function($urlRouterProvider, $httpProvider, $authProvider){
     $urlRouterProvider.otherwise('/');
     
-    $httpProvider.defaults.headers = function($auth) {
-      return { 'x-access-header': $auth.persistData().auth_headers['x-access-token'] }
+    $httpProvider.defaults.headers.common = function($auth) {
+      return {
+        'x-access-header' : $auth.persistData().auth_headers['x-access-token']
+      } 
     } 
 
     $httpProvider.defaults.useXDomain = true;
