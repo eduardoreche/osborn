@@ -3,17 +3,17 @@
   'use strict';
 
   angular
-    .module('osborn.resource')
-    .factory('resourceService', resourceService);
+    .module('osborn.user')
+    .factory('userService', userService);
 
   angular.$inject = ['$resource', '$http', '$auth'];
 
-  function resourceService($resource, $http, $auth) {
+  function userService($resource, $http, $auth) {
 
     $http.defaults.headers.common['x-access-token'] = 
                         $auth.persistData().auth_headers['x-access-token'];
 
-    var service = $resource('/api/v1/resources/:id', {id: '@id'}, {
+    var service = $resource('/api/v1/users/:id', {id: '@id'}, {
       update: {
         method: 'PUT'
       }

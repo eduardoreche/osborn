@@ -23,7 +23,9 @@ router.get('/:id', function(req, res, next){
 router.post('/', function(req, res, next){ 
   user = new User({
       name: req.body.name, 
-      password: req.body.password
+      email: req.body.email, 
+      password: req.body.password, 
+      active: req.body.active
     });
   
   user.save(function(err, data) {
@@ -38,7 +40,9 @@ router.put('/:id', function(req, res, next) {
     if(err) res.send(err);
 
     user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
     user.password = req.body.password || user.password;
+    user.active = req.body.active;
 
     user.save(function(err) {
       if(err) res.send(err);

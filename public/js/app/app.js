@@ -10,7 +10,8 @@ angular
     'osborn.home',
     'osborn.project',
     'osborn.resource',
-    'osborn.auth'
+    'osborn.auth',
+    'osborn.user'
   ])
 
   .config(function($urlRouterProvider, $httpProvider, $authProvider){
