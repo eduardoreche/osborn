@@ -6,7 +6,7 @@
     .module('osborn.project')
     .factory('projectService', projectService);
 
-  angular.$inject = ['$resource', '$auth'];
+  angular.$inject = ['$resource', '$auth', '$http'];
 
   function projectService($resource, $auth, $http) {
 
