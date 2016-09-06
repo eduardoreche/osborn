@@ -8,6 +8,7 @@
     "angular": "latest",
     "angular-resource": "latest",
     "ui-router": "latest", 
-    "ng-token-auth": "latest"
+    "ng-token-auth": "latest", 
+    "font-awesome": "latest"
   }
 }

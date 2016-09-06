@@ -34,6 +34,7 @@
       else
         _add();
 
+      _loadResources();  
       $state.go('resources.list');
     }
 

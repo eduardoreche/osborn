@@ -36,6 +36,7 @@
       else
         _add();
 
+      _loadProjects();  
       $state.go('projects.list');
     }
 
