@@ -3,14 +3,31 @@ var router = express.Router();
 var Allocation = require('../../models/allocation');
 
 router.get('/', (req, res, next) => {    
-    Allocation.find( (err, projects) => {
-      if (err) {
-        res.send(err);
-      }
+  Allocation.find( (err, allocations) => {
+    if (err) {
+      res.send(err);
+    }
       
-      res.json(projects);    
-    });
+    res.json(allocations);    
+  });
 });
+
+router.post('/', (req, res, next) => { 
+  allocation = new Allocation({
+    resource_id:  req.body.resource_id, 
+    project_id:   req.body.project_id, 
+    start_date:   req.body.start_date, 
+    end_date:     req.body.end_date,
+    hours:        req.body.hours
+  });
+  
+  allocation.save((err, data) => {
+    if (err)
+        res.send(err);
+
+    res.json({message: 'Allocation saved successfuly!'});
+  });
+})
 
 /*
 router.get('/:id', function(req, res, next){
@@ -19,21 +36,6 @@ router.get('/:id', function(req, res, next){
 
     res.json(project);
   })
-})
-
-router.post('/', function(req, res, next){ 
-  project = new Project({
-      name: req.body.name, 
-      code: req.body.code, 
-      start_date: req.body.start_date, 
-      end_date: req.body.end_date 
-    });
-  
-  project.save(function(err, data) {
-    if(err) res.send(err);
-
-    res.json({message: 'Project saved successfuly!'});
-  });
 })
 
 router.put('/:id', function(req, res, next) {
