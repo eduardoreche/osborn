@@ -6,9 +6,12 @@
     .module('osborn.project')
     .factory('resourceService', resourceService);
 
-  angular.$inject = ['$resource'];
+  angular.$inject = ['$resource', '$http', '$auth'];
 
-  function resourceService($resource) {
+  function resourceService($resource, $http, $auth) {
+
+    $http.defaults.headers.common['x-access-token'] = 
+                        $auth.persistData().auth_headers['x-access-token'];
 
     var service = $resource('/api/v1/resources/:id', {id: '@id'}, {
       update: {
