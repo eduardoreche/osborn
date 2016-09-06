@@ -9,7 +9,6 @@
     "angular-resource": "latest",
     "ui-router": "latest", 
     "ng-token-auth": "latest", 
-    "font-awesome": "latest",
     "ng-confirm": "latest"
   }
 }
