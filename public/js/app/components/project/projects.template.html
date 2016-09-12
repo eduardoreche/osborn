@@ -21,6 +21,7 @@
         <td>{{project.start_date | date : 'dd/MM/yyyy'}}</td>
         <td>{{project.end_date | date : 'dd/MM/yyyy'}}</td>
         <td class="text-center">
+          <a ui-sref="projects.allocate({id: project._id})" class="btn btn-warning">Alocar</a>
           <a ui-sref="projects.edit({id: project._id})" class="btn btn-primary">Edit</a>
           <a ng-confirm="Sure?" href="" ng-click="pc.delete(project)" class="btn btn-danger">Delete</a>
         </td>

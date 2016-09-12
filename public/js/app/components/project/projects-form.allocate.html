@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <p class="navbar-text">Alocar Recursos no Projeto <strong>{{pc.project.name}}</strong></p>
+    <form class="navbar-form navbar-right">
+      <a ui-sref="projects.list" class="btn btn-default">Voltar</a>
+    </form>
+  </div>
+</nav>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Selecionar Recurso</div>
+  <div class="panel-body">
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="selectRecurso">Recurso</label>
+        <select id="selectRecurso" class="form-control"></select>
+      </div>
+      <div class="form-group">
+        <label for="dataIni">Data Inicial</label>
+        <input type="date" class="form-control" id="dataIni">
+      </div>
+      <div class="form-group">
+        <label for="dataFim">Data Final</label>
+        <input type="date" class="form-control" id="dataFim">
+      </div>
+      <div class="form-group">
+        <label for="horas">Horas</label>
+        <input type="number" class="form-control" id="horas">
+      </div>
+      <button type="submit" class="btn btn-default pull-right">Alocar</button>
+    </form>
+  </div>
+</div>

@@ -44,6 +44,10 @@
       $state.go('projects.edit', {id: id});
     }
 
+    function allocate(id) {
+      $state.go('projects.allocate', {id: id});
+    }
+
     function remove(project) {
       project.$delete({id: project._id});
       _loadProjects();
