@@ -32,8 +32,8 @@
         })
         .state('projects.allocate', {
           url: '/allocate/:id',
-          templateUrl: 'js/app/components/project/projects-form.allocate.html',
-          controller: 'projectController as pc'
+          templateUrl: 'js/app/components/allocation/allocations.template.html',
+          controller: 'allocationController as ac'
         })
     })
 })();
