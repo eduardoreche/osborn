@@ -11,9 +11,14 @@
 
     $http.defaults.headers.common['x-access-token'] = $auth.persistData().auth_headers['x-access-token'];
 
-    var service = $resource('/api//v1/allocations/:id', {id: '@id'}, {
+    var service = $resource('/api/v1/allocations/:id', {id: '@id'}, {
       update: {
         method: 'PUT'
+      },
+      byProject: {
+        method: 'GET',
+        url: '/api/v1/allocations/byProject/:id',
+        isArray: true 
       }
     });
 

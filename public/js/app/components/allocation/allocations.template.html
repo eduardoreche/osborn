@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <p class="navbar-text">Alocar Recursos no Projeto <strong>{{ac.data.projectName}}</strong></p>
+    <p class="navbar-text">Alocar Recursos no Projeto <strong>{{ac.data.project.projectName}}</strong></p>
     <form class="navbar-form navbar-right">
       <a ui-sref="projects.list" class="btn btn-default">Voltar</a>
     </form>
@@ -9,7 +9,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">Selecionar Recurso</div>
   <div class="panel-body">
-    <form class="form-inline">
+    <form class="form-inline" ng-submit="ac.allocate()">
       <div class="form-group">
         <label for="selectRecurso">Recurso</label>
         <select id="selectRecurso" class="form-control" ng-model="ac.data.selectedResource" 
@@ -17,17 +17,38 @@
       </div>
       <div class="form-group">
         <label for="dataIni">Data Inicial</label>
-        <input type="date" class="form-control" id="dataIni">
+        <input type="date" class="form-control" id="dataIni" ng-model="ac.data.initialDate">
       </div>
       <div class="form-group">
         <label for="dataFim">Data Final</label>
-        <input type="date" class="form-control" id="dataFim">
+        <input type="date" class="form-control" id="dataFim" ng-model="ac.data.finalDate">
       </div>
       <div class="form-group">
         <label for="horas">Horas</label>
-        <input type="number" class="form-control" id="horas">
+        <input type="number" class="form-control" id="horas" ng-model="ac.data.hours">
       </div>
       <button type="submit" class="btn btn-default pull-right">Alocar</button>
     </form>
   </div>
+</div>
+
+<div class="row" ng-if="ac.allocations.length > 0">
+  <table class="table table-stripped">
+    <thead>
+      <th class="col-md-2">Recurso</th>
+      <th class="col-md-2">Data Inicial</th>
+      <th class="col-md-3">Data Final</th>
+      <th class="col-md-1">Horas</th>
+      <th class="col-md-2">&nbsp;</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="allocation in ac.allocations">
+        <td></td>
+        <td>{{allocation.start_date | date: 'dd/MM/yyyy'}}</td>
+        <td>{{allocation.end_date | date: 'dd/MM/yyyy'}}</td>
+        <td>{{allocation.hours}}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
