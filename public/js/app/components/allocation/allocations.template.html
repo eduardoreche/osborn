@@ -43,7 +43,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="allocation in ac.allocations">
-        <td></td>
+        <td>{{allocation.resource.name}}</td>
         <td>{{allocation.start_date | date: 'dd/MM/yyyy'}}</td>
         <td>{{allocation.end_date | date: 'dd/MM/yyyy'}}</td>
         <td>{{allocation.hours}}</td>

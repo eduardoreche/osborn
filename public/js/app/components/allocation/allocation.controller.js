@@ -41,8 +41,8 @@
 
     vm.allocate = () => {
       var as = new allocationService();
-      as.resource_id = vm.data.selectedResource._id; 
-      as.project_id = vm.data.project._id;
+      as.resource = vm.data.selectedResource._id; 
+      as.project = vm.data.project._id;
       as.start_date = vm.data.initialDate;
       as.end_date = vm.data.finalDate;
       as.hours = vm.data.hours;

@@ -15,7 +15,9 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => { 
   allocation = new Allocation({
     resource_id:  req.body.resource_id, 
-    project_id:   req.body.project_id, 
+    resource:     req.body.resource,
+    project_id:   req.body.project_id,
+    project:      req.body.project, 
     start_date:   req.body.start_date, 
     end_date:     req.body.end_date,
     hours:        req.body.hours
@@ -39,7 +41,8 @@ router.get('/byProject/:id', (req, res, next) => {
         res.send(err);
 
       res.json(allocations);
-    });
+    })
+    .populate('resource', 'name');
 });
 
 router.get('/byResource/:id', (req, res, next) => {
