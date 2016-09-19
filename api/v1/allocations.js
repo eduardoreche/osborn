@@ -34,7 +34,7 @@ router.post('/', (req, res, next) => {
 router.get('/byProject/:id', (req, res, next) => {
   Allocation.find(
     {
-      project_id: req.params.id
+      project: req.params.id
     }, 
     (err, allocations) => {
       if (err)
