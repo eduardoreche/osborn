@@ -35,18 +35,22 @@
   <table class="table table-stripped">
     <thead>
       <th class="col-md-2">Recurso</th>
-      <th class="col-md-2">Data Inicial</th>
-      <th class="col-md-3">Data Final</th>
-      <th class="col-md-1">Horas</th>
+      <th class="text-center col-md-2">Data Inicial</th>
+      <th class="text-center col-md-3">Data Final</th>
+      <th class="text-center col-md-1">Horas</th>
       <th class="col-md-2">&nbsp;</th>
     </thead>
     <tbody>
       <tr ng-repeat="allocation in ac.allocations">
         <td>{{allocation.resource.name}}</td>
-        <td>{{allocation.start_date | date: 'dd/MM/yyyy'}}</td>
-        <td>{{allocation.end_date | date: 'dd/MM/yyyy'}}</td>
-        <td>{{allocation.hours}}</td>
-        <td><a ng-confirm="Sure?" href="" ng-click="ac.delete(allocation._id)" class="btn btn-danger">Delete</a></td>
+        <td class="text-center">{{allocation.start_date | date: 'dd/MM/yyyy'}}</td>
+        <td class="text-center">{{allocation.end_date | date: 'dd/MM/yyyy'}}</td>
+        <td class="text-center">{{allocation.hours}}</td>
+        <td>
+          <div class="pull-right">
+            <a ng-confirm="Sure?" href="" ng-click="ac.delete(allocation._id)" class="btn btn-danger">Delete</a>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>

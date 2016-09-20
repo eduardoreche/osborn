@@ -42,7 +42,7 @@
     }
 
     vm.delete = (id) => {
-      allocationService.delete(id, () => {
+      allocationService.delete({id: id}, () => {
         vm._loadAllocations();
       });
     }
