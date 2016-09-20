@@ -10,7 +10,7 @@
 
   function projectController($scope, $state, $stateParams, projectService) {
 
-    var vm = angular.extend(this, {
+    var vm = angular.extend(this, { 
       projects: [],
       project: $stateParams.id ? projectService.get({id: $stateParams.id}, function(project){
         project.start_date = new Date(project.start_date);

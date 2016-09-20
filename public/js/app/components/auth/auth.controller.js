@@ -22,8 +22,7 @@
       $auth.submitLogin({
         email: vm.email, 
         password: vm.password
-      }).then(function(resp){
-        console.log($auth);
+      }).then(function(resp){        
         $state.go('home');
       }).catch(function(resp) {
         vm.message = 'Ooops! Wrong credentials';
