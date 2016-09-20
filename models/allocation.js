@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var AllocationSchema = new Schema({
-    resource_id: String, 
-    project_id: String, 
+    resource: { type: Schema.Types.ObjectId, ref: 'Resource'}, 
+    project: { type: Schema.Types.ObjectId, ref: 'Project'},
     start_date: Date, 
     end_date: Date,
     hours: Number

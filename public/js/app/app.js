@@ -6,10 +6,12 @@ angular
     'ui.router', 
     'ngConfirm',
     'ng-token-auth',
-
+    'ui.select',
+    'ngSanitize',
     'osborn.home',
     'osborn.project',
     'osborn.resource',
+    'osborn.allocation',
     'osborn.auth',
     'osborn.user'
   ])

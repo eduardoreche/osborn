@@ -15,7 +15,9 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => { 
   allocation = new Allocation({
     resource_id:  req.body.resource_id, 
-    project_id:   req.body.project_id, 
+    resource:     req.body.resource,
+    project_id:   req.body.project_id,
+    project:      req.body.project, 
     start_date:   req.body.start_date, 
     end_date:     req.body.end_date,
     hours:        req.body.hours
@@ -27,48 +29,65 @@ router.post('/', (req, res, next) => {
 
     res.json({message: 'Allocation saved successfuly!'});
   });
-})
+});
 
-/*
-router.get('/:id', function(req, res, next){
-  Project.findById(req.params.id, function(err, project){
-    if(err) res.send(err);
+router.get('/byProject/:id', (req, res, next) => {
+  Allocation.find(
+    {
+      project: req.params.id
+    }, 
+    (err, allocations) => {
+      if (err)
+        res.send(err);
 
-    res.json(project);
-  })
-})
+      res.json(allocations);
+    })
+    .populate('resource', 'name');
+});
 
-router.put('/:id', function(req, res, next) {
-  Project.findById(req.params.id, function(err, project) {
-    if(err) res.send(err);
+router.get('/byResource/:id', (req, res, next) => {
+  Allocation.find(
+    {
+      resource_id: req.params.id
+    }, 
+    (err, allocations) => {
+      if (err)
+        res.send(err);
 
-    project.name = req.body.name || project.name;
-    project.code = req.body.code || project.code;
-    project.start_date = req.body.start_date || project.start_date;
-    project.end_date = req.body.end_date || project.end_date;
+      res.json(allocations);
+    });
+});
 
-    project.save(function(err) {
-      if(err) res.send(err);
+router.put('/:id', (req, res, next) => {
+  Allocation.findById(req.params.id, (err, allocation) => {
+    if (err)
+      res.send(err);
+
+    allocation.start_date = req.body.start_date || allocation.start_date;
+    allocation.end_date   = req.body.end_date || allocation.end_date;
+    allocation.hours      = req.body.hours || allocation.hours;
+
+    allocation.save((err) => {
+      if (err)
+        res.send(err);
       
-      res.json({message: 'Project updated successfuly!'});
+      res.json({message: 'Allocation updated successfuly!'});
     });
   })
-})
+});
 
-router.delete('/:id', function(req, res, next) {
-  Project.findById(req.params.id, function(err, project) {
-    if(err) res.send(err);
+router.delete('/:id', (req, res, next) => {
+  Allocation.findById(req.params.id, (err, allocation) => {
+    if (err)
+      res.send(err);
 
-    project.remove(function(err, data) {
-
-      if(err) res.send(err);
+    allocation.remove((err, data) => {
+      if (err)
+        res.send(err);
       
-      res.json({message: 'Project removed successfuly!'});
-
+      res.json({message: 'Allocation removed successfuly!'});
     });
   });
+});
 
-})
-
-*/
 module.exports = router;

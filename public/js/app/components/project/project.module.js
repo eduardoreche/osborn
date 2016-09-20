@@ -30,5 +30,10 @@
           templateUrl: 'js/app/components/project/projects-form.template.html',
           controller: 'projectController as pc' 
         })
+        .state('projects.allocate', {
+          url: '/allocate/:id',
+          templateUrl: 'js/app/components/allocation/allocations.template.html',
+          controller: 'allocationController as ac'
+        })
     })
 })();

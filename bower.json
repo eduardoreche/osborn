@@ -1,14 +1,16 @@
 {
-  "name": "osborn", 
-  "version": "1.0.0", 
+  "name": "osborn",
+  "version": "1.0.0",
   "dependencies": {
-    "bootstrap": "latest", 
-    "font-awesome": "latest", 
-    "animate.css": "latest", 
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "animate.css": "latest",
     "angular": "latest",
     "angular-resource": "latest",
-    "ui-router": "latest", 
+    "ui-router": "latest",
     "ng-token-auth": "latest",
-    "ng-confirm": "latest"
+    "ng-confirm": "latest",
+    "angular-ui-select": "^0.19.4",
+    "angular-sanitize": "^1.5.8"
   }
 }
