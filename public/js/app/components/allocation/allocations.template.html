@@ -46,7 +46,7 @@
         <td>{{allocation.start_date | date: 'dd/MM/yyyy'}}</td>
         <td>{{allocation.end_date | date: 'dd/MM/yyyy'}}</td>
         <td>{{allocation.hours}}</td>
-        <td></td>
+        <td><a ng-confirm="Sure?" href="" ng-click="ac.delete(allocation._id)" class="btn btn-danger">Delete</a></td>
       </tr>
     </tbody>
   </table>

@@ -22,7 +22,8 @@
 
     projectService.get({id: $stateParams.id}, (project) => {
       vm.data.project  = project;
-      vm._loadAllocations(project._id);
+      vm.allocations = project.allocations;
+      //vm._loadAllocations(project._id);
     });
 
     vm._loadResources = () => {
@@ -32,11 +33,18 @@
     vm._loadResources();
 
     vm._loadAllocations= (param) => {
+      var id = param || vm.data.project._id;
       vm.allocations = allocationService.byProject({ id: param});
     }
 
     vm._reset = () => {
       vm.data = {};
+    }
+
+    vm.delete = (id) => {
+      allocationService.delete(id, () => {
+        vm._loadAllocations();
+      });
     }
 
     vm.allocate = () => {
@@ -47,6 +55,7 @@
       as.end_date = vm.data.finalDate;
       as.hours = vm.data.hours;
       as.$save((result) => {
+        vm._loadAllocations();
         vm._reset();
       });
     }

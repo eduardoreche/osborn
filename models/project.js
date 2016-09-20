@@ -9,4 +9,12 @@ var ProjectSchema = new Schema({
     end_date: Date
 });
 
+ProjectSchema.virtual('allocations', {
+    ref: 'Allocation',
+    localField: '_id',
+    foreignField: 'project'
+});
+
+ProjectSchema.set('toJSON', { getters: true, virtuals: true });
+
 module.exports = mongoose.model('Project', ProjectSchema);

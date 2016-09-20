@@ -13,11 +13,19 @@ router.get('/', function(req, res, next) {
 })
 
 router.get('/:id', function(req, res, next){
-  Project.findById(req.params.id, function(err, project){
-    if(err) res.send(err);
-
-    res.json(project);
-  })
+  Project.findById(req.params.id)
+    .populate({
+      path: 'allocations',
+      populate: {
+        path: 'resource'
+      }
+    })
+    .exec( (err, project) => {
+      if (err)
+        res.send(err);
+      
+      res.json(project);
+  });
 })
 
 router.post('/', function(req, res, next){ 
