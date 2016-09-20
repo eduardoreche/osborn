@@ -4,6 +4,10 @@ var User = require('../models/user');
 var jwt = require('jsonwebtoken');
 var config = require('../config');
 
+router.delete('/sign_out', function(req, res, next) {
+  res.json({success: true});
+});
+
 router.post('/', function(req, res, next) {
   // find the user
   User.findOne({
@@ -34,6 +38,7 @@ router.post('/', function(req, res, next) {
 
     }
   })
+
 });
 
 module.exports = router;

@@ -31,7 +31,9 @@ angular
           'x-access-token': resp['token']
         });
 
-        return {
+        $auth.persistData('user', resp['user']);
+
+        return {          
           'user': resp['user']
         }
       },

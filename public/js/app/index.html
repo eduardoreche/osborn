@@ -17,21 +17,9 @@
     <!-- endbuild -->
   </head>
 
-  <body ng-app="osborn"> 
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/#">Osborn</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a ui-sref="projects.list">Projects</a></li>
-            <li><a ui-sref="resources.list">Resources</a></li>            
-            <li><a ui-sref="users.list">Users</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <body ng-app="osborn">
+    <toolbar></toolbar>
+
     <div class="container">
       <ui-view></ui-view>
     </div>
@@ -75,5 +63,8 @@
 
     <script src="js/app/components/auth/auth.module.js"></script>
     <script src="js/app/components/auth/auth.controller.js"></script>
+    <script src="js/app/components/auth/auth.service.js"></script>
+
+    <script src="js/app/components/toolbar/toolbar.directive.js"></script>
   </body>
 </html>
