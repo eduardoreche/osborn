@@ -4,7 +4,6 @@ var jwt = require('jsonwebtoken');
 var config = require('../../config');
 
 // route midleware to verify a token
-/*
 router.use(function(req, res, next) {
   var token = req.body.token || req.query.token || req.headers['x-access-token'];
 
@@ -24,7 +23,6 @@ router.use(function(req, res, next) {
     })
   }
 });
-*/
 
 router.use('/v1/allocations', require('./allocations'));
 router.use('/v1/projects', require('./projects'));
