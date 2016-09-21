@@ -48,7 +48,7 @@
         <td class="text-center">{{allocation.hours}}</td>
         <td>
           <div class="pull-right">
-            <a ng-confirm="Sure?" href="" ng-click="ac.delete(allocation._id)" class="btn btn-danger">Delete</a>
+            <button ng-confirm="Sure?" type="button" ng-click="ac.delete(allocation._id, $index)" class="btn btn-danger">Delete</a>
           </div>
         </td>
       </tr>

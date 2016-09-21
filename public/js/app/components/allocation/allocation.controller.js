@@ -23,7 +23,6 @@
     projectService.get({id: $stateParams.id}, (project) => {
       vm.data.project  = project;
       vm.allocations = project.allocations;
-      //vm._loadAllocations(project._id);
     });
 
     vm._loadResources = () => {
@@ -32,18 +31,16 @@
 
     vm._loadResources();
 
-    vm._loadAllocations= (param) => {
-      var id = param || vm.data.project._id;
-      vm.allocations = allocationService.byProject({ id: param});
+    vm._resetAllocationData = () => {
+      delete vm.data['selectedResource']; 
+      delete vm.data['initialDate'];
+      delete vm.data['finalDate'];
+      delete vm.data['hours'];
     }
 
-    vm._reset = () => {
-      vm.data = {};
-    }
-
-    vm.delete = (id) => {
+    vm.delete = (id, index) => {
       allocationService.delete({id: id}, () => {
-        vm._loadAllocations();
+        vm.allocations.splice(index, 1);
       });
     }
 
@@ -55,9 +52,25 @@
       as.end_date = vm.data.finalDate;
       as.hours = vm.data.hours;
       as.$save((result) => {
-        vm._loadAllocations();
-        vm._reset();
+        vm.allocations.push(vm._createLocalAllocation());
+        vm._resetAllocationData();
       });
+    }
+
+    vm._createLocalAllocation = () => {
+      return {
+        resource:   vm._createLocalResource(vm.data.selectedResource),
+        start_date: vm.data.initialDate,
+        end_date:   vm.data.finalDate,
+        hours:      vm.data.hours
+      };
+    }
+
+    vm._createLocalResource = (selectedResource) => {
+      return {
+        _id: selectedResource._id,
+        name: selectedResource.name
+      };
     }
   }
 })();

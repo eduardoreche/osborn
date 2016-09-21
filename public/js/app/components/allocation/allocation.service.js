@@ -14,11 +14,6 @@
     var service = $resource('/api/v1/allocations/:id', {id: '@id'}, {
       update: {
         method: 'PUT'
-      },
-      byProject: {
-        method: 'GET',
-        url: '/api/v1/allocations/byProject/:id',
-        isArray: true 
       }
     });
 

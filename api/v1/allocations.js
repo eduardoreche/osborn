@@ -31,20 +31,6 @@ router.post('/', (req, res, next) => {
   });
 });
 
-router.get('/byProject/:id', (req, res, next) => {
-  Allocation.find(
-    {
-      project: req.params.id
-    }, 
-    (err, allocations) => {
-      if (err)
-        res.send(err);
-
-      res.json(allocations);
-    })
-    .populate('resource', 'name');
-});
-
 router.get('/byResource/:id', (req, res, next) => {
   Allocation.find(
     {
