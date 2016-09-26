@@ -21,7 +21,7 @@ angular
   .config(function($urlRouterProvider, $httpProvider, lockProvider, jwtOptionsProvider, jwtInterceptorProvider){
 
     lockProvider.init({
-      clientID: 'J5QMYCutU4e4IJruSUMyinX9FscB0kYv',
+      clientID: '3u4JGQPmEi90kjHpxH10W62mwX2V9SJ2',
       domain: 'osborn.auth0.com',
       options: {
         auth: {

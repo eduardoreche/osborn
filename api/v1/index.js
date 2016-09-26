@@ -5,8 +5,8 @@ var config = require('../../config');
 var jwt = require('express-jwt');
 
 var jwtCheck = jwt({
-  secret: new Buffer('ubOC4D067ZCGmCfQVGAGitnjABSLhVtAr5mS9VqQW648jc0sHHwTXUkpKTlPolU9', 'base64'),
-  audience: 'J5QMYCutU4e4IJruSUMyinX9FscB0kYv'  
+  secret: new Buffer(process.env.AUTH0_KEY, 'base64'),
+  audience: '3u4JGQPmEi90kjHpxH10W62mwX2V9SJ2'  
 });
 
 // route midleware to verify a token
