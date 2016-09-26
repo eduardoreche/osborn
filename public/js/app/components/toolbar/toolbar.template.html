@@ -6,7 +6,7 @@
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" ng-if="isAuthenticated">
         <li><a ui-sref="projects.list">Projects</a></li>
         <li><a ui-sref="resources.list">Resources</a></li>            
         <li><a ui-sref="users.list">Users</a></li>
@@ -14,10 +14,10 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li ng-if="!isAuthenticated">
-          <a href="" ng-click="toolbar.auth.login()">Login</a>
+          <a href="" ng-click="toolbar.login()">Login</a>
         </li>
-        <li ng-if="isAuthenticated"><a>{{toolbar.user.name}}</a></li>
-        <li ng-if="isAuthenticated"><a href="" ng-click="toolbar.auth.logout()">Logout</a></li>
+        <li ng-if="isAuthenticated"><a>{{toolbar.userProfile.email}}</a></li>
+        <li ng-if="isAuthenticated"><a href="" ng-click="toolbar.logout()">Logout</a></li>
       </ul>
     </div>
 

@@ -19,9 +19,20 @@
   function toolbarController($rootScope, $state, authService, authManager) {
     
     var vm = angular.extend(this, {
-      auth: authService,
+      login: login,
+      logout: logout,
+      userProfile: authService.userProfile,
       isAuthenticated: $rootScope.isAuthenticated
     });
+
+    function login() {
+      authService.login();
+    }
+
+    function logout() {
+      authService.logout();
+      $state.go('home');
+    }
 
   }
 

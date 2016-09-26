@@ -5,11 +5,11 @@
     .module('osborn.allocation')
     .factory('allocationService', allocationService);
 
-  angular.$inject = ['$resource', '$auth', '$http'];
+  angular.$inject = ['$resource', '$http'];
 
-  function allocationService($resource, $auth, $http) {
+  function allocationService($resource, $http) {
 
-    $http.defaults.headers.common['x-access-token'] = $auth.persistData().auth_headers['x-access-token'];
+    $http.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('id_token')}`;
 
     var service = $resource('/api/v1/allocations/:id', {id: '@id'}, {
       update: {

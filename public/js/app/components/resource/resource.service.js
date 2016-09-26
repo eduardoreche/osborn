@@ -6,12 +6,11 @@
     .module('osborn.resource')
     .factory('resourceService', resourceService);
 
-  angular.$inject = ['$resource', '$http', '$auth'];
+  angular.$inject = ['$resource', '$http'];
 
-  function resourceService($resource, $http, $auth) {
+  function resourceService($resource, $http) {
 
-    $http.defaults.headers.common['x-access-token'] = 
-                        $auth.persistData().auth_headers['x-access-token'];
+    $http.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('id_token')}`;
 
     var service = $resource('/api/v1/resources/:id', {id: '@id'}, {
       update: {

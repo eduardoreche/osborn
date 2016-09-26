@@ -23,7 +23,12 @@ angular
     lockProvider.init({
       clientID: 'J5QMYCutU4e4IJruSUMyinX9FscB0kYv',
       domain: 'osborn.auth0.com',
-      redirect: false
+      options: {
+        auth: {
+          redirect: false
+        }, 
+        autoclose: true
+      }
     });
 
     jwtOptionsProvider.config({

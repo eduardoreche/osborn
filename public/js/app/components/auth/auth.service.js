@@ -11,6 +11,7 @@
       var userProfile = JSON.parse(localStorage.getItem('profile')) || {};
 
       function login() {
+        
         lock.show();
       }
 
