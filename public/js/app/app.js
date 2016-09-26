@@ -5,42 +5,49 @@ angular
     'ngResource',
     'ui.router', 
     'ngConfirm',
-    'ng-token-auth',
     'ui.select',
     'ngSanitize',
+    'auth0.lock',
+    'angular-jwt',
+
     'osborn.home',
     'osborn.project',
     'osborn.resource',
     'osborn.allocation',
-    'osborn.auth',
-    'osborn.user'
+    'osborn.user',
+    'osborn.auth'
   ])
 
-  .config(function($urlRouterProvider, $httpProvider, $authProvider){
+  .config(function($urlRouterProvider, $httpProvider, lockProvider, jwtOptionsProvider, jwtInterceptorProvider){
+
+    lockProvider.init({
+      clientID: 'J5QMYCutU4e4IJruSUMyinX9FscB0kYv',
+      domain: 'osborn.auth0.com',
+      redirect: false
+    });
+
+    jwtOptionsProvider.config({
+      tokenGetter: function() {
+        return localStorage.getItem('id_token');
+      }
+    });
+
+    $httpProvider.interceptors.push('jwtInterceptor');
+
     $urlRouterProvider.otherwise('/');
     
     $httpProvider.defaults.useXDomain = true;
 
-    $authProvider.configure({
-      apiUrl: 'http://localhost:3000/api/v1',
-      emailSignInPath: '/auth',
-      forceValidateToken: false,
-      storage: 'cookies',
-      handleLoginResponse: function(resp, $auth, $http) {
-        $auth.persistData('auth_headers', {
-          'x-access-token': resp['token']
-        });
+  })
+  .run(function($rootScope, authService, authManager, lock){
+    $rootScope.authService = authService;
+    
+    authService.registerAuthenticationListener();
 
-        $auth.persistData('user', resp['user']);
-
-        return {          
-          'user': resp['user']
-        }
-      },
-      tokenFormat: function() {
-        return {
-          'x-access-token': token
-        }
-      }
+    lock.on('hidden', () => {
+      console.log( 'hidden') ;
     });
+
+    authManager.checkAuthOnRefresh();
+    authManager.redirectWhenUnauthenticated();
   });

@@ -14,18 +14,14 @@
     }
   }
 
-  toolbarController.$inject = ['$state', 'authService'];
+  toolbarController.$inject = ['$rootScope', '$state', 'authService', 'authManager'];
 
-  function toolbarController($state, authService) {
+  function toolbarController($rootScope, $state, authService, authManager) {
+    
     var vm = angular.extend(this, {
-      user: authService.getUserData(),
-      signOut: signOut
+      auth: authService,
+      isAuthenticated: $rootScope.isAuthenticated
     });
-
-    function signOut() {
-      authService.signOut();
-      $state.go('auth');
-    }
 
   }
 

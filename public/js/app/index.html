@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Osborn</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -18,13 +18,37 @@
   </head>
 
   <body ng-app="osborn">
-    <toolbar></toolbar>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/#">Osborn</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a ui-sref="projects.list">Projects</a></li>
+            <li><a ui-sref="resources.list">Resources</a></li>            
+            <li><a ui-sref="users.list">Users</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-if="!isAuthenticated">
+              <a href="" ng-click="authService.login()">Login</a>
+            </li>
+            <li ng-if="isAuthenticated"><a>{{authService.userProfile.email}}</a></li>
+            <li ng-if="isAuthenticated"><a href="" ng-click="authService.logout()">Logout</a></li>
+          </ul>
+        </div>
+
+
+      </div>
+    </nav>
 
     <div class="container">
       <ui-view></ui-view>
     </div>
     
-
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="libs/jquery/dist/jquery.js"></script>
@@ -36,8 +60,12 @@
     <script src="libs/angular-cookie/angular-cookie.js"></script>
     <script src="libs/ng-token-auth/dist/ng-token-auth.js"></script>
     <script src="libs/angular-ui-select/dist/select.js"></script>
+
+    <script src="libs/angular-lock/dist/angular-lock.js"></script>
+    <script src="libs/angular-jwt/dist/angular-jwt.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
+    <script src="https://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
 
     <script src="js/utils.js"></script>
     <script src="js/app/app.js"></script>
@@ -62,7 +90,6 @@
     <script src="js/app/components/user/user.controller.js"></script>
 
     <script src="js/app/components/auth/auth.module.js"></script>
-    <script src="js/app/components/auth/auth.controller.js"></script>
     <script src="js/app/components/auth/auth.service.js"></script>
 
     <script src="js/app/components/toolbar/toolbar.directive.js"></script>

@@ -13,9 +13,11 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li ng-if="toolbar.user == null"><a ui-sref="auth">Login</a></li>
-        <li ng-if="toolbar.user"><a>{{toolbar.user.name}}</a></li>
-        <li ng-if="toolbar.user"><a href="" ng-click="toolbar.signOut()">Logout</a></li>
+        <li ng-if="!isAuthenticated">
+          <a href="" ng-click="toolbar.auth.login()">Login</a>
+        </li>
+        <li ng-if="isAuthenticated"><a>{{toolbar.user.name}}</a></li>
+        <li ng-if="isAuthenticated"><a href="" ng-click="toolbar.auth.logout()">Logout</a></li>
       </ul>
     </div>
 
