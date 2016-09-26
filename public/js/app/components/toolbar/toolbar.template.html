@@ -16,7 +16,7 @@
         <li ng-if="!isAuthenticated">
           <a href="" ng-click="toolbar.login()">Login</a>
         </li>
-        <li ng-if="isAuthenticated"><a>{{toolbar.userProfile.email}}</a></li>
+        <li ng-if="isAuthenticated"><a>{{authService.userProfile.email}}</a></li>
         <li ng-if="isAuthenticated"><a href="" ng-click="toolbar.logout()">Logout</a></li>
       </ul>
     </div>
