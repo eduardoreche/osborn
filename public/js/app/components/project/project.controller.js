@@ -22,7 +22,9 @@
       
       save: save, 
       delete: remove, 
-      edit: edit
+      edit: edit,
+
+      statusLabel: statusLabel
 
     });
 
@@ -51,6 +53,27 @@
     function remove(project) {
       project.$delete({id: project._id});
       _loadProjects();
+    }
+
+    function statusLabel(project) {
+      var label = 'label-';
+
+      switch (project.status) {
+        case 'open':
+          label += 'primary';
+          break;
+        case 'closed':
+          label += 'success';
+          break;
+        case 'prospect':
+          label += 'warning';
+          break;
+        default:
+          label += 'danger';
+          break;
+      } 
+
+      return label;
     }
   
     var _add = function() {

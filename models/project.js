@@ -5,6 +5,7 @@ var ProjectSchema = new Schema({
     name: String, 
     description: String, 
     code: String, 
+    status: String, 
     start_date: Date, 
     end_date: Date
 });

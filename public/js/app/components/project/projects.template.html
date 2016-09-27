@@ -3,6 +3,27 @@
 <div class="row">
   <a ui-sref="projects.new" class="btn btn-primary">New project</a>
 </div>
+<div class="row">&nbsp;</div>
+
+<div class="row">
+  <div class="panel panel-default" ng-repeat="project in pc.projects">
+    <div class="panel-heading">
+      <div class="col-sm-11">{{project.name}}</div>
+      <span class="label text-right" ng-class="pc.statusLabel(project)">
+        {{project.status ? project.status.toUpperCase() : 'NO STATUS'}}
+      </span>
+    </div>
+    <div class="panel-body">
+      <p>{{project.description}}</p>
+      <p>{{project.start_date | date : 'dd/MM/yyyy'}} a {{project.end_date | date : 'dd/MM/yyyy'}}</p>
+      <p class="col-sm-offset-11 col-sm-1">
+        <a ui-sref="projects.dashboard({id: project._id})">More...</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+
 <div class="row" ng-if="pc.projects.length > 0">
   <table class="table table-stripped">
     <thead>
