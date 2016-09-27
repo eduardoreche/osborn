@@ -6,7 +6,7 @@
 <div class="row">&nbsp;</div>
 
 <div class="row">
-  <div class="panel panel-default" ng-repeat="project in pc.projects">
+  <div class="panel panel-default" ng-repeat="project in pc.projects | orderBy:'name'">
     <div class="panel-heading">
       <div class="col-sm-11">{{project.name}}</div>
       <span class="label text-right" ng-class="pc.statusLabel(project)">

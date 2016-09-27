@@ -18,7 +18,7 @@ router.get('/:id', function(req, res, next){
       path: 'allocations',
       populate: {
         path: 'resource',
-        select: '_id name'
+        select: '_id name position'
       }
     })
     .exec( (err, project) => {

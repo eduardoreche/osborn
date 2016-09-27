@@ -9,6 +9,7 @@ angular
     'ngSanitize',
     'auth0.lock',
     'angular-jwt',
+    'chart.js',
 
     'osborn.home',
     'osborn.project',
@@ -18,7 +19,7 @@ angular
     'osborn.auth'
   ])
 
-  .config(function($urlRouterProvider, $httpProvider, lockProvider, jwtOptionsProvider, jwtInterceptorProvider){
+  .config(function($urlRouterProvider, $httpProvider, lockProvider, jwtOptionsProvider, jwtInterceptorProvider, ChartJsProvider){
 
     lockProvider.init({
       clientID: '3u4JGQPmEi90kjHpxH10W62mwX2V9SJ2',
@@ -42,6 +43,8 @@ angular
     $urlRouterProvider.otherwise('/');
     
     $httpProvider.defaults.useXDomain = true;
+
+    ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
 
   })
   .run(function($rootScope, authService, authManager, lock){

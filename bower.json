@@ -11,6 +11,8 @@
     "ng-token-auth": "latest",
     "ng-confirm": "latest",
     "angular-ui-select": "^0.19.4",
-    "angular-sanitize": "^1.5.8"
+    "angular-sanitize": "^1.5.8",
+    "chart.js": "^2.3.0",
+    "angular-chart.js": "^1.0.3"
   }
 }
