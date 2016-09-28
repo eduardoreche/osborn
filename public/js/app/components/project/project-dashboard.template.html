@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-11">
-    <h1>{{pd.project.name}}</h1>
+    <h1>{{pd.project.name}} <small>{{pd.project.code}}</small></h1>
   </div>
   <div class="col-sm-1">
     <span class="label text-right" ng-class="pd.statusLabel()">
@@ -21,19 +21,25 @@
         <thead>
           <th class="col-md-5">Resource</th>
           <th class="col-md-4">Position</th>
-          <th class="col-md-1">Hours</th>
           <th class="col-md-1">Start</th>
           <th class="col-md-1">End</th>
+          <th class="col-md-1">Hours</th>
         </thead>
         <tbody>
           <tr ng-repeat="allocation in pd.project.allocations ">
             <td>{{allocation.resource.name}}</td>
             <td>{{allocation.resource.position}}</td>
-            <td>{{allocation.hours}}</td>
             <td>{{allocation.start_date | date : 'dd/MM'}}</td>
             <td>{{allocation.end_date | date : 'dd/MM'}}</td>
+            <td class="text-right">{{allocation.hours}}</td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">Total</td>
+            <td class="text-right">{{pd.totalAllocationHours()}}</td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   </div>

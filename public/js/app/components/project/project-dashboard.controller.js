@@ -16,7 +16,9 @@
       statusLabel: statusLabel,
 
       allocationChartLabels: [],
-      allocationChartData: []
+      allocationChartData: [], 
+
+      totalAllocationHours: totalAllocationHours
 
     });
 
@@ -41,6 +43,15 @@
       } 
 
       return label;
+    }
+
+    function totalAllocationHours() {
+      var total = 0;
+      angular.forEach(vm.project.allocations, (item) => {
+        total += item.hours;
+      });
+
+      return total;
     }
 
 
