@@ -14,7 +14,7 @@ Enable Team Management (Allocation) among Enterprise Projects.
 * Resource CRUD and Dashboard
 * more to be defined
 
-# Architecture
+## Architecture
 
 * MongoDB
 * Angular 1.6
