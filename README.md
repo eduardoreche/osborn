@@ -17,6 +17,7 @@ Enable Team Management (Allocation) among Enterprise Projects.
 ## Architecture
 
 * MongoDB
+* Mongoose
 * Angular 1.6
 * Node
 * Express
