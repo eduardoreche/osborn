@@ -10,7 +10,7 @@ Enable Team Management (Allocation) among Enterprise Projects.
 
 ## Main functionalities
 
-* Projet CRUD and Dashboard
+* Project CRUD and Dashboard
 * Resource CRUD and Dashboard
 * more to be defined
 
@@ -37,3 +37,4 @@ Enable Team Management (Allocation) among Enterprise Projects.
 2. Run: `mongod`
 3. Open a new Terminal Window
 4. Run: `npm start`
+5. Navigate to `http://localhost:3000`
