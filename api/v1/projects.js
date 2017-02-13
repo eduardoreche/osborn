@@ -32,6 +32,7 @@ router.get('/:id', function(req, res, next){
 router.post('/', function(req, res, next){ 
   project = new Project({
       name: req.body.name, 
+      nickname: req.body.nickname,
       code: req.body.code,
       description: req.body.description, 
       start_date: req.body.start_date, 
@@ -50,6 +51,7 @@ router.put('/:id', function(req, res, next) {
     if(err) res.send(err);
 
     project.name = req.body.name || project.name;
+    project.nickname = req.body.nickname || project.nickname;
     project.code = req.body.code || project.code;
     project.description = req.body.description || project.description;
     project.start_date = req.body.start_date || project.start_date;
