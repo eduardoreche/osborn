@@ -30,7 +30,7 @@ Enable Team Management (Allocation) among Enterprise Projects.
 4. Run: `npm install`
 5. Run: `bower install`
 6. Check if MongoDB was added to PATH
-7. Setup the Mondo database: `mongod.exe --dbpath "c:\data"`
+7. Setup the Mongo database: `mongod.exe --dbpath "c:\data"`
 
 ## Run the application
 
