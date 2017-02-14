@@ -22,7 +22,7 @@ Enable Team Management (Allocation) among Enterprise Projects.
 * Node
 * Express
 
-## Instalation
+## Installation
 
 1. Clone this repo: `git clone https://github.com/eduardoreche/osborn.git`
 2. Install MongoDB
