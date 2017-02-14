@@ -6,9 +6,9 @@
     .module('osborn.resource')
     .controller('resourceController', resourceController);
 
-  resourceController.$inject = ['$scope', '$state', '$stateParams', 'resourceService', 'appService'];
+  resourceController.$inject = ['$scope', '$state', '$stateParams', 'resourceService', 'positionService'];
 
-  function resourceController($scope, $state, $stateParams, resourceService, appService) {
+  function resourceController($scope, $state, $stateParams, resourceService, positionService) {
 
     var vm = angular.extend(this, {
       resources: [],
@@ -55,7 +55,7 @@
 
     function _loadResources() {
       vm.resources = resourceService.query();
-      vm.positions = appService.query();
+      vm.positions = positionService.query();
     }
 
 

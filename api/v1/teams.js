@@ -3,9 +3,11 @@ var router = express.Router();
 
 router.get('/', (req, res) => {
     res.json([
-        'open', 
-        'closed', 
-        'prospect'
+        'Portal', 
+        'PEGA', 
+        'Sustentação',
+        'BARE',
+        'Pool Java'
         ]);
 });
 

@@ -19,5 +19,6 @@ router.use('/v1/users', require('./users'));
 router.use('/v1/positions', require('./positions'));
 router.use('/v1/entities', require('./entities'));
 router.use('/v1/status', require('./status'));
+router.use('/v1/teams', require('./teams'));
 
 module.exports = router;

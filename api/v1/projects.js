@@ -35,6 +35,9 @@ router.post('/', function(req, res, next){
       nickname: req.body.nickname,
       code: req.body.code,
       description: req.body.description, 
+      status: req.body.status,
+      entity: req.body.entity,
+      team: req.body.team,
       start_date: req.body.start_date, 
       end_date: req.body.end_date 
     });
@@ -54,6 +57,9 @@ router.put('/:id', function(req, res, next) {
     project.nickname = req.body.nickname || project.nickname;
     project.code = req.body.code || project.code;
     project.description = req.body.description || project.description;
+    project.status = req.body.status || project.status;
+    project.entity = req.body.entity || project.entity;
+    project.team = req.body.team || project.team;
     project.start_date = req.body.start_date || project.start_date;
     project.end_date = req.body.end_date || project.end_date;
     project.status = req.body.status || project.status;

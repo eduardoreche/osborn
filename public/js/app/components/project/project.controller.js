@@ -6,12 +6,15 @@
     .module('osborn.project')
     .controller('projectController', projectController);
 
-  projectController.$inject = ['$scope', '$state', '$stateParams', 'projectService'];
+  projectController.$inject = ['$scope', '$state', '$stateParams', 'projectService', 'statusService', 'entityService', 'teamService'];
 
-  function projectController($scope, $state, $stateParams, projectService) {
+  function projectController($scope, $state, $stateParams, projectService, statusService, entityService, teamService) {
 
     var vm = angular.extend(this, { 
       projects: [],
+      status: [],
+      entities: [],
+      teams: [],
       project: $stateParams.id ? projectService.get({id: $stateParams.id}, function(project){
         project.start_date = new Date(project.start_date);
         project.end_date = new Date(project.end_date);
@@ -91,6 +94,9 @@
           item.end_date = new Date(item.end_date);
         })
       });
+      vm.status = statusService.query();
+      vm.entities = entityService.query();
+      vm.teams = teamService.query();
     }
 
 

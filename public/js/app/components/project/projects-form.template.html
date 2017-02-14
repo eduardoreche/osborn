@@ -22,6 +22,27 @@
   </div>  
 
   <div class="form-group">
+    <label for="status">Status</label>
+    <select id="status" ng-model="pc.project.status" class="form-control">
+      <option ng-repeat="stat in pc.status">{{stat}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="entity">Entity</label>
+    <select id="entity" ng-model="pc.project.entity" class="form-control">
+      <option ng-repeat="entity in pc.entities">{{entity}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="team">Team</label>
+    <select id="team" ng-model="pc.project.team" class="form-control">
+      <option ng-repeat="team in pc.teams">{{team}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
     <label for="start_date">Start date</label>
     <input type="date" class="form-control" id="start_date" ng-model="pc.project.start_date">
   </div>

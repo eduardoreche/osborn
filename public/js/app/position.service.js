@@ -3,10 +3,11 @@
 
     angular
         .module('osborn')
-        .factory('appService', appService);
+        .factory('positionService', positionService);
 
-    appService.inject = ['$resource', '$http'];
-    function appService($resource, $http) {
+    positionService.inject = ['$resource', '$http'];
+
+    function positionService($resource, $http) {
         
         $http.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('id_token')}`;
 
