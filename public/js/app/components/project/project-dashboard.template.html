@@ -11,9 +11,10 @@
     <p>{{pd.project.description}}</p>
     <p>{{pd.project.start_date | date : 'dd/MM/yyyy'}} a {{pd.project.end_date | date : 'dd/MM/yyyy'}}</p>
   </div>
+  <div class="col-sm-12">
+    <status-timeline current='Em andamento'></status-timeline>
+  </div>
 </div>
-
-<status-timeline current-status='oportunidade'></status-timeline>
 
 <div class="row">
   <div class="col-sm-6">

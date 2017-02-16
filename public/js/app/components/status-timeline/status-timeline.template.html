@@ -1,0 +1,34 @@
+<div class="status-timeline-list row">
+  <div class="col-sm-2" ng-repeat="item in $ctrl.possibleStatus">
+    <div class="status-timeline-item" ng-class="{'status-timeline-item-current': $ctrl.current == item.desc}">
+      <i class="glyphicon glyphicon-{{item.icon}}" style="font-size: 1.5em" aria-hidden="true"></i><br>
+      {{ item.desc }}
+    </div>
+  </div>
+</div>
+
+<style type="text/css"  >
+  .status-timeline-list {
+        
+  }
+
+  .status-timeline-item {
+    width: 110px;
+    height: 110px;
+    background-color: lightgray;
+    margin: 10px;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 27px;
+    color: #fff;
+    font-weight: 500;    
+  }  
+
+  .status-timeline-item-current {
+    background-color: lightseagreen;
+  }
+
+  .status-timeline-item-former {
+    background-color: yellowgreen;
+  }
+</style>
