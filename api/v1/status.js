@@ -3,9 +3,12 @@ var router = express.Router();
 
 router.get('/', (req, res) => {
     res.json([
-        'open', 
-        'closed', 
-        'prospect'
+        'Oportunidade',
+        'Pré-venda',
+        'Em andamento',
+        'Garantia',
+        'Encerrada',
+        'Cancelada'
         ]);
 });
 

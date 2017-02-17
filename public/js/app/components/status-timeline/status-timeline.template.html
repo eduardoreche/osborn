@@ -1,6 +1,6 @@
 <div class="status-timeline-list row">
-  <div class="col-sm-2" ng-repeat="item in $ctrl.possibleStatus">
-    <div class="status-timeline-item" ng-class="{'status-timeline-item-current': $ctrl.current == item.desc}">
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" ng-repeat="item in $ctrl.possibleStatus">
+    <div class="status-timeline-item" ng-class="{'status-timeline-item-current': $ctrl.current == item.desc, 'hidden-xs': $ctrl.current != item.desc}">
       <i class="glyphicon glyphicon-{{item.icon}}" style="font-size: 1.5em" aria-hidden="true"></i><br>
       {{ item.desc }}
     </div>
