@@ -62,13 +62,13 @@
       var label = 'label-';
 
       switch (project.status) {
-        case 'open':
+        case 'Em andamento':
           label += 'primary';
           break;
-        case 'closed':
+        case 'Encerrada':
           label += 'success';
           break;
-        case 'prospect':
+        case 'Pré-venda':
           label += 'warning';
           break;
         default:

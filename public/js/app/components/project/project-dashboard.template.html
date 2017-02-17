@@ -2,17 +2,12 @@
   <div class="col-sm-11">
     <h1>{{pd.project.name}} <small>{{pd.project.code}}</small></h1>
   </div>
-  <div class="col-sm-1">
-    <span class="label text-right" ng-class="pd.statusLabel()">
-      {{pd.project.status ? pd.project.status.toUpperCase() : 'NO STATUS'}}
-    </span>
-  </div>
   <div class="col-sm-12 well">
     <p>{{pd.project.description}}</p>
     <p>{{pd.project.start_date | date : 'dd/MM/yyyy'}} a {{pd.project.end_date | date : 'dd/MM/yyyy'}}</p>
   </div>
   <div class="col-sm-12">
-    <status-timeline current='Em andamento'></status-timeline>
+    <status-timeline current="{{pd.project.status}}"></status-timeline>
   </div>
 </div>
 
