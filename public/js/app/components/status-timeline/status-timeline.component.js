@@ -4,16 +4,30 @@ const statusTimeline = {
   }, 
   templateUrl: 'js/app/components/status-timeline/status-timeline.template.html',
   controller() {
+
+    let currentStatusItem = null;
+
     this.$onInit = () => {
-      this.possibleStatus = [
-        {id: 1, desc: 'Oportunidade', icon: 'bullhorn'}, 
-        {id: 2, desc: 'Pré-venda', icon: 'tasks'},
-        {id: 3, desc: 'Em andamento', icon: 'road'},
-        {id: 4, desc: 'Garantia', icon: 'wrench'},
-        {id: 5, desc: 'Encerrada', icon: 'sunglasses'},
-        {id: 6, desc: 'Cancelada', icon: 'thumbs-down'}
+      this.statusList = [
+        {step: 1, desc: 'Oportunidade', icon: 'bullhorn'}, 
+        {step: 2, desc: 'Pré-venda', icon: 'tasks'},
+        {step: 3, desc: 'Em andamento', icon: 'road'},
+        {step: 4, desc: 'Garantia', icon: 'wrench'},
+        {step: 5, desc: 'Encerrada', icon: 'sunglasses'},
+        {step: 6, desc: 'Cancelada', icon: 'thumbs-down'}
       ];
-      console.log(`status: ${this.current}`);
+      
+      let activeStep = this.statusList.length;
+
+      angular.forEach(this.statusList, (item, index) => {
+        if( item.desc == this.current ) {
+          item.active = true;
+          activeStep = item.step;
+        } else {
+          item.active = false;
+          item.former = item.step < activeStep;
+        }
+      });
     }
   }
 }

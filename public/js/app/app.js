@@ -18,7 +18,7 @@ angular
     'osborn.user',
     'osborn.auth'
   ])
-
+  .value('_', window._)
   .config(function($urlRouterProvider, $httpProvider, lockProvider, jwtOptionsProvider, jwtInterceptorProvider, ChartJsProvider){
 
     lockProvider.init({
