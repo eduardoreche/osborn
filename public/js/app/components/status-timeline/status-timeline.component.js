@@ -17,6 +17,7 @@ const statusTimeline = {
 
         this.statusList.$promise.then(function(response){
           activeStep = response.length;
+
           angular.forEach(response, (item, index) => {
             if(item.desc == currentStatusItem ) {
               item.active = true;
@@ -26,13 +27,9 @@ const statusTimeline = {
               item.former = item.step < activeStep;
             }
           });
-          console.log(response);
+
         });
       } 
-
-      //this.possibleStatus = this.statuslist;
-      console.log(`status: ${this.current}`);
-      console.log(`statuslist: ${this.statuslist}`);
     }
   }
 }
