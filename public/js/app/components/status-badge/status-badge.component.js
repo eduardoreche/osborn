@@ -6,7 +6,7 @@ const statusBadge = {
   controller() {
     
     this.$onInit = ()=> {
-      console.log(this.status);
+
     }
 
   }
