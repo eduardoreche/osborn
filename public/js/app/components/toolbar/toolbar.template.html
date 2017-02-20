@@ -13,9 +13,9 @@
 
     <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
       <ul class="nav navbar-nav" ng-if="isAuthenticated">
-        <li><a ui-sref="projects.list">Projects</a></li>
-        <li><a ui-sref="resources.list">Resources</a></li>            
-        <li><a ui-sref="users.list">Users</a></li>
+        <li data-toggle="collapse" data-target="#navbar"><a ui-sref="projects.list">Projects</a></li>
+        <li data-toggle="collapse" data-target="#navbar"><a ui-sref="resources.list">Resources</a></li>            
+        <li data-toggle="collapse" data-target="#navbar"><a ui-sref="users.list">Users</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
