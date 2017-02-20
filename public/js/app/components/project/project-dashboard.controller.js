@@ -6,9 +6,9 @@
     .module('osborn.project')
     .controller('projectDashboardController', projectDashboardController);
 
-  projectDashboardController.$inject = ['$scope', '$state', '$stateParams', 'projectService', 'allocationService'];
+  projectDashboardController.$inject = ['$scope', '$state', '$stateParams', 'projectService', 'allocationService', 'statusService'];
 
-  function projectDashboardController($scope, $state, $stateParams, projectService, allocationService) {
+  function projectDashboardController($scope, $state, $stateParams, projectService, allocationService, statusService) {
 
     var vm = angular.extend(this, {
       project: {},
@@ -17,6 +17,7 @@
 
       allocationChartLabels: [],
       allocationChartData: [], 
+      statuslist: [],
 
       totalAllocationHours: totalAllocationHours
 
@@ -63,6 +64,7 @@
         var alloc = _loadChartData();
         vm.allocationChartLabels = Object.keys(alloc);
         vm.allocationChartData = vm.allocationChartLabels.map( (v) => { return alloc[v] } );
+        vm.statuslist = statusService.query();
 
         return project;
         

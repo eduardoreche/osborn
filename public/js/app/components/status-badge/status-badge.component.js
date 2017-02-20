@@ -3,9 +3,10 @@ const statusBadge = {
     status: '<'
   },
   templateUrl: 'js/app/components/status-badge/status-badge.template.html', 
-  controller( ) {
+  controller() {
     
     this.$onInit = ()=> {
+      console.log(this.status);
     }
 
   }

@@ -38,7 +38,7 @@
         .state('projects.dashboard', {
           url: '/dashboard/:id',
           templateUrl: 'js/app/components/project/project-dashboard.template.html',
-          controller: 'projectDashboardController as pd'
-        })
+          controller: 'projectDashboardController as pd',
+          })
     })
 })();
