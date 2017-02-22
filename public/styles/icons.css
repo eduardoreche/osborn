@@ -12,3 +12,4 @@
   }
 
   .icon-logoff:before   { content: "\e900"; }
+  .icon-login:before   { content: "\e901"; }

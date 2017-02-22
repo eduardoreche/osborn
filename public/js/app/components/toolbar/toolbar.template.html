@@ -14,19 +14,23 @@
 
     <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
       <ul class="nav navbar-nav menu-options" ng-if="isAuthenticated">
-        <li data-target="#navbar"><a ui-sref="projects.list">Projects</a></li>
-        <li data-target="#navbar"><a ui-sref="resources.list">Resources</a></li>            
-        <li data-target="#navbar"><a ui-sref="users.list">Users</a></li>
+        <li data-toggle="collapse" data-target="#navbar"><a ui-sref="projects.list">Projects</a></li>
+        <li data-toggle="collapse" data-target="#navbar"><a ui-sref="resources.list">Resources</a></li>            
+        <li data-toggle="collapse" data-target="#navbar"><a ui-sref="users.list">Users</a></li>
       </ul>
 
       <ul class="nav navbar-nav login-options navbar-right">
         <li ng-if="!isAuthenticated">
-          <a href="" ng-click="toolbar.login()">Login</a>
+          <a href="" ng-click="toolbar.login()">
+            <span class="btn-login">
+                <span class="icon icon-login"></span>
+            </span>
+          </a>
         </li>
         <li ng-if="isAuthenticated">
           <a href="" class="logged-user">
             <span class="user-pic"></span>
-            <span class="user-name">{{authService.userProfile.name}}</span>
+            <span class="user-name">{{authService.userProfile.email}}</span>
           </a>
         </li>
         <li ng-if="isAuthenticated">

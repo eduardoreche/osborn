@@ -4,9 +4,38 @@
 	font-weight: normal;
 	font-style: normal
 }
+
+/*GENERAL*/
 body {
-  padding-top: 70px;
-  font: 10px "OpenSans-Regular", Helvetica, Arial, sans-serif;
+	color: #131F25;
+	padding-top: 70px;
+	font: 10px "OpenSans-Regular", Helvetica, Arial, sans-serif;
+}
+.form-group label {
+	font-size: 1.3em;
+	font-weight: normal;
+}
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group select {
+	height: 30px;
+}
+.form-group textarea {
+	height: 100px;
+}
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group textarea, 
+.form-group select {
+	background-color: #f2f8fa;
+	font-size: 1.3em;
+	padding: 6px 12px 6px 12px;
+	border-radius: 15px;
+	border: 1px solid #D1D8DA;
+	box-shadow: none;
+
 }
 
 /*TOOLBAR*/
@@ -48,11 +77,18 @@ body {
 .osb-navbar .navbar-nav > li > a:active {
     color: #A4ACB0;
 }
-.osb-navbar .navbar-nav > li > .logged-user {
+.osb-navbar .navbar-nav.login-options > li > a > .btn-login > .icon {
+    color: #D1D8DA;
+    font-size: 18px;
+}
+.osb-navbar .navbar-nav.login-options > li > a > .btn-login:hover > .icon {
+    color: #A4ACB0;
+}
+.osb-navbar .navbar-nav.login-options > li > .logged-user {
 	font-size: 1.3em;
     padding-right: 0 !important;
 }
-.osb-navbar .navbar-nav > li > .logged-user .user-pic {
+.osb-navbar .navbar-nav.login-options > li > .logged-user .user-pic {
     position: absolute;
     left: -15px;
     width: 20px;
@@ -61,7 +97,7 @@ body {
     border-radius: 2px;
     display: inline-block;
 }
-.osb-navbar .navbar-nav > li > a > .btn-logoff > .icon {
+.osb-navbar .navbar-nav.login-options > li > a > .btn-logoff > .icon {
     border-left: 1px solid #566165;
     color: #D1D8DA;
     font-size: 16px;
@@ -70,10 +106,9 @@ body {
     -webkit-transition: all .25s ease;
             transition: all .25s ease;
 }
-.osb-navbar .navbar-nav > li > a > .btn-logoff:hover > .icon {
+.osb-navbar .navbar-nav.login-options > li > a > .btn-logoff:hover > .icon {
     color: #A4ACB0;
 }
-
 .osb-navbar .navbar-toggle {
 	background-color: transparent;
 	margin-top: 15px;
@@ -91,41 +126,50 @@ body {
 	margin-bottom: 5px;
 }
 
+/*PROJECTS - HOME*/
+#project-list {
+	/*display: none;*/
+}
+
 /*RESPONSIVE*/
 @media (max-width: 767px) {
 	.osb-navbar .osb-logo {
-		margin-left: 15px;
+	    margin-left: 15px;
 	}
 	.osb-navbar .navbar-nav {
-		margin: 2.5px 0 10px 0;
+	    margin: 2.5px 0 10px 0;
 	}
 	.osb-navbar .navbar-collapse {
-	border-top: 1px solid #9a56d8;
-}
+	    border-top: 1px solid #9A56D8;
+	}
 	.osb-navbar .navbar-nav.menu-options {
-		margin-left: 0;
-		border-bottom: 1px solid #566165;
-		text-align: center;
+	    border-bottom: 1px solid #566165;
+	    text-align: center;
+	    margin-left: 0;
 	}
 	.osb-navbar .navbar-nav.menu-options > li {
-		padding: 0;
-		margin: 20px 0;
-		border-bottom: none;
-		display: inline-block;
-
+	    border-bottom: none;
+	    margin: 20px 0;
+	    padding: 0;
+	    display: inline-block;
 	}
 	.osb-navbar .navbar-nav.login-options > li {
-		text-align: center;
-	}	
+	    text-align: center;
+	}
+	.osb-navbar .navbar-nav > li > a > .btn-login > .icon {
+	    font-size: 26px;
+	    margin-bottom: 10px;
+	    display: inline-block;
+	}
 	.osb-navbar .navbar-nav.login-options .logged-user {
-		display: inline-block;
-		margin-bottom: 10px;
+	    margin-bottom: 10px;
+	    display: inline-block;
 	}
 	.osb-navbar .navbar-nav.login-options .btn-logoff .icon-logoff {
-		border-left: none;
-		padding: 0;
-		font-size: 1.8em;
-		display: inline-block;
-		margin-bottom: 20px;
+	    border-left: none;
+	    font-size: 26px;
+	    margin-bottom: 20px;
+	    padding: 0;
+	    display: inline-block;
 	}
 }

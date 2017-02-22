@@ -5,7 +5,7 @@
 </div>
 <div class="row">&nbsp;</div>
 
-<div class="row">
+<div id="project-kanban" class="row">
   <div class="panel panel-default" ng-repeat="project in pc.projects | orderBy:'name'">
     <div class="panel-heading">
       <div class="col-sm-11">{{project.name}}</div>
@@ -25,7 +25,7 @@
 </div>
 
 
-<div class="row" ng-if="pc.projects.length > 0">
+<div id="project-list" class="row" ng-if="pc.projects.length > 0">
   <table class="table table-stripped">
     <thead>
       <th class="col-md-2">Code</th>
