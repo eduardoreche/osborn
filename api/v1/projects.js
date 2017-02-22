@@ -64,7 +64,7 @@ router.put('/:id', function(req, res, next) {
     project.start_date = req.body.start_date || project.start_date;
     project.end_date = req.body.end_date || project.end_date;
     project.status = req.body.status || project.status;
-    project.profiles = req.body.profiles || req.body.profiles;
+    project.profiles = req.body.profiles || project.profiles;
 
     project.save(function(err) {
       if(err) res.send(err);

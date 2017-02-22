@@ -17,10 +17,7 @@
       teams: [],
       positions: [],
 
-      profilesToAdd: [{
-        profile: '',
-        total: 0
-      }],
+      profilesToAdd: [],
 
       project: $stateParams.id ? projectService.get({id: $stateParams.id}, function(project){
         project.start_date = new Date(project.start_date);
@@ -73,6 +70,9 @@
       var index = vm.profilesToAdd.indexOf(profileToAdd);
 
       vm.profilesToAdd.splice(index, 1);
+      if (!vm.project.profiles) {
+        vm.project.profiles = [];
+      }
       vm.project.profiles.push(angular.copy(profileToAdd));
     }
 
