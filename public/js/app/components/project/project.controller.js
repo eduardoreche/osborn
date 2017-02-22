@@ -73,6 +73,9 @@
       var index = vm.profilesToAdd.indexOf(profileToAdd);
 
       vm.profilesToAdd.splice(index, 1);
+      if (!vm.project.profiles) {
+        vm.project.profiles = [];
+      }
       vm.project.profiles.push(angular.copy(profileToAdd));
     }
 
