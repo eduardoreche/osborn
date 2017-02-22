@@ -6,15 +6,22 @@
     .module('osborn.project')
     .controller('projectController', projectController);
 
-  projectController.$inject = ['$scope', '$state', '$stateParams', 'projectService', 'statusService', 'entityService', 'teamService'];
+  projectController.$inject = ['$scope', '$state', '$stateParams', 'projectService', 'statusService', 'entityService', 'teamService', 'positionService'];
 
-  function projectController($scope, $state, $stateParams, projectService, statusService, entityService, teamService) {
+  function projectController($scope, $state, $stateParams, projectService, statusService, entityService, teamService, positionService) {
 
     var vm = angular.extend(this, { 
       projects: [],
       status: [],
       entities: [],
       teams: [],
+      positions: [],
+
+      profilesToAdd: [{
+        profile: '',
+        total: 0
+      }],
+
       project: $stateParams.id ? projectService.get({id: $stateParams.id}, function(project){
         project.start_date = new Date(project.start_date);
         project.end_date = new Date(project.end_date);
@@ -26,6 +33,10 @@
       save: save, 
       delete: remove, 
       edit: edit,
+
+      addNewProfile: addNewProfile,
+      addProfile: addProfile,
+      removeProfile: removeProfile,
 
       statusLabel: statusLabel
 
@@ -58,6 +69,26 @@
       _loadProjects();
     }
 
+    function addProfile(profileToAdd) {
+      var index = vm.profilesToAdd.indexOf(profileToAdd);
+
+      vm.profilesToAdd.splice(index, 1);
+      vm.project.profiles.push(angular.copy(profileToAdd));
+    }
+
+    function addNewProfile() {
+      vm.profilesToAdd.push({
+        profile: '',
+        total: 0
+      });
+    }
+
+    function removeProfile(profileToRemove) {
+      var index = vm.project.profiles.indexOf(profileToRemove);
+      vm.project.profiles.splice(index, 1);
+      console.log(vm.project.profiles);
+    }
+    
     function statusLabel(project) {
       var label = 'label-';
 
@@ -97,6 +128,7 @@
       vm.status = statusService.query();
       vm.entities = entityService.query();
       vm.teams = teamService.query();
+      vm.positions = positionService.query();
     }
 
   }
