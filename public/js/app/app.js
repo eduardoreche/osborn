@@ -16,7 +16,8 @@ angular
     'osborn.resource',
     'osborn.allocation',
     'osborn.user',
-    'osborn.auth'
+    'osborn.auth',
+    'osborn.login'
   ])
 
   .config(function($urlRouterProvider, $httpProvider, lockProvider, jwtOptionsProvider, jwtInterceptorProvider, ChartJsProvider){
