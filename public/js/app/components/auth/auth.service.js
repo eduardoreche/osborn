@@ -8,7 +8,11 @@
     authService.$inject = ['$rootScope', 'lock', 'authManager'];
 
     function authService($rootScope, lock, authManager) {
-      var userProfile = JSON.parse(localStorage.getItem('profile')) || {};
+      var profile = localStorage.getItem('profile');
+      var userProfile = {};
+      if (profile != "undefined") {
+        userProfile = JSON.parse(localStorage.getItem('profile')) || {};
+      }
 
       function login() {
         

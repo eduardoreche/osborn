@@ -99,7 +99,6 @@
       vm.teams = teamService.query();
     }
 
-
   }
 
 })();

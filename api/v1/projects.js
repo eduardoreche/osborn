@@ -39,7 +39,7 @@ router.post('/', function(req, res, next){
       entity: req.body.entity,
       team: req.body.team,
       start_date: req.body.start_date, 
-      end_date: req.body.end_date 
+      end_date: req.body.end_date
     });
   
   project.save(function(err, data) {
