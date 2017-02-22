@@ -10,7 +10,8 @@ var ProjectSchema = new Schema({
     entity: String,
     team: String,
     start_date: Date, 
-    end_date: Date
+    end_date: Date,
+    profiles: [{ profile: String, total: Number}]
 });
 
 ProjectSchema.virtual('allocations', {
