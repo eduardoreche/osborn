@@ -1,8 +1,64 @@
 body {
   padding-top: 70px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+/*TOOLBAR*/
+.osb-navbar {
+    background-color: #131F25;
+    border-bottom: 6px solid #9A56D8;
+}
+.osb-navbar .container {
+    min-height: 60px;
+}
+.osb-navbar .navbar-nav > li {
+	margin-top: 20px;
+}
+.osb-navbar .navbar-nav > li > a {
+    color: #D1D8DA;
+    font-size: 1.6em;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 0;
+
+    -webkit-transition: all .25s ease;
+            transition: all .25s ease;
+}
+.osb-navbar .navbar-nav.menu-options > li {
+    border-right: 1px solid #566165;
+}
+.osb-navbar .navbar-nav.menu-options > li:last-child {
+	border-right: none;
+}
+.osb-navbar .navbar-nav > li > a:hover {
+    color: #A4ACB0;
+}
+.osb-navbar .navbar-nav > li > .logged-user {
+	font-size: 1.3em;
+    padding-right: 0 !important;
+}
+.osb-navbar .navbar-nav > li > .logged-user .user-pic {
+    position: absolute;
+    left: -15px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #566165;
+    border-radius: 2px;
+    display: inline-block;
+}
+.osb-navbar .navbar-nav > li > a > .btn-logoff > .icon {
+    border-left: 1px solid #566165;
+    color: #D1D8DA;
+    font-size: 16px;
+    padding-left: 15px;
+
+    -webkit-transition: all .25s ease;
+            transition: all .25s ease;
+}
+.osb-navbar .navbar-nav > li > a > .btn-logoff:hover > .icon {
+    color: #A4ACB0;
 }

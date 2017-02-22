@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="osb-navbar navbar navbar-default navbar-fixed-top">
   <div class="container">
     
     <div class="navbar-header">
@@ -12,7 +12,7 @@
     </div>
 
     <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-      <ul class="nav navbar-nav" ng-if="isAuthenticated">
+      <ul class="nav navbar-nav menu-options" ng-if="isAuthenticated">
         <li data-toggle="collapse" data-target="#navbar"><a ui-sref="projects.list">Projects</a></li>
         <li data-toggle="collapse" data-target="#navbar"><a ui-sref="resources.list">Resources</a></li>            
         <li data-toggle="collapse" data-target="#navbar"><a ui-sref="users.list">Users</a></li>
@@ -22,8 +22,19 @@
         <li ng-if="!isAuthenticated">
           <a href="" ng-click="toolbar.login()">Login</a>
         </li>
-        <li ng-if="isAuthenticated"><a>{{authService.userProfile.email}}</a></li>
-        <li ng-if="isAuthenticated"><a href="" ng-click="toolbar.logout()">Logout</a></li>
+        <li ng-if="isAuthenticated">
+          <a href="" class="logged-user">
+            <span class="user-pic"></span>
+            <span class="user-name">{{authService.userProfile.name}}</span>
+          </a>
+        </li>
+        <li ng-if="isAuthenticated">
+          <a href="" ng-click="toolbar.logout()">
+            <span class="btn-logoff">
+              <span class="icon icon-logoff"></span>
+            </span>
+          </a>
+        </li>
       </ul>
     </div>
 
