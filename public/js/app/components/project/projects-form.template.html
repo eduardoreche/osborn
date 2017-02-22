@@ -55,27 +55,20 @@
   <div class="form-group">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <b>Project Profiles</b>
+        <strong>Project Profiles</strong>
         <button ng-click="pc.addNewProfile()" type="button" class="btn btn-default" aria-hidden="true" aria-label="Add New">
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </button>
       </div>
       <div class="panel-body">
-        <div class="row" ng-if="pc.project.profiles.length > 0">
-          <table class="table table-stripped">
-            <thead>
-              <th class="col-md-6">Profile</th>
-              <th class="col-md-3">Total</th>
-              <th class="col-md-3"></th>
-            </thead>
-            <tbody>
-              <tr ng-repeat="profile in pc.project.profiles">
-                <td>{{profile.profile}}</td>
-                <td>{{profile.total}}</td>
-                <td><button ng-click="pc.removeProfile(profile)" class="btn btn-primary">Remove</button></td>
-              </tr>
-            </tbody>
-          </table>
+        <div ng-if="pc.project.profiles.length > 0">
+          <ul class="list-group">
+            <li class="list-group-item" ng-repeat="profile in pc.project.profiles">
+              <span class="badge">{{profile.total}}</span>
+              <span ng-click="pc.removeProfile(profile)" role="button" class="glyphicon glyphicon-remove"></span>
+              &nbsp;&nbsp;{{profile.profile}}
+            </li>
+          </ul>
         </div>
         <div ng-repeat="profileToAdd in pc.profilesToAdd">
           <label for="profile">Profile</label>
