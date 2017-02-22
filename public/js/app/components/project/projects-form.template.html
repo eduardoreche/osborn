@@ -53,33 +53,40 @@
   </div>
 
   <div class="form-group">
-    <h3>Project Profiles</h3>
-    <div class="row" ng-if="pc.project.profiles.length > 0">
-      <table class="table table-stripped">
-        <thead>
-          <th class="col-md-6">Profile</th>
-          <th class="col-md-6">Total</th>
-        </thead>
-        <tbody>
-          <tr ng-repeat="profile in pc.project.profiles">
-            <td>{{profile.profile}}</td>
-            <td>{{profile.total}}</td>
-            <td><button ng-click="pc.removeProfile(profile)" class="btn btn-primary">Remove</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div ng-repeat="profileToAdd in pc.profilesToAdd">
-      <label for="profile">Profile</label>
-      <select ng-model="profileToAdd.profile" class="form-control" id="profile">
-        <option ng-repeat="position in pc.positions">{{position}}</option>
-      </select>
-      <label for="total">Total</label>
-      <input type="number" ng-model="profileToAdd.total" class="form-control" id="total">
-      <button ng-click="pc.addProfile(profileToAdd)" class="btn btn-primary">Add</button>
-    </div>
-    <div class="col-sm-12 text-right">
-      <button ng-click="pc.addNewProfile()" class="btn btn-primary">Add New</button>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <b>Project Profiles</b>
+        <button ng-click="pc.addNewProfile()" type="button" class="btn btn-default text-right" aria-hidden="true" aria-label="Add New">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="panel-body">
+        <div class="row" ng-if="pc.project.profiles.length > 0">
+          <table class="table table-stripped">
+            <thead>
+              <th class="col-md-6">Profile</th>
+              <th class="col-md-3">Total</th>
+              <th class="col-md-3"></th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="profile in pc.project.profiles">
+                <td>{{profile.profile}}</td>
+                <td>{{profile.total}}</td>
+                <td><button ng-click="pc.removeProfile(profile)" class="btn btn-primary">Remove</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div ng-repeat="profileToAdd in pc.profilesToAdd">
+          <label for="profile">Profile</label>
+          <select ng-model="profileToAdd.profile" class="form-control" id="profile">
+            <option ng-repeat="position in pc.positions">{{position}}</option>
+          </select>
+          <label for="total">Total</label>
+          <input type="number" ng-model="profileToAdd.total" class="form-control" id="total">
+          <button ng-click="pc.addProfile(profileToAdd)" class="btn btn-primary">Add</button>
+        </div>
+      </div>
     </div>
   </div>
   

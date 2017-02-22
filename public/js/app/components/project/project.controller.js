@@ -17,10 +17,7 @@
       teams: [],
       positions: [],
 
-      profilesToAdd: [{
-        profile: '',
-        total: 0
-      }],
+      profilesToAdd: [],
 
       project: $stateParams.id ? projectService.get({id: $stateParams.id}, function(project){
         project.start_date = new Date(project.start_date);
