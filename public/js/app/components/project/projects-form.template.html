@@ -56,7 +56,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <b>Project Profiles</b>
-        <button ng-click="pc.addNewProfile()" type="button" class="btn btn-default text-right" aria-hidden="true" aria-label="Add New">
+        <button ng-click="pc.addNewProfile()" type="button" class="btn btn-default" aria-hidden="true" aria-label="Add New">
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </button>
       </div>
@@ -84,7 +84,10 @@
           </select>
           <label for="total">Total</label>
           <input type="number" ng-model="profileToAdd.total" class="form-control" id="total">
-          <button ng-click="pc.addProfile(profileToAdd)" class="btn btn-primary">Add</button>
+          <div class="text-right">
+            <br>
+            <button ng-click="pc.addProfile(profileToAdd)" class="btn btn-primary">Add</button>
+          </div>
         </div>
       </div>
     </div>
