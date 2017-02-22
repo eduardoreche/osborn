@@ -4,27 +4,22 @@
 	font-weight: normal;
 	font-style: normal
 }
-
 body {
   padding-top: 70px;
   font: 10px "OpenSans-Regular", Helvetica, Arial, sans-serif;
 }
 
-/*a {
-  color: #00B7FF;
-}*/
-
 /*TOOLBAR*/
-.osb-logo {
-	width: 100px;
-	margin-top: 20px;
-}
 .osb-navbar {
     background-color: #131F25;
     border-bottom: 6px solid #9a56d8;
 }
 .osb-navbar .container {
     min-height: 60px;
+}
+.osb-navbar .osb-logo {
+	width: 100px;
+	margin-top: 20px;
 }
 .osb-navbar .navbar-nav > li {
 	margin-top: 20px;
@@ -77,4 +72,60 @@ body {
 }
 .osb-navbar .navbar-nav > li > a > .btn-logoff:hover > .icon {
     color: #A4ACB0;
+}
+
+.osb-navbar .navbar-toggle {
+	background-color: transparent;
+	margin-top: 15px;
+	border: none;
+}
+.osb-navbar .navbar-toggle:focus,
+.osb-navbar .navbar-toggle:hover,
+.osb-navbar .navbar-toggle:active {
+	background-color: transparent;
+}
+.osb-navbar .navbar-toggle .icon-bar {
+	width: 25px;
+	background-color: #D1D8DA;
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+
+/*RESPONSIVE*/
+@media (max-width: 767px) {
+	.osb-navbar .osb-logo {
+		margin-left: 15px;
+	}
+	.osb-navbar .navbar-nav {
+		margin: 2.5px 0 10px 0;
+	}
+	.osb-navbar .navbar-collapse {
+	border-top: 1px solid #9a56d8;
+}
+	.osb-navbar .navbar-nav.menu-options {
+		margin-left: 0;
+		border-bottom: 1px solid #566165;
+		text-align: center;
+	}
+	.osb-navbar .navbar-nav.menu-options > li {
+		padding: 0;
+		margin: 20px 0;
+		border-bottom: none;
+		display: inline-block;
+
+	}
+	.osb-navbar .navbar-nav.login-options > li {
+		text-align: center;
+	}	
+	.osb-navbar .navbar-nav.login-options .logged-user {
+		display: inline-block;
+		margin-bottom: 10px;
+	}
+	.osb-navbar .navbar-nav.login-options .btn-logoff .icon-logoff {
+		border-left: none;
+		padding: 0;
+		font-size: 1.8em;
+		display: inline-block;
+		margin-bottom: 20px;
+	}
 }
