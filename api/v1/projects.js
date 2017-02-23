@@ -40,7 +40,8 @@ router.post('/', function(req, res, next){
       team: req.body.team,
       start_date: req.body.start_date, 
       end_date: req.body.end_date,
-      profiles: req.body.profiles
+      profiles: req.body.profiles,
+      product_owner: req.body.product_owner
     });
   
   project.save(function(err, data) {
@@ -65,6 +66,7 @@ router.put('/:id', function(req, res, next) {
     project.end_date = req.body.end_date || project.end_date;
     project.status = req.body.status || project.status;
     project.profiles = req.body.profiles || project.profiles;
+    project.product_owner = req.body.product_owner || project.product_owner;
 
     project.save(function(err) {
       if(err) res.send(err);

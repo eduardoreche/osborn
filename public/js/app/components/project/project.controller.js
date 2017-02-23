@@ -6,9 +6,29 @@
     .module('osborn.project')
     .controller('projectController', projectController);
 
-  projectController.$inject = ['$scope', '$state', '$stateParams', 'projectService', 'statusService', 'entityService', 'teamService', 'positionService'];
+  projectController.$inject = [
+    '$scope', 
+    '$state', 
+    '$stateParams', 
+    'projectService', 
+    'statusService', 
+    'entityService', 
+    'teamService', 
+    'positionService',
+    'resourceService'
+  ];
 
-  function projectController($scope, $state, $stateParams, projectService, statusService, entityService, teamService, positionService) {
+  function projectController(
+    $scope, 
+    $state, 
+    $stateParams, 
+    projectService, 
+    statusService, 
+    entityService, 
+    teamService, 
+    positionService,
+    resourceService
+  ) {
 
     var vm = angular.extend(this, { 
       projects: [],
@@ -16,6 +36,7 @@
       entities: [],
       teams: [],
       positions: [],
+      available_resources: [],
 
       profilesToAdd: [],
 
@@ -129,6 +150,7 @@
       vm.entities = entityService.query();
       vm.teams = teamService.query();
       vm.positions = positionService.query();
+      vm.available_resources = resourceService.query();
     }
 
   }
