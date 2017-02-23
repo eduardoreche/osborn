@@ -17,7 +17,8 @@ var ProjectSchema = new Schema({
     product_owner: String,
     project_leader: String,
     type: String,
-    rate: Number
+    rate: Number,
+    hours: Number
 });
 
 ProjectSchema.virtual('allocations', {

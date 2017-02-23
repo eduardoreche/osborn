@@ -46,7 +46,8 @@ router.post('/', function(req, res, next){
       product_owner: req.body.product_owner,
       project_leader: req.body.project_leader,
       type: req.body.type,
-      rate: req.body.rate
+      rate: req.body.rate,
+      hours: req.body.hours
     });
   
   project.save(function(err, data) {
@@ -77,6 +78,7 @@ router.put('/:id', function(req, res, next) {
     project.project_leader = req.body.project_leader || project.project_leader;
     project.type = req.body.type || project.type;
     project.rate = req.body.rate || project.rate;
+    project.hours = req.body.hours || project.hours;
 
     project.save(function(err) {
       if(err) res.send(err);
