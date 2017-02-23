@@ -50,6 +50,13 @@
   </div>
 
   <div class="form-group">
+    <label for="project_leader">Project Leader</label>
+    <select id="project_leader" ng-model="pc.project.project_leader" class="form-control">
+      <option ng-repeat="resource in pc.available_resources">{{resource.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
     <label for="start_date">Start date</label>
     <input type="date" class="form-control" id="start_date" ng-model="pc.project.start_date">
   </div>

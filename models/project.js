@@ -12,7 +12,8 @@ var ProjectSchema = new Schema({
     start_date: Date, 
     end_date: Date,
     profiles: [{ profile: String, total: Number}],
-    product_owner: String
+    product_owner: String,
+    project_leader: String
 });
 
 ProjectSchema.virtual('allocations', {
