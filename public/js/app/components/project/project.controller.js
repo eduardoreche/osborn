@@ -46,6 +46,8 @@
       project: $stateParams.id ? projectService.get({id: $stateParams.id}, function(project){
         project.start_date = new Date(project.start_date);
         project.end_date = new Date(project.end_date);
+        project.planned_start_date = new Date(project.planned_start_date);
+        project.planned_end_date = new Date(project.planned_end_date);
 
         return project;
         
@@ -147,6 +149,8 @@
         angular.forEach(projects, function(item) {
           item.start_date = new Date(item.start_date);
           item.end_date = new Date(item.end_date);
+          item.planned_start_date = new Date(item.planned_start_date);
+          item.planned_end_date = new Date(item.planned_end_date);
         })
       });
       vm.status = statusService.query();

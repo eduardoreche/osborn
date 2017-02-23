@@ -11,6 +11,8 @@ var ProjectSchema = new Schema({
     team: String,
     start_date: Date, 
     end_date: Date,
+    planned_start_date: Date,
+    planned_end_date: Date,
     profiles: [{ profile: String, total: Number}],
     product_owner: String,
     project_leader: String,
