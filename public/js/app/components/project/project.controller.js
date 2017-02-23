@@ -15,7 +15,8 @@
     'entityService', 
     'teamService', 
     'positionService',
-    'resourceService'
+    'resourceService',
+    'projectTypesService'
   ];
 
   function projectController(
@@ -27,7 +28,8 @@
     entityService, 
     teamService, 
     positionService,
-    resourceService
+    resourceService,
+    projectTypesService
   ) {
 
     var vm = angular.extend(this, { 
@@ -39,6 +41,7 @@
       available_resources: [],
 
       profilesToAdd: [],
+      project_types: [],
 
       project: $stateParams.id ? projectService.get({id: $stateParams.id}, function(project){
         project.start_date = new Date(project.start_date);
@@ -151,6 +154,7 @@
       vm.teams = teamService.query();
       vm.positions = positionService.query();
       vm.available_resources = resourceService.query();
+      vm.project_types = projectTypesService.query();
     }
 
   }
