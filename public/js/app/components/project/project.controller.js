@@ -43,6 +43,17 @@
       profilesToAdd: [],
       project_types: [],
 
+      ganttChartOptions: {
+        chartType: 'Gantt',
+        dataTable: [
+          ['Task ID', 'TaskName', 'Resource', 'Start Date', 'End Date', 'Duration', 'Percent Complete', 'Dependencies'],
+          ['2014Spring', 'Spring 2014', 'spring',
+         new Date(2014, 2, 22), new Date(2014, 5, 20), 0, 100, null],
+        ['2014Summer', 'Summer 2014', 'summer',
+         new Date(2014, 5, 21), new Date(2014, 8, 20), 0, 100, null]
+        ]
+      },
+
       project: $stateParams.id ? projectService.get({id: $stateParams.id}, function(project){
         project.start_date = new Date(project.start_date);
         project.end_date = new Date(project.end_date);
@@ -159,6 +170,10 @@
       vm.positions = positionService.query();
       vm.available_resources = resourceService.query();
       vm.project_types = projectTypesService.query();
+    }
+
+    function daysToMilliseconds(days) {
+      return days * 24 * 60 * 60 * 1000;
     }
 
   }
