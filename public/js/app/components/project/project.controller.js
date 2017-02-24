@@ -46,11 +46,16 @@
       ganttChartOptions: {
         chartType: 'Gantt',
         dataTable: [
-          ['Task ID', 'TaskName', 'Resource', 'Start Date', 'End Date', 'Duration', 'Percent Complete', 'Dependencies'],
-          ['2014Spring', 'Spring 2014', 'spring',
-         new Date(2014, 2, 22), new Date(2014, 5, 20), 0, 100, null],
-        ['2014Summer', 'Summer 2014', 'summer',
-         new Date(2014, 5, 21), new Date(2014, 8, 20), 0, 100, null]
+          [
+            'Task ID', 
+            'TaskName', 
+            'Resource', 
+            'Start Date', 
+            'End Date', 
+            'Duration', 
+            'Percent Complete', 
+            'Dependencies'
+          ],
         ]
       },
 
@@ -162,6 +167,17 @@
           item.end_date = new Date(item.end_date);
           item.planned_start_date = new Date(item.planned_start_date);
           item.planned_end_date = new Date(item.planned_end_date);
+
+          vm.ganttChartOptions.dataTable.push(
+            [
+              item.nickname,
+              item.nickname,
+              item.team,
+              item.start_date,
+              item.end_date,
+              80, 50, null
+            ]
+          );
         })
       });
       vm.status = statusService.query();
