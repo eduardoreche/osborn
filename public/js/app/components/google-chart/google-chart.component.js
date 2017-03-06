@@ -9,7 +9,7 @@ const googleChart = {
     var vm = angular.extend(this, {
         wrapper: null,
         dat: this.data,
-        height: (this.lines * 42) + 42
+        height: 0
     });
 
     this.$onInit = () => {
@@ -20,18 +20,20 @@ const googleChart = {
         googleChartLoaderService.load(this.dat.chartType).then(function(response) {
             if (vm.wrapper == null) {
                 vm.wrapper = new google.visualization.ChartWrapper(vm.dat);
-            } else {
-                vm.wrapper.setDataTable(this.dat.dataTable);
-                vm.wrapper.setOptions(this.dat.options);
             }
-            vm.wrapper.draw(this.googleChartDiv);
         }, function(error) {
             console.log(error);
         });
     }
 
     this.$onChanges = (changesObj) => {
-        this.dat = this.data;
+        vm.dat = this.data;
+        vm.height= (vm.data.length * 42) + 42;
+        if (!(vm.wrapper === null)) {
+            vm.wrapper.setDataTable(vm.dat.dataTable);
+            vm.wrapper.setOptions(vm.dat.options);
+            vm.wrapper.draw(document.querySelector('#googleChartDiv'));
+        }
     }
 
   }
