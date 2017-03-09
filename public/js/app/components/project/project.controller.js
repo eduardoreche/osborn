@@ -43,13 +43,7 @@
       profilesToAdd: [],
       project_types: [],
 
-      ganttChartOptions: {
-        chartType: 'Gantt',
-        dataTable: [],
-        options: {
-          title: 'Gantt'
-        }
-      },
+      ganttChartOptions: null,
 
       project: $stateParams.id ? projectService.get({id: $stateParams.id}, function(project){
         project.start_date = new Date(project.start_date);
@@ -156,7 +150,9 @@
 
       vm.projects = projectService.query(function(projects){
 
-        vm.ganttChartOptions.dataTable.push([
+        vm.ganttChartOptions = {
+          chartType: 'Gantt',
+          dataTable: [[
             'Task ID', 
             'TaskName', 
             'Resource', 
@@ -165,7 +161,11 @@
             'Duration', 
             'Percent Complete', 
             'Dependencies'
-          ]);
+          ]],
+          options: {
+            title: 'Gantt'
+          }
+        }      
 
         angular.forEach(projects, function(item) {
           item.start_date = new Date(item.start_date);

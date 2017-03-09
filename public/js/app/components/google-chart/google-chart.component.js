@@ -11,32 +11,23 @@ const googleChart = {
         height: 0
     });
 
-    this.$onInit = () => {
-
-        if (vm.dat == null) {
-            vm.dat = vm.data;
-        }
-        googleChartLoaderService.load(this.dat.chartType).then(function(response) {
-            if (vm.wrapper == null) {
-                vm.wrapper = new google.visualization.ChartWrapper(vm.dat);
-                vm.wrapper.setDataTable(vm.dat.dataTable);
-                vm.wrapper.setOptions(vm.dat.options);
-                vm.wrapper.draw(document.querySelector('#googleChartDiv'));
-            }
-        }, function(error) {
-            console.log(error);
-        });
-    }
-
     this.$onChanges = (changesObj) => {
-        if (vm.dat == null) {
+        if (vm.data != null) {
             vm.dat = vm.data;
         }
-        vm.height= (vm.data.dataTable.length * 42) + 42;
-        if (!(vm.wrapper == null)) {
-            vm.wrapper.setDataTable(vm.dat.dataTable);
-            vm.wrapper.setOptions(vm.dat.options);
-            vm.wrapper.draw(document.querySelector('#googleChartDiv'));
+        if (vm.dat != null) {
+            vm.height= (vm.dat.dataTable.length * 42) + 42;
+        
+            googleChartLoaderService.load(this.dat.chartType).then(function(response) {
+                if (vm.wrapper == null) {
+                    vm.wrapper = new google.visualization.ChartWrapper(vm.dat);
+                    vm.wrapper.setDataTable(vm.dat.dataTable);
+                    vm.wrapper.setOptions(vm.dat.options);
+                    vm.wrapper.draw(document.querySelector('#googleChartDiv'));
+                }
+            }, function(error) {
+                console.log(error);
+            });
         }
     }
   }
