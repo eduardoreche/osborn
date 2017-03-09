@@ -161,10 +161,7 @@
             'Duration', 
             'Percent Complete', 
             'Dependencies'
-          ]],
-          options: {
-            title: 'Gantt'
-          }
+          ]]
         }      
 
         angular.forEach(projects, function(item) {

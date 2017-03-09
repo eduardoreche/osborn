@@ -16,7 +16,6 @@ const googleChart = {
             vm.dat = vm.data;
         }
         if (vm.dat != null) {
-            vm.height= (vm.dat.dataTable.length * 42) + 42;
         
             googleChartLoaderService.load(this.dat.chartType).then(function(response) {
                 if (vm.wrapper == null) {
