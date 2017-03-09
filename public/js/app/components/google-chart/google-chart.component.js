@@ -3,7 +3,7 @@ const googleChart = {
     data: '<'
   },
   templateUrl: 'js/app/components/google-chart/google-chart.template.html', 
-  controller($document, googleChartLoaderService) {
+  controller(googleChartLoaderService) {
     
     var vm = angular.extend(this, {
         wrapper: null,
@@ -33,6 +33,6 @@ const googleChart = {
   }
 }
 
-googleChart.$inject = ['$document', 'googleChartLoaderService'];
+googleChart.$inject = ['googleChartLoaderService'];
 
 angular.module('osborn').component('googleChart', googleChart);
