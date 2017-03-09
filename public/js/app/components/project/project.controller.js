@@ -45,18 +45,10 @@
 
       ganttChartOptions: {
         chartType: 'Gantt',
-        dataTable: [
-          [
-            'Task ID', 
-            'TaskName', 
-            'Resource', 
-            'Start Date', 
-            'End Date', 
-            'Duration', 
-            'Percent Complete', 
-            'Dependencies'
-          ],
-        ]
+        dataTable: [],
+        options: {
+          title: 'Gantt'
+        }
       },
 
       project: $stateParams.id ? projectService.get({id: $stateParams.id}, function(project){
@@ -161,7 +153,20 @@
     }
 
     function _loadProjects() {
+
       vm.projects = projectService.query(function(projects){
+
+        vm.ganttChartOptions.dataTable.push([
+            'Task ID', 
+            'TaskName', 
+            'Resource', 
+            'Start Date', 
+            'End Date', 
+            'Duration', 
+            'Percent Complete', 
+            'Dependencies'
+          ]);
+
         angular.forEach(projects, function(item) {
           item.start_date = new Date(item.start_date);
           item.end_date = new Date(item.end_date);

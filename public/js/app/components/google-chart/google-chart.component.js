@@ -1,7 +1,6 @@
 const googleChart = {
   bindings: {
-    data: '<',
-    lines: '@'
+    data: '<'
   },
   templateUrl: 'js/app/components/google-chart/google-chart.template.html', 
   controller($document, googleChartLoaderService) {
@@ -20,6 +19,9 @@ const googleChart = {
         googleChartLoaderService.load(this.dat.chartType).then(function(response) {
             if (vm.wrapper == null) {
                 vm.wrapper = new google.visualization.ChartWrapper(vm.dat);
+                vm.wrapper.setDataTable(vm.dat.dataTable);
+                vm.wrapper.setOptions(vm.dat.options);
+                vm.wrapper.draw(document.querySelector('#googleChartDiv'));
             }
         }, function(error) {
             console.log(error);
@@ -27,15 +29,16 @@ const googleChart = {
     }
 
     this.$onChanges = (changesObj) => {
-        vm.dat = this.data;
-        vm.height= (vm.data.length * 42) + 42;
-        if (!(vm.wrapper === null)) {
+        if (vm.dat == null) {
+            vm.dat = vm.data;
+        }
+        vm.height= (vm.data.dataTable.length * 42) + 42;
+        if (!(vm.wrapper == null)) {
             vm.wrapper.setDataTable(vm.dat.dataTable);
             vm.wrapper.setOptions(vm.dat.options);
             vm.wrapper.draw(document.querySelector('#googleChartDiv'));
         }
     }
-
   }
 }
 
