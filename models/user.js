@@ -2,6 +2,7 @@ var mongoose  = require('mongoose');
 var crypto    = require('crypto');
 var jwt       = require('jsonwebtoken');
 
+//TODO REMOVE IT FROM HERE
 const OSBORN_SECRET = 'complicadopraxuxu';
 
 var userSchema = new mongoose.Schema({

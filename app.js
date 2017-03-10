@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 
 require('./api/v1/db.js');
-require('./api/config/passport');
+require('./api/config/passport.js');
 
 var app = express(); 
 
@@ -22,6 +22,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
+
+// error handlers
+// Catch unauthorised errors
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401);
+    res.json({"message" : err.name + ": " + err.message});
+  }
+});
 
 app.use('/api', require('./api/v1'));
 

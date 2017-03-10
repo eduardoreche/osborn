@@ -42,7 +42,7 @@
 
     const login = (user) => {
       return $http
-        .post(RESOURCES.LOGIN, user)
+        .post('/api/v1/auth/login', user)
         .then(response => {
           saveToken(response.data.token);
         });
