@@ -55,3 +55,7 @@
 <div class="row">
  <google-chart data="pc.ganttChartOptions"></google-chart>
 </div>
+
+<div class="row">
+  <kanban-board tasks="pc.projects" columns="pc.status" on-update="pc.updateProject($event);"></kanban-board>
+</div>

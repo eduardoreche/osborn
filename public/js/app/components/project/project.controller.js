@@ -194,6 +194,11 @@
       return days * 24 * 60 * 60 * 1000;
     }
 
+    var updateProject = (event) => {
+      vm.project = event.task;
+      vm.project.$update({id: vm.project._id});
+    }
+
   }
 
 })();

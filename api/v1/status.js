@@ -14,4 +14,11 @@ router.get('/', (req, res) => {
     res.json(status);
 });
 
+router.get('/:desc', (req, res) => {
+    res.json(status.filter(function (s) {
+            return s.desc === req.params.desc;
+        })[0]
+    );
+});
+
 module.exports = router;
