@@ -1,1 +1,18 @@
-Tela de Login
+<form class="form-horizontal" name="lc.form" ng-submit="lc.doLogin()">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" ng-model="lc.credentials.email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="lc.credentials.password">
+  </div>
+  <div class="pull-right">
+    <div class="btn-group">
+      <button class="btn btn-primary" type="submit" ng-disabled="lc.form.$invalid || lc.form.$pristine">Conectar</button>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-default" type="button" ui-sref="home">Cancelar</button>
+    </div>
+  </div>
+</form>

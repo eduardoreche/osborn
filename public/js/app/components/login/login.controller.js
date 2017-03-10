@@ -1,12 +1,20 @@
 (function() {
   'use strict';
 
-  LoginController.$inject = [];
+  LoginController.$inject = ['$state'];
 
-  function LoginController() {
+  function LoginController($state) {
+    var error = {};
+    var credentials = {};
+
+    const doLogin = () => {
+      console.log('doLogin', this.credentials);
+      this.error = {};
+    }
 
     angular.extend(this, {
-
+      credentials: credentials,
+      doLogin: doLogin
     });
   }
 
