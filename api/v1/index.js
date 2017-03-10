@@ -16,5 +16,6 @@ router.use('/v1/allocations', require('./allocations'));
 router.use('/v1/projects', require('./projects'));
 router.use('/v1/resources', require('./resources'));
 router.use('/v1/users', require('./users'));
+router.use('/v1/auth', require('./authentication'));
 
 module.exports = router;
