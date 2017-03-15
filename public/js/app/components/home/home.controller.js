@@ -6,16 +6,25 @@
     .module('osborn')
     .controller('homeController', homeController);
 
-  angular.$inject = ['projectService'];
+  angular.$inject = ['projectService', 'resourceService'];
 
-  function homeController(projectService) {
+  function homeController(projectService, resourceService) {
     var home = angular.extend(this, {
       projects: [],
       resources: [],
-      ganttChartOptions: null
+      ganttChartOptions: null,
+      issuesChartOptions: null
     });
 
-    _loadProjects();
+    home.$onInit = () => {
+      _loadProjects();
+      _loadResouces();
+      _loadIssues();
+    }
+
+    function _loadResouces() {
+      home.resources = resourceService.query();
+    }
 
     function _loadProjects() {
       home.projects = projectService.query(function(projects) {
@@ -51,6 +60,21 @@
           );
         });
       });
+    }
+
+    function _loadIssues() {
+      home.issuesChartOptions = {
+        chartType: 'PieChart',
+        dataTable: [
+          ['Status', 'Issues'],
+          ['Open', 11],
+          ['Resolved', 2],
+          ['Active', 2]
+        ],
+        options: {
+          is3D: true
+        }
+      }
     }
   }
 })();
