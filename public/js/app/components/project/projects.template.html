@@ -1,56 +1,43 @@
 <h1>Project list</h1>
 
-<div class="row">
-  <a ui-sref="projects.new" class="btn btn-primary">New project</a>
-</div>
 <div class="row">&nbsp;</div>
 
-<div id="project-kanban" class="row">
-  <div class="panel panel-default" ng-repeat="project in pc.projects | orderBy:'name'">
+<div class="row">
+  <div class="panel panel-default">
     <div class="panel-heading">
-      <div class="col-sm-11">{{project.name}}</div>
-      <span class="label text-right" ng-class="pc.statusLabel(project)">
-        {{project.status ? project.status.toUpperCase() : 'NO STATUS'}}
-      </span>
+      <a ui-sref="projects.new" class="btn btn-primary">New project</a>
     </div>
     <div class="panel-body">
-      <p>{{project.nickname}}</p>
-      <p>{{project.description}}</p>
-      <p>{{project.start_date | date : 'dd/MM/yyyy'}} a {{project.end_date | date : 'dd/MM/yyyy'}}</p>
-      <p class="col-sm-offset-11 col-sm-1">
-        <a ui-sref="projects.dashboard({id: project._id})">More...</a>
-      </p>
+      <div id="project-list" class="row" ng-if="pc.projects.length > 0">
+        <table class="table table-stripped">
+          <thead>
+            <th class="col-md-2">Code</th>
+            <th class="col-md-2">Name</th>
+            <th class="col-md-3">Description</th>
+            <th class="col-md-1">Start date</th>
+            <th class="col-md-1">End date</th>
+            <th class="col-md-2">&nbsp;</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="project in pc.projects">
+              <td>{{project.code}}</td>
+              <td><a ui-sref="projects.dashboard({id: project._id})">{{project.name}}</a></td>
+              <td>{{project.description}}</td>
+              <td>{{project.start_date | date : 'dd/MM/yyyy'}}</td>
+              <td>{{project.end_date | date : 'dd/MM/yyyy'}}</td>
+              <td class="text-center">
+                <a ui-sref="projects.allocate({id: project._id})" class="btn btn-warning">Alocar</a>
+                <a ui-sref="projects.edit({id: project._id})" class="btn btn-primary">Edit</a>
+                <a ng-confirm="Sure?" href="" ng-click="pc.delete(project)" class="btn btn-danger">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
 
-
-<div id="project-list" class="row" ng-if="pc.projects.length > 0">
-  <table class="table table-stripped">
-    <thead>
-      <th class="col-md-2">Code</th>
-      <th class="col-md-2">Name</th>
-      <th class="col-md-3">Description</th>
-      <th class="col-md-1">Start date</th>
-      <th class="col-md-1">End date</th>
-      <th class="col-md-2">&nbsp;</th>
-    </thead>
-    <tbody>
-      <tr ng-repeat="project in pc.projects">
-        <td>{{project.code}}</td>
-        <td>{{project.name}}</td>
-        <td>{{project.description}}</td>
-        <td>{{project.start_date | date : 'dd/MM/yyyy'}}</td>
-        <td>{{project.end_date | date : 'dd/MM/yyyy'}}</td>
-        <td class="text-center">
-          <a ui-sref="projects.allocate({id: project._id})" class="btn btn-warning">Alocar</a>
-          <a ui-sref="projects.edit({id: project._id})" class="btn btn-primary">Edit</a>
-          <a ng-confirm="Sure?" href="" ng-click="pc.delete(project)" class="btn btn-danger">Delete</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 
 <div class="row">
   <kanban-board tasks="pc.projects" columns="pc.status" on-update="pc.updateProject($event);"></kanban-board>
