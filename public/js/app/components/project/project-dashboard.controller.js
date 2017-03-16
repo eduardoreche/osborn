@@ -19,6 +19,10 @@
       allocationChartData: [], 
       statuslist: [],
 
+      ragChartOptions: null,
+      ganttChartOptions: null,
+      donutChartOptions: null,
+
       totalAllocationHours: totalAllocationHours
 
     });
@@ -65,6 +69,68 @@
         vm.allocationChartLabels = Object.keys(alloc);
         vm.allocationChartData = vm.allocationChartLabels.map( (v) => { return alloc[v] } );
         vm.statuslist = statusService.query();
+
+        vm.donutChartOptions = {
+          chartType: 'PieChart',
+          dataTable: [
+            ['Profile', 'Total']
+          ],
+          options: {
+            pieHole: 0.4,
+            chartArea: {
+              left:50,
+              top:50,
+              width:'100%',
+              height:'100%'
+            }
+          }
+        };
+
+        vm.ganttChartOptions = {
+          chartType: 'Gantt',
+          dataTable: [
+            ['Task ID', 'Resource Name', 'Position', 'Start Date', 'End Date', 'Duration', 'Percent Complete', 'Dependencies'],
+            ['Project', 'Project', '', project.start_date, project.end_date, 0, 0, null]
+          ]
+        };
+
+        angular.forEach(project.allocations, function(item) {
+
+          vm.donutChartOptions.dataTable.push([item.resource.position, alloc[item.resource.position]]);
+
+          vm.ganttChartOptions.dataTable.push(
+            [
+              item.resource.name,
+              item.resource.name,
+              item.resource.position,
+              new Date(item.start_date),
+              new Date(item.end_date),
+              80, 50, null
+            ]
+          );
+        });
+
+        vm.ragChartOptions = {
+          chartType: 'Gauge',
+          dataTable: [
+            ['Label', 'Value'],
+            ['RAG', 3]
+          ],
+          options: {
+            width: 110,
+            height: 110,
+            redFrom: 100,
+            redTo: 65,
+            yellowFrom: 65,
+            yellowTo: 35,
+            greenFrom: 35,
+            greenTo: 0,
+            minorTicks: 20,
+            max: 0,
+            min: 100,
+            majorTicks: ['100', '1']
+          }
+        }
 
         return project;
         
