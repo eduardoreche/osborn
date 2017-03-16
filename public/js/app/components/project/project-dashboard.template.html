@@ -20,36 +20,45 @@
   <div class="col-sm-6">
     <h2>Allocations</h2>
     <div class="row">
-      <table class="table table-stripped">
-        <thead>
-          <th class="col-md-5">Resource</th>
-          <th class="col-md-4">Position</th>
-          <th class="col-md-1">Start</th>
-          <th class="col-md-1">End</th>
-          <th class="col-md-1">Hours</th>
-        </thead>
-        <tbody>
-          <tr ng-repeat="allocation in pd.project.allocations ">
-            <td>{{allocation.resource.name}}</td>
-            <td>{{allocation.resource.position}}</td>
-            <td>{{allocation.start_date | date : 'dd/MM'}}</td>
-            <td>{{allocation.end_date | date : 'dd/MM'}}</td>
-            <td class="text-right">{{allocation.hours}}</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td class="lead" colspan="4">Total</td>
-            <td class="lead text-right">{{pd.totalAllocationHours()}}</td>
-          </tr>
-        </tfoot>
-      </table>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Hours
+        </div>
+        <div class="panel-body">
+
+          <table class="table table-stripped">
+            <thead>
+              <th class="col-md-5">Resource</th>
+              <th class="col-md-4">Position</th>
+              <th class="col-md-1">Start</th>
+              <th class="col-md-1">End</th>
+              <th class="col-md-1">Hours</th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="allocation in pd.project.allocations ">
+                <td>{{allocation.resource.name}}</td>
+                <td>{{allocation.resource.position}}</td>
+                <td>{{allocation.start_date | date : 'dd/MM'}}</td>
+                <td>{{allocation.end_date | date : 'dd/MM'}}</td>
+                <td class="text-right">{{allocation.hours}}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td class="lead" colspan="4">Total</td>
+                <td class="lead text-right">{{pd.totalAllocationHours()}}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
     </div>
+
     <div class="row">
       <ng-google-charts data="pd.ganttChartOptions"></ng-google-charts>
     </div>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-6" style="height: 500px;">
     <ng-google-charts data="pd.donutChartOptions"></ng-google-charts>
   </div>
 </div>
