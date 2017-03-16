@@ -25,8 +25,6 @@ const kanbanBoard = {
          }
     }
 
-
-
     $scope.refreshBoard = () => {
         $scope.columns = this.columns;
         $scope.tasks = this.tasks;
@@ -34,11 +32,12 @@ const kanbanBoard = {
 
     $scope.onDrop = (data, targetColId) => {
         kanbanBoardService.moveTask(data, targetColId).then(function (taskMoved) {
-            $scope.isLoading = false;
-            kanbanBoardService.sendRequest();
-            $scope.refreshBoard();
+            angular.forEach($scope.tasks, function(item) {
+                if (item._id == taskMoved._id) {
+                    item.status = taskMoved.status;
+                }
+            });
         }, onError);
-        $scope.isLoading = true;
    }
 
     $scope.$parent.$on("refreshBoard", function (e) {
