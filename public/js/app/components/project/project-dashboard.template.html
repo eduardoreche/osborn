@@ -17,10 +17,21 @@
 </div>
 
 <div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Distribution
+      </div>
+      <div class="panel-body">
+        <ng-google-charts data="pd.ganttChartOptions"></ng-google-charts>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
   <div class="col-sm-6">
-    <h2>Allocations</h2>
-    <div class="row">
-      <div class="panel panel-default">
+    <div class="panel panel-default">
         <div class="panel-heading">
           Hours
         </div>
@@ -53,12 +64,15 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
-      <ng-google-charts data="pd.ganttChartOptions"></ng-google-charts>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Profiles
+        </div>
+        <div class="panel-body">
+          <ng-google-charts data="pd.donutChartOptions"></ng-google-charts>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="col-sm-6" style="height: 500px;">
-    <ng-google-charts data="pd.donutChartOptions"></ng-google-charts>
   </div>
 </div>

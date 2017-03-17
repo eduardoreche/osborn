@@ -76,12 +76,7 @@
             ['Profile', 'Total']
           ],
           options: {
-            pieHole: 0.4,
-            chartArea: {
-              left:50,
-              top:50,
-              height: 500
-            }
+            pieHole: 0.4
           }
         };
 
