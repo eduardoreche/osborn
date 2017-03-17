@@ -63,7 +63,9 @@
       addProfile: addProfile,
       removeProfile: removeProfile,
 
-      statusLabel: statusLabel
+      statusLabel: statusLabel,
+
+      updateProject: updateProject
 
     });
 
@@ -194,7 +196,7 @@
       return days * 24 * 60 * 60 * 1000;
     }
 
-    var updateProject = (event) => {
+    function updateProject(event) {
       vm.project = event.task;
       vm.project.$update({id: vm.project._id});
     }

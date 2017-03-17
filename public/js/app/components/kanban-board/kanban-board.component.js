@@ -12,6 +12,13 @@ const kanbanBoard = {
     $scope.tasks = [];
     $scope.isLoading = false;
 
+    $scope.saveTask = (taskToSave) => {
+        this.onUpdate({
+            $event: {
+                task: taskToSave
+            }
+        });
+    };
 
     this.$onInit = ()=> {
 
@@ -35,6 +42,7 @@ const kanbanBoard = {
             angular.forEach($scope.tasks, function(item) {
                 if (item._id == taskMoved._id) {
                     item.status = taskMoved.status;
+                    $scope.saveTask(angular.copy(item));
                 }
             });
         }, onError);
