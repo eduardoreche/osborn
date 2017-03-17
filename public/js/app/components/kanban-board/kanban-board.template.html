@@ -2,11 +2,14 @@
     <div class="row equal">
         <!--<div ng-include="busyModal.html" ng-show="isLoading"></div>-->
         <div class="col-lg-2">
-            <div class="panel panel-primary colStyle"
+            <div class="panel panel-primary colStyle" 
+                ng-class="{'middle-panel': (!$first && !$last), 'left-panel': $first, 'right-panel': $last}"
                 id="{{col.step}}"
                 kanban-board-drop="over"
                 ng-repeat="col in columns">
-                <div class="panel-heading" style="margin-bottom: 10px;">
+                <div class="panel-heading text-center" 
+                    style="margin-bottom: 10px;" 
+                    ng-class="{'middle-panel': (!$first && !$last), 'left-panel': $first, 'right-panel': $last}">
                     <h5 class="panel-title">{{col.desc}}</h5>
                 </div>
                 <div class="panel-body">
@@ -37,5 +40,18 @@
 
 .panel {
     width: 100%;
+}
+
+.middle-panel {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.left-panel {
+    border-top-right-radius: 0px;
+}
+
+.right-panel {
+    border-top-left-radius: 0px;
 }
 </style>
