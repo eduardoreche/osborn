@@ -17,7 +17,8 @@ angular
     'osborn.allocation',
     'osborn.user',
     'osborn.auth',
-    'ngGoogleCharts'
+    'ngGoogleCharts',
+    'osborn.team'
   ])
   .value('_', window._)
   .config(function($urlRouterProvider, $httpProvider, lockProvider, jwtOptionsProvider, jwtInterceptorProvider, ChartJsProvider){

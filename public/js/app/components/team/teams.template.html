@@ -1,0 +1,32 @@
+<h1>Team List</h1>
+
+<div class="row">&nbsp;</div>
+
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <a ui-sref="teams.new" class="btn btn-primary">New team</a>
+    </div>
+    <div class="panel-body">
+      <div id="team-list" class="row" ng-if="tm.teams.length > 0">
+        <table class="table table-stripped">
+          <thead>
+            <th class="col-md-5">Name</th>
+            <th class="col-md-5">Color</th>
+            <th class="col-md-2">&nbsp;</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="team in tm.teams">
+              <td>{{team.name}}</td>
+              <td style="background-color: {{team.color}};">{{team.color}}</td>
+              <td class="text-center">
+                <a ui-sref="teams.edit({id: team._id})" class="btn btn-primary">Edit</a>
+                <a ng-confirm="Sure?" href="" ng-click="tm.delete(team)" class="btn btn-danger">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
