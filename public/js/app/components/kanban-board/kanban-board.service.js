@@ -5,9 +5,9 @@
         .module('osborn')
         .factory('kanbanBoardService', kanbanBoardService);
 
-    kanbanBoardService.inject = ['$http', '$q', '$rootScope', 'statusService', 'projectService'];
+    kanbanBoardService.inject = ['$http', '$q', '$rootScope', 'statusService', 'projectService', 'teamService'];
 
-    function kanbanBoardService($http, $q, $rootScope, statusService, projectService) {
+    function kanbanBoardService($http, $q, $rootScope, statusService, projectService, teamService) {
 
         var prj = {};
 
@@ -15,7 +15,7 @@
             initialize: initialize,
             sendRequest: sendRequest,
             canMoveTask: canMoveTask,
-            moveTask: moveTask,
+            moveTask: moveTask
         };
         
         return service;
