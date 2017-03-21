@@ -37,9 +37,7 @@
 
   <div class="form-group">
     <label for="team">Team</label>
-    <select id="team" ng-model="pc.project.team" class="form-control">
-      <option ng-repeat="team in pc.teams">{{team.name}}</option>
-    </select>
+    <select ng-options="team._id as team.name for team in pc.teams" ng-model="pc.project.team" class="form-control"></select>
   </div>
 
   <div class="form-group">

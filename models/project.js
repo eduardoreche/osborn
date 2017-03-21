@@ -8,7 +8,7 @@ var ProjectSchema = new Schema({
     code: String, 
     status: String,
     entity: String,
-    team: String,
+    team: {type: Schema.Types.ObjectId, ref: 'Team'}, 
     start_date: Date, 
     end_date: Date,
     planned_start_date: Date,
