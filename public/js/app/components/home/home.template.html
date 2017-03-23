@@ -110,22 +110,25 @@
                                         <li class="dropdown-submenu">
                                             <a href="#">Status</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="#">Oportunidade</a></li>
-                    	                        <li><a href="#">Pré-venda</a></li>
-                                                <li><a href="#">Em andamento</a></li>
-                                                <li><a href="#">Garantia</a></li>
-                                                <li><a href="#">Encerrada</a></li>
-                                                <li><a href="#">Cancelada</a></li>
+                                                <li ng-repeat="stat in home.status">
+                                                    <a href="#">{{stat.desc}}</a>
+                                                </li>
                                             </ul>
                                         </li>
                                         <li class="dropdown-submenu">
                                             <a href="#">Team</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="#">Portal</a></li>
-                    	                        <li><a href="#">PEGA</a></li>
-                                                <li><a href="#">Sustentação</a></li>
-                                                <li><a href="#">BARE</a></li>
-                                                <li><a href="#">Pool Java</a></li>
+                                                <li ng-repeat="team in home.teams">
+                                                    <a href="#">{{team.name}}</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a href="#">Entity</a>
+                                            <ul class="dropdown-menu">
+                                                <li ng-repeat="entity in home.entities">
+                                                    <a href="#">{{entity}}</a>
+                                                </li>
                                             </ul>
                                         </li>
                                         <li class="divider"></li>
@@ -134,14 +137,8 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Action</a>
-                                </li>
-                                <li><a href="#">Another action</a>
-                                </li>
-                                <li><a href="#">Something else here</a>
-                                </li>
                                 <li class="divider"></li>
-                                <li><a href="#">Separated link</a>
+                                <li><a href="#">Print</a>
                                 </li>
                             </ul>
                         </div>

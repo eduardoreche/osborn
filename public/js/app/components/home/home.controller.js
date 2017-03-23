@@ -6,12 +6,20 @@
     .module('osborn')
     .controller('homeController', homeController);
 
-  angular.$inject = ['projectService', 'resourceService'];
+  angular.$inject = [
+    'projectService', 
+    'resourceService', 
+    'entityService', 
+    'statusService', 
+    'teamService'
+  ];
 
-  function homeController(projectService, resourceService) {
+  function homeController(projectService, resourceService, entityService, statusService, teamService) {
     var home = angular.extend(this, {
       projects: [],
       resources: [],
+      status: [],
+      teams: [],
       ganttChartOptions: null,
       issuesChartOptions: null
     });
@@ -20,6 +28,9 @@
       _loadProjects();
       _loadResouces();
       _loadIssues();
+      _loadEntities();
+      _loadStatus();
+      _loadTeams();
     }
 
     function _loadResouces() {
@@ -78,6 +89,18 @@
           is3D: true
         }
       }
+    }
+
+    function _loadStatus() {
+      home.status = statusService.query();
+    }
+
+    function _loadEntities() {
+      home.entities = entityService.query();
+    }
+
+    function _loadTeams() {
+      home.teams = teamService.query();
     }
   }
 })();
