@@ -88,9 +88,11 @@
           ]
         };
 
-        angular.forEach(project.allocations, function(item) {
+        angular.forEach(alloc, function(value, key) {
+          vm.donutChartOptions.dataTable.push([key, value]);
+        });
 
-          vm.donutChartOptions.dataTable.push([item.resource.position, alloc[item.resource.position]]);
+        angular.forEach(project.allocations, function(item) {
 
           vm.ganttChartOptions.dataTable.push(
             [
