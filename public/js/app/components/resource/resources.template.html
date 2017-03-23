@@ -20,7 +20,7 @@
           <tbody>
             <tr ng-repeat="resource in rc.resources">
               <td>{{resource.code}}</td>
-              <td>{{resource.name}}</td>
+              <td><a ui-sref="resources.dashboard({id: resource._id})">{{resource.name}}</a></td>
               <td>{{resource.position}}</td>
               <td>{{resource.active}}</td>
               <td class="text-center">

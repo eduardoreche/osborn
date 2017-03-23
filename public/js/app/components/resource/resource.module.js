@@ -30,5 +30,10 @@
           templateUrl: 'js/app/components/resource/resources-form.template.html',
           controller: 'resourceController as rc' 
         })
+        .state('resources.dashboard', {
+          url: '/dashboard/:id',
+          templateUrl: 'js/app/components/resource/resource-dashboard.template.html',
+          controller: 'resourceDashboardController as rd'
+        });
     })
 })();

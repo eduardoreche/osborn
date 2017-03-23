@@ -13,11 +13,20 @@ router.get('/', function(req, res, next) {
 })
 
 router.get('/:id', function(req, res, next){
-  Resource.findById(req.params.id, function(err, resource){
-    if(err) res.send(err);
+  Resource.findById(req.params.id)
+    .populate({
+      path: 'allocations',
+      populate: {
+        path: 'project',
+        select: '_id nickname start_date end_date'
+      }
+    })
+    .exec( (err, resource) => {
+      if(err) 
+        res.send(err);
 
-    res.json(resource);
-  })
+      res.json(resource);
+  });
 })
 
 router.post('/', function(req, res, next){ 
