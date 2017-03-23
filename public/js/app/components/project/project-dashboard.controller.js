@@ -87,7 +87,7 @@
             ['Project', 'Project', '', project.start_date, project.end_date, 0, 0, null]
           ],
           options: {
-            height: (project.allocations.length * 42) + 42
+            height: (project.allocations.length * 42) + (42 *2)
           }
         };
 
