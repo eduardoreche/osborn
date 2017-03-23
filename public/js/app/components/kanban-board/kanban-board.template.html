@@ -14,10 +14,10 @@
                 </div>
                 <div class="panel-body">
                     <div class="thumbnail" draggable="true" kanban-board-dragg="task"
-                        ng-repeat="task in tasks" style="margin-bottom: 10px;" ng-if="task.status == col.desc">
+                        ng-repeat="task in tasks" style="margin-bottom: 10px; background-color: {{task.color}};" ng-if="task.status == col.desc">
                         <div class="caption">
-                            <h5><strong>{{task.nickname}}</strong></h5>
-                            <p>{{task.name}}</p>
+                            <h5><strong>{{task.title}}</strong></h5>
+                            <p>{{task.desc}}</p>
                             <!--<p><a href="#" class="btn btn-primary btn-sm" role="button">Edit</a></p>-->
                         </div>
                     </div>

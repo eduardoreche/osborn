@@ -42,6 +42,7 @@
 
       profilesToAdd: [],
       project_types: [],
+      kanbanData: [],
 
       project: $stateParams.id ? projectService.get({id: $stateParams.id}, function(project){
         project.start_date = new Date(project.start_date);
@@ -156,7 +157,9 @@
           item.planned_start_date = new Date(item.planned_start_date);
           item.planned_end_date = new Date(item.planned_end_date);
           
-        })
+        });
+
+        _prepareKanbanData(projects);
       });
       vm.status = statusService.query();
       vm.entities = entityService.query();
@@ -175,6 +178,26 @@
       vm.project.$update({id: vm.project._id});
     }
 
+    var _prepareKanbanData = (projects) => {
+
+      angular.forEach(projects, function(project) {
+
+        var task = {
+          title: project.nickname,
+          desc: project.name,
+          status: project.status,
+          color: ''
+        };
+
+        if (project.team) {
+          var teamColor = teamService.get({id: project.team}, function (team) {
+            task.color = team.color;
+          });
+
+        }
+        vm.kanbanData.push(task);
+      });
+    }
   }
 
 })();
