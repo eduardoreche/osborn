@@ -39,7 +39,10 @@
             'Duration', 
             'Percent Complete', 
             'Dependencies'
-          ]]
+          ]],
+          options: {
+            height: (projects.length * 42)
+          }
         }
 
         angular.forEach(projects, function(item) {
