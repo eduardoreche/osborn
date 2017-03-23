@@ -4,8 +4,12 @@ var router = express.Router();
 router.get('/', (req, res) => {
     res.json([
         'Bradesco Seguros', 
+        'Bradesco Saúde', 
         'Bradesco Corretora', 
-        'Banco Bradesco'
+        'Bradesco Vida e Previdência',
+        'Banco Bradesco',
+        'BARE', 
+        'Shopping de Seguros'
         ]);
 });
 
