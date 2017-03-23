@@ -24,7 +24,9 @@
       issuesChartOptions: null
     });
 
-    home.$onInit = () => {
+    init();
+
+    function init() {
       _loadProjects();
       _loadResouces();
       _loadIssues();
@@ -39,40 +41,15 @@
 
     function _loadProjects() {
       home.projects = projectService.query(function(projects) {
-        home.ganttChartOptions = {
-          chartType: 'Gantt',
-          dataTable: [[
-            'Task ID', 
-            'TaskName', 
-            'Resource', 
-            'Start Date', 
-            'End Date', 
-            'Duration', 
-            'Percent Complete', 
-            'Dependencies'
-          ]],
-          options: {
-            height: (projects.length * 42)
-          }
-        }
 
         angular.forEach(projects, function(item) {
           item.start_date = new Date(item.start_date);
           item.end_date = new Date(item.end_date);
           item.planned_start_date = new Date(item.planned_start_date);
           item.planned_end_date = new Date(item.planned_end_date);
-
-          home.ganttChartOptions.dataTable.push(
-            [
-              item.nickname,
-              item.nickname,
-              item.team,
-              item.start_date,
-              item.end_date,
-              80, 50, null
-            ]
-          );
         });
+        
+        _prepareGanttData(projects);
       });
     }
 
@@ -101,6 +78,47 @@
 
     function _loadTeams() {
       home.teams = teamService.query();
+    }
+
+    function _prepareGanttData(projects) {
+      home.ganttChartOptions = {
+          chartType: 'Gantt',
+          dataTable: [[
+            'Task ID', 
+            'TaskName', 
+            'Resource', 
+            'Start Date', 
+            'End Date', 
+            'Duration', 
+            'Percent Complete', 
+            'Dependencies'
+          ]],
+          options: {
+            height: (projects.length * 42)
+          }
+        }
+
+        angular.forEach(projects, function(project, key) {
+
+          if (key > 0) {
+            var ganttProject = [
+              project.nickname,
+              project.nickname,
+              '',
+              project.start_date,
+              project.end_date,
+              80, 50, null
+            ]
+
+            if (project.team) {
+              var team = teamService.get({id: project.team}, function (team) {
+                home.ganttChartOptions.dataTable[key][2] = team.name;
+              });
+
+            }
+            home.ganttChartOptions.dataTable.push(ganttProject);
+          }
+        });
     }
   }
 })();
