@@ -85,7 +85,10 @@
           dataTable: [
             ['Task ID', 'Resource Name', 'Position', 'Start Date', 'End Date', 'Duration', 'Percent Complete', 'Dependencies'],
             ['Project', 'Project', '', project.start_date, project.end_date, 0, 0, null]
-          ]
+          ],
+          options: {
+            height: (project.allocations.length * 42) + 42
+          }
         };
 
         angular.forEach(alloc, function(value, key) {
