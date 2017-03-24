@@ -34,7 +34,9 @@ router.post('/', function(req, res, next){
       name: req.body.name, 
       code: req.body.code, 
       position: req.body.position,
-      actinve: req.body.active
+      active: req.body.active,
+      leader: req.body.leader,
+      team: req.body.team
     });
   
   resource.save(function(err, data) {
@@ -52,6 +54,8 @@ router.put('/:id', function(req, res, next) {
     resource.code = req.body.code || resource.code;
     resource.position = req.body.position || resource.position;
     resource.active = req.body.active || resource.active;
+    resource.leader = req.body.leader || resource.leader;
+    resource.team = req.body.team || resource.team;
 
     resource.save(function(err) {
       if(err) res.send(err);

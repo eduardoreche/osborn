@@ -5,7 +5,9 @@ var ResourceSchema = new Schema({
     name: String,
     code: String, 
     position: String,  
-    active: Boolean
+    active: Boolean,
+    leader: {type: Schema.Types.ObjectId, ref: 'Resource'},
+    team: {type: Schema.Types.ObjectId, ref: 'Team'}
 });
 
 ResourceSchema.virtual('allocations', {

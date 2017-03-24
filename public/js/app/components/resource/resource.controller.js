@@ -6,15 +6,31 @@
     .module('osborn.resource')
     .controller('resourceController', resourceController);
 
-  resourceController.$inject = ['$scope', '$state', '$stateParams', 'resourceService', 'positionService'];
+  resourceController.$inject = [
+    '$scope', 
+    '$state', 
+    '$stateParams', 
+    'resourceService', 
+    'positionService',
+    'teamService'
+  ];
 
-  function resourceController($scope, $state, $stateParams, resourceService, positionService) {
+  function resourceController(
+    $scope, 
+    $state, 
+    $stateParams, 
+    resourceService, 
+    positionService,
+    teamService
+  ) {
 
     var vm = angular.extend(this, {
       resources: [],
       resource: $stateParams.id ? resourceService.get({id: $stateParams.id}) : new resourceService(),
       
       positions: [],
+      teams: [],
+      leaders: [],
 
       save: save, 
       delete: remove, 
@@ -56,6 +72,8 @@
     function _loadResources() {
       vm.resources = resourceService.query();
       vm.positions = positionService.query();
+      vm.teams = teamService.query();
+      vm.leaders = resourceService.query();
     }
 
 
