@@ -20,6 +20,7 @@
       statuslist: [],
 
       ragChartOptions: null,
+      ragScopeCostTimeChartOptions: null,
       ganttChartOptions: null,
       donutChartOptions: null,
 
@@ -118,6 +119,30 @@
           options: {
             width: 110,
             height: 110,
+            redFrom: 100,
+            redTo: 65,
+            yellowFrom: 65,
+            yellowTo: 35,
+            greenFrom: 35,
+            greenTo: 0,
+            minorTicks: 20,
+            max: 0,
+            min: 100,
+            majorTicks: ['100', '1']
+          }
+        }
+
+        vm.ragScopeCostTimeChartOptions = {
+          chartType: 'Gauge',
+          dataTable: [
+            ['Label', 'Value'],
+            ['Scope', 3],
+            ['Cost', 3],
+            ['Time', 3]
+          ],
+          options: {
+            width: 300,
+            height: 100,
             redFrom: 100,
             redTo: 65,
             yellowFrom: 65,
