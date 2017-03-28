@@ -1,0 +1,26 @@
+<h1>Users list</h1>
+
+<div class="row">
+  <a ui-sref="users.new" class="btn btn-primary">New user</a>
+</div>
+<div class="row" ng-if="uc.users.length > 0">
+  <table class="table table-stripped">
+    <thead>
+      <th class="col-md-5">Name</th>
+      <th class="col-md-4">Email</th>
+      <th class="col-md-1">Active</th>
+      <th class="col-md-2">&nbsp;</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in uc.users">
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.active}}</td>
+        <td class="text-center">
+          <a ui-sref="users.edit({id: user._id})" class="btn btn-primary">Edit</a>
+          <a ng-confirm="Sure?" href="" ng-click="rc.delete(user)" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-sm-11">
+    <h1>{{pd.project.name}} <small>{{pd.project.code}}</small></h1>
+  </div>
+  <div class="col-sm-12 well">
+    <div class="col-sm-6">
+      <p>{{pd.project.description}}</p>
+      <p>{{pd.project.start_date | date : 'dd/MM/yyyy'}} a {{pd.project.end_date | date : 'dd/MM/yyyy'}}</p>
+    </div>
+    <div class="col-sm-4">
+      <ng-google-charts data="pd.ragScopeCostTimeChartOptions"></ng-google-charts>
+    </div>
+    <div class="col-sm-2">
+      <ng-google-charts data="pd.ragChartOptions"></ng-google-charts>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <status-timeline current="{{pd.project.status}}" statuslist="pd.statuslist"></status-timeline>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Distribution
+      </div>
+      <div class="panel-body">
+        <ng-google-charts data="pd.ganttChartOptions"></ng-google-charts>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          Hours
+        </div>
+        <div class="panel-body">
+
+          <table class="table table-stripped">
+            <thead>
+              <th class="col-md-5">Resource</th>
+              <th class="col-md-4">Position</th>
+              <th class="col-md-1">Start</th>
+              <th class="col-md-1">End</th>
+              <th class="col-md-1">Hours</th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="allocation in pd.project.allocations ">
+                <td>{{allocation.resource.name}}</td>
+                <td>{{allocation.resource.position}}</td>
+                <td>{{allocation.start_date | date : 'dd/MM'}}</td>
+                <td>{{allocation.end_date | date : 'dd/MM'}}</td>
+                <td class="text-right">{{allocation.hours}}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td class="lead" colspan="4">Total</td>
+                <td class="lead text-right">{{pd.totalAllocationHours()}}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Profiles
+        </div>
+        <div class="panel-body">
+          <ng-google-charts data="pd.donutChartOptions"></ng-google-charts>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<h1>Resource</h1>
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" placeholder="Name" ng-model="rc.resource.name">
+  </div>
+  
+  <div class="form-group">
+    <label for="code">Code</label>
+    <input type="text" class="form-control" id="code" placeholder="Code" ng-model="rc.resource.code">
+  </div>
+
+  <div class="form-group">
+    <label for="position">Position</label>
+    <select ng-model="rc.resource.position" class="form-control">
+      <option ng-repeat="pos in rc.positions">{{pos}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="position">Leader</label>
+    <select ng-options="leader._id as leader.name for leader in rc.leaders" ng-model="rc.resource.leader" class="form-control"></select>
+  </div>
+
+  <div class="form-group">
+    <label for="position">Team</label>
+    <select ng-options="team._id as team.name for team in rc.teams" ng-model="rc.resource.team" class="form-control"></select>
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ng-model="rc.resource.active"> Active?
+    </label>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-12 text-right">
+      <a ui-sref="resources.list" class="btn btn-default">Cancel</a>
+      &nbsp;
+      <button type="submit" ng-click="rc.save()" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</form>

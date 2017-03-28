@@ -1,0 +1,27 @@
+<div class="status-timeline-item" 
+  ng-class="{'status-timeline-item-current': $ctrl.status.active, 'status-timeline-item-former': $ctrl.status.former, 'hidden-sm hidden-xs': ($ctrl.status.former || !$ctrl.status.active)}">
+  <i class="glyphicon glyphicon-{{$ctrl.status.icon}}" style="font-size: 1.5em" aria-hidden="true"></i><br>
+  {{ $ctrl.status.desc }}
+</div>
+
+<style type="text/css"  >
+  .status-timeline-item {
+    width: 110px;
+    height: 110px;
+    background-color: lightgray;
+    margin: 10px;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 27px;
+    color: #fff;
+    font-weight: 500;    
+  }
+
+  .status-timeline-item-current {
+    background-color: yellowgreen;
+    font-size: 1.25em;
+  }
+
+  .status-timeline-item-former {
+    background-color: lightseagreen;
+  }

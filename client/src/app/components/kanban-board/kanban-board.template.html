@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row equal">
+        <!--<div ng-include="busyModal.html" ng-show="isLoading"></div>-->
+        <div class="col-lg-2">
+            <div class="panel panel-default colStyle" 
+                ng-class="{'middle-panel': (!$first && !$last), 'left-panel': $first, 'right-panel': $last}"
+                id="{{col.step}}"
+                kanban-board-drop="over"
+                ng-repeat="col in columns">
+                <div class="panel-heading text-center" 
+                    style="margin-bottom: 10px;" 
+                    ng-class="{'middle-panel': (!$first && !$last), 'left-panel': $first, 'right-panel': $last}">
+                    <h5 class="panel-title">{{col.desc}}</h5>
+                </div>
+                <div class="panel-body">
+                    <div class="thumbnail" draggable="true" kanban-board-dragg="task"
+                        ng-repeat="task in tasks" style="margin-bottom: 10px; background-color: {{task.color}};" ng-if="task.status == col.desc">
+                        <div class="caption">
+                            <h5><strong>{{task.title}}</strong></h5>
+                            <p>{{task.desc}}</p>
+                            <!--<p><a href="#" class="btn btn-primary btn-sm" role="button">Edit</a></p>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+@media (min-width: 992px) {
+    .equal, .equal > div[class*='col-'] {  
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex:1 1 auto;
+    }
+}
+
+.panel {
+    width: 100%;
+}
+
+.middle-panel {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.left-panel {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.right-panel {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+</style>
