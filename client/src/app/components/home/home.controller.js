@@ -5,15 +5,9 @@
     .module('osborn.home')
     .controller('HomeController', homeController);
 
-  angular.$inject = [
-    'ProjectService',
-    'ResourceService',
-    'EntityService',
-    'StatusService',
-    'TeamService'
-  ];
+  angular.$inject = [];
 
-  function homeController(ProjectService, ResourceService, EntityService, StatusService, TeamService) {
+  function homeController() {
     const vm = this;
     vm.projects = [];
     vm.resources = [];

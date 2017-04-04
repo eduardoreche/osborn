@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-		.module('osborn.home', [])
+		.module('osborn.home', ['appServices'])
     .config($stateProvider => {
       $stateProvider
         .state('home', {
