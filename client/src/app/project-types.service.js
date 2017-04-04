@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('osborn')
+        .module('appServices')
         .factory('ProjectTypesService', projectTypesService);
 
     projectTypesService.inject = ['$resource', '$http'];

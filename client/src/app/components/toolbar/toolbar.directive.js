@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('osborn')
+    .module('toolbar')
     .directive('toolbar', toolbar);
 
   function toolbar() {

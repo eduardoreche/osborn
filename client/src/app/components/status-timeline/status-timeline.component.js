@@ -34,4 +34,4 @@ const statusTimeline = {
   }
 };
 
-angular.module('osborn').component('statusTimeline', statusTimeline);
+angular.module('statusTimeline').component('statusTimeline', statusTimeline);

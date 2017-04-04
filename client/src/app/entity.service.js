@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('osborn')
+        .module('appServices')
         .factory('EntityService', entityService);
 
     entityService.inject = ['$resource', '$http'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('osborn')
+        .module('kanbanBoard')
         .directive('kanbanBoardDragg', kanbanBoardDragg);
 
     kanbanBoardDragg.inject = [''];

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('osborn')
+    .module('osborn.home')
     .controller('HomeController', homeController);
 
   angular.$inject = [
