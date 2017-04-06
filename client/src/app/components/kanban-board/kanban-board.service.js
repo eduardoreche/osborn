@@ -2,7 +2,7 @@
 'use strict';
 
     angular
-        .module('osborn')
+        .module('kanbanBoard')
         .factory('KanbanBoardService', kanbanBoardService);
 
     kanbanBoardService.inject = ['$http', '$q', '$rootScope', 'StatusService'];

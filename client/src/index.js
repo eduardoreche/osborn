@@ -5,7 +5,7 @@ import ngresource from 'angular-resource';
 import uirouter from 'angular-ui-router';
 import ngsanitize from 'angular-sanitize';
 import angularjwt from 'angular-jwt';
-import nggooglecharts from 'ng-google-charts';
+// import nggooglecharts from 'ng-google-charts';
 
 require('./app/components/home/home.module');
 require('./app/components/home/home.controller');
@@ -32,15 +32,22 @@ require('./app/components/allocation/allocation.module');
 require('./app/components/allocation/allocation.controller');
 require('./app/components/allocation/allocation.service');
 
+require('./app/components/kanban-board/kanban-board.module');
 require('./app/components/kanban-board/kanban-board-drag.directive');
 require('./app/components/kanban-board/kanban-board-drop.directive');
 require('./app/components/kanban-board/kanban-board.component');
 require('./app/components/kanban-board/kanban-board.service');
 
+require('./app/components/toolbar/toolbar.module');
 require('./app/components/toolbar/toolbar.directive');
+
+require('./app/components/status-badge/status-badge.module');
 require('./app/components/status-badge/status-badge.component');
+
+require('./app/components/status-timeline/status-timeline.module');
 require('./app/components/status-timeline/status-timeline.component');
 
+require('./app/app-services.module');
 require('./app/entity.service');
 require('./app/position.service');
 require('./app/project-types.service');
@@ -51,8 +58,8 @@ angular
     ngresource,
     uirouter,
     ngsanitize,
-    angularjwt,
-    nggooglecharts,
+    angularjwt, /* 
+    nggooglecharts, */
 
     'osborn.home',
     'osborn.project',

@@ -12,4 +12,4 @@ const statusBadge = {
   }
 };
 
-angular.module('osborn').component('statusBadge', statusBadge);
+angular.module('statusBadge').component('statusBadge', statusBadge);

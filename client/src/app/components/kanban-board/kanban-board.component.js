@@ -60,4 +60,4 @@ const kanbanBoard = {
 
 kanbanBoard.$inject = ['$scope', 'KanbanBoardService'];
 
-angular.module('osborn').component('kanbanBoard', kanbanBoard);
+angular.module('kanbanBoard').component('kanbanBoard', kanbanBoard);
