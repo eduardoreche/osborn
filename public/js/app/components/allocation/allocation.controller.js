@@ -11,9 +11,9 @@
     '$stateParams', 
     'projectService',
     'resourceService',
-    'allocationService'];
+    'AllocationService'];
 
-  function allocationController($scope, $state, $stateParams, projectService, resourceService, allocationService) {
+  function allocationController($scope, $state, $stateParams, projectService, resourceService, AllocationService) {
     var vm = this;
 
     vm.data = {};
@@ -39,13 +39,13 @@
     }
 
     vm.delete = (id, index) => {
-      allocationService.delete({id: id}, () => {
+      AllocationService.delete({id: id}, () => {
         vm.allocations.splice(index, 1);
       });
     }
 
     vm.allocate = () => {
-      var as = new allocationService();
+      var as = new AllocationService();
       as.resource = vm.data.selectedResource._id; 
       as.project = vm.data.project._id;
       as.start_date = vm.data.initialDate;

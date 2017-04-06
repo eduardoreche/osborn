@@ -6,9 +6,9 @@
     .module('osborn.project')
     .controller('projectDashboardController', projectDashboardController);
 
-  projectDashboardController.$inject = ['$scope', '$state', '$stateParams', 'projectService', 'allocationService', 'statusService'];
+  projectDashboardController.$inject = ['$scope', '$state', '$stateParams', 'ProjectService', 'AllocationService', 'StatusService'];
 
-  function projectDashboardController($scope, $state, $stateParams, projectService, allocationService, statusService) {
+  function projectDashboardController($scope, $state, $stateParams, ProjectService, AllocationService, StatusService) {
 
     var vm = angular.extend(this, {
       project: {},
@@ -62,14 +62,14 @@
 
 
     function _initialize() {
-      vm.project = $stateParams.id ? projectService.get({id: $stateParams.id}, (project)=> {
+      vm.project = $stateParams.id ? ProjectService.get({id: $stateParams.id}, (project)=> {
         project.start_date = new Date(project.start_date);
         project.end_date = new Date(project.end_date);
 
         var alloc = _loadChartData();
         vm.allocationChartLabels = Object.keys(alloc);
         vm.allocationChartData = vm.allocationChartLabels.map( (v) => { return alloc[v] } );
-        vm.statuslist = statusService.query();
+        vm.statuslist = StatusService.query();
 
         vm.donutChartOptions = {
           chartType: 'PieChart',
@@ -158,7 +158,7 @@
 
         return project;
         
-      }) : new projectService();
+      }) : new ProjectService();
       
     }
 
