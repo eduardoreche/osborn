@@ -16,22 +16,22 @@
         })
         .state('resources.list', {
           url: '/list',
-          templateUrl: 'js/app/components/resource/resources.template.html',
+          templateUrl: './app/components/resource/resources.template.html',
           controller: 'ResourceController as rc'
         })
         .state('resources.new', {
           url: '/new',
-          templateUrl: 'js/app/components/resource/resources-form.template.html',
+          templateUrl: './app/components/resource/resources-form.template.html',
           controller: 'ResourceController as rc'
         })
         .state('resources.edit', {
           url: '/edit/:id',
-          templateUrl: 'js/app/components/resource/resources-form.template.html',
+          templateUrl: './app/components/resource/resources-form.template.html',
           controller: 'ResourceController as rc'
         })
         .state('resources.dashboard', {
           url: '/dashboard/:id',
-          templateUrl: 'js/app/components/resource/resource-dashboard.template.html',
+          templateUrl: './app/components/resource/resource-dashboard.template.html',
           controller: 'ResourceDashboardController as rd'
         });
     });

@@ -4,7 +4,7 @@
 
   angular
     .module('osborn.project')
-    .controller('projectDashboardController', projectDashboardController);
+    .controller('ProjectDashboardController', projectDashboardController);
 
   projectDashboardController.$inject = ['$scope', '$state', '$stateParams', 'ProjectService', 'StatusService'];
 

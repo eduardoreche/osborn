@@ -5,6 +5,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FailPlugin = require('webpack-fail-plugin');
 const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   module: {
@@ -23,10 +24,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
+      },
+      {
+        test: /\.(woff|ttf|woff2|eot|svg)$/,
         loaders: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader'
+          'file-loader?name=fonts/[name].[ext]'
+        ]
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loaders: [
+          'file-loader?name=images/[name].[ext]'
         ]
       },
       {
@@ -48,6 +57,7 @@ module.exports = {
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new ExtractTextPlugin("styles.css"),
     FailPlugin,
     new HtmlWebpackPlugin({
       template: conf.path.src('index.html')

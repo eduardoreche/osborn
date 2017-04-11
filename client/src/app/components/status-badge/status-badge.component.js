@@ -2,7 +2,7 @@ const statusBadge = {
   bindings: {
     status: '<'
   },
-  templateUrl: 'js/app/components/status-badge/status-badge.template.html', 
+  templateUrl: './app/components/status-badge/status-badge.template.html', 
   controller() {
     
     this.$onInit = () => {

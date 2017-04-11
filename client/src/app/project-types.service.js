@@ -11,7 +11,7 @@
         
         $http.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('id_token')}`;
 
-        const service = $resource('/api/v1/project-types');
+        const service = $resource('http://localhost:3000/api/v1/project-types');
         
         return service;
     }

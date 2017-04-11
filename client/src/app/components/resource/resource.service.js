@@ -10,7 +10,7 @@
 
   function resourceService($resource) {
 
-    const service = $resource('/api/v1/resources/:id', {id: '@id'}, {
+    const service = $resource('http://localhost:3000/api/v1/resources/:id', {id: '@id'}, {
       update: {
         method: 'PUT'
       }

@@ -8,7 +8,7 @@
 
   function toolbar() {
     return {
-      templateUrl: 'js/app/components/toolbar/toolbar.template.html',
+      templateUrl: './app/components/toolbar/toolbar.template.html',
       controller: toolbarController,
       controllerAs: 'toolbar'
     };

@@ -3,7 +3,7 @@ const statusTimeline = {
     current: '@',
     statuslist: '<'
   }, 
-  templateUrl: 'js/app/components/status-timeline/status-timeline.template.html',
+  templateUrl: './app/components/status-timeline/status-timeline.template.html',
   controller() {
 
     let currentStatusItem = null;

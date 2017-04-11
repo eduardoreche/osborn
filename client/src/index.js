@@ -5,7 +5,10 @@ import ngresource from 'angular-resource';
 import uirouter from 'angular-ui-router';
 import ngsanitize from 'angular-sanitize';
 import angularjwt from 'angular-jwt';
-// import nggooglecharts from 'ng-google-charts';
+
+import nggooglecharts from 'ng-google-charts';
+
+require('./app/assets');
 
 require('./app/components/home/home.module');
 require('./app/components/home/home.controller');
@@ -58,15 +61,16 @@ angular
     ngresource,
     uirouter,
     ngsanitize,
-    angularjwt, /* 
-    nggooglecharts, */
+    angularjwt,  
+    nggooglecharts,
 
     'osborn.home',
     'osborn.project',
     'osborn.resource',
     'osborn.allocation',
     'osborn.user',
-    'osborn.team'
+    'osborn.team',
+    'toolbar'
   ])
   .value('_', window._)
   .config(($urlRouterProvider, $httpProvider) => {

@@ -16,17 +16,17 @@
         })
         .state('teams.list', {
           url: '/list',
-          templateUrl: 'js/app/components/team/teams.template.html',
+          templateUrl: './app/components/team/teams.template.html',
           controller: 'TeamController as tm'
         })
         .state('teams.new', {
           url: '/new',
-          templateUrl: 'js/app/components/team/teams-form.template.html',
+          templateUrl: './app/components/team/teams-form.template.html',
           controller: 'TeamController as tm'
         })
         .state('teams.edit', {
           url: '/edit/:id',
-          templateUrl: 'js/app/components/team/teams-form.template.html',
+          templateUrl: './app/components/team/teams-form.template.html',
           controller: 'TeamController as tm'
         });
     });

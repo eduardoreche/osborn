@@ -16,17 +16,17 @@
         })
         .state('users.list', {
           url: '/list',
-          templateUrl: 'js/app/components/user/users.template.html',
+          templateUrl: './app/components/user/users.template.html',
           controller: 'userController as uc'
         })
         .state('users.new', {
           url: '/new',
-          templateUrl: 'js/app/components/user/users-form.template.html',
+          templateUrl: './app/components/user/users-form.template.html',
           controller: 'userController as uc'
         })
         .state('users.edit', {
           url: '/edit/:id',
-          templateUrl: 'js/app/components/user/users-form.template.html',
+          templateUrl: './app/components/user/users-form.template.html',
           controller: 'userController as uc'
         });
     });

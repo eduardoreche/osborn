@@ -5,7 +5,7 @@ const kanbanBoard = {
         onUpdate: '&'
     },
 
-  templateUrl: 'js/app/components/kanban-board/kanban-board.template.html', 
+  templateUrl: './app/components/kanban-board/kanban-board.template.html', 
   controller($scope, $log, KanbanBoardService) {
 
     $scope.columns = [];

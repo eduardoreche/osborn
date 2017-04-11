@@ -1,0 +1,15 @@
+/* ----- Iconografia: Biblioteca Bradesco ----- */
+  @font-face {
+    font-family: "osborn-icon";
+    src: url("fonts/osborn-icons.ttf");
+    font-weight: normal;
+    font-style: normal
+  }
+  .icon {
+    font-family: "osborn-icon" !important;
+    font-size: 20pt;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .icon-logoff:before   { content: "\e900"; }
+  .icon-login:before   { content: "\e901"; }
