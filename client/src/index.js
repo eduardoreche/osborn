@@ -1,12 +1,14 @@
 'use strict';
 
+import 'bootstrap/dist/css/bootstrap.css';
+
 import angular from 'angular';
 import ngresource from 'angular-resource';
 import uirouter from 'angular-ui-router';
 import ngsanitize from 'angular-sanitize';
 import angularjwt from 'angular-jwt';
 
-import nggooglecharts from 'ng-google-charts';
+// import nggooglecharts from 'ng-google-charts';
 
 require('./app/assets');
 
@@ -61,8 +63,8 @@ angular
     ngresource,
     uirouter,
     ngsanitize,
-    angularjwt,  
-    nggooglecharts,
+    angularjwt,
+    // nggooglecharts
 
     'osborn.home',
     'osborn.project',
