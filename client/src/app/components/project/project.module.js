@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-		.module('osborn.project', [])
+		.module('osborn.project', ['kanbanBoard'])
     .config($stateProvider => {
       $stateProvider
         .state('projects', {
