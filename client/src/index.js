@@ -8,7 +8,7 @@ import uirouter from 'angular-ui-router';
 import ngsanitize from 'angular-sanitize';
 import angularjwt from 'angular-jwt';
 
-// import nggooglecharts from 'ng-google-charts';
+import nggooglecharts from 'ng-google-charts';
 
 require('./app/assets');
 
@@ -64,7 +64,7 @@ angular
     uirouter,
     ngsanitize,
     angularjwt,
-    // nggooglecharts
+    nggooglecharts,
 
     'osborn.home',
     'osborn.project',
