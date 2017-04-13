@@ -32,6 +32,18 @@ module.exports = {
         })
       },
       {
+        test: /\.(woff|ttf|woff2|eot|svg)$/,
+        loaders: [
+          'file-loader?name=fonts/[name].[ext]'
+        ]
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loaders: [
+          'file-loader?name=images/[name].[ext]'
+        ]
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         loaders: [
@@ -44,10 +56,6 @@ module.exports = {
         loaders: [
           'html-loader'
         ]
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file-loader'
       }
     ]
   },
