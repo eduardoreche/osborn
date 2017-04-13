@@ -25,7 +25,7 @@
             });
 
             element.bind('dragstart', event => {
-                event.originalEvent.dataTransfer.setData('Text', angular.toJson(dragData));
+                event.dataTransfer.setData('Text', angular.toJson(dragData));
             });
         }
     }

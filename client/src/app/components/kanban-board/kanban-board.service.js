@@ -3,11 +3,11 @@
 
     angular
         .module('kanbanBoard')
-        .factory('KanbanBoardService', kanbanBoardService);
+        .factory('KanbanBoardService', KanbanBoardService);
 
-    kanbanBoardService.inject = ['$http', '$q', '$rootScope', 'StatusService'];
+    KanbanBoardService.inject = ['$http', '$q', '$rootScope', 'StatusService'];
 
-    function kanbanBoardService($http, $q, $rootScope, StatusService) {
+    function KanbanBoardService($http, $q, $rootScope, StatusService) {
 
         const service = {
             initialize,
