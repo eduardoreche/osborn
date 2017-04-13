@@ -24,9 +24,9 @@
 
     function save() {
       if (vm.team._id) {
-        _add();
-      } else {
         _update();
+      } else {
+        _add();
       }
 
       _loadTeams();

@@ -22,9 +22,9 @@
 
     function save() {
       if (vm.user._id) {
-        _add();
-      } else {
         _update();
+      } else {
+        _add();
       }
 
       _loadUsers();  
