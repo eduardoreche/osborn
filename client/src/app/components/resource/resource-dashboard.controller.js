@@ -3,11 +3,11 @@
 
   angular
     .module('osborn.resource')
-    .controller('resourceDashboardController', resourceDashboardController);
+    .controller('ResourceDashboardController', ResourceDashboardController);
 
-  resourceDashboardController.inject = ['$scope', '$stateParams', 'ResourceService'];
+  ResourceDashboardController.inject = ['$scope', '$stateParams', 'ResourceService'];
 
-  function resourceDashboardController($scope, $stateParams, ResourceService) {
+  function ResourceDashboardController($scope, $stateParams, ResourceService) {
     const vm = this;
     vm.resource = {};
     vm.activeLabel = 'Inactive';
