@@ -25,6 +25,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        exclude: /fonts/,
         loaders: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader?minimize!postcss-loader'
@@ -43,6 +44,10 @@ module.exports = {
         loaders: [
           'html-loader'
         ]
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader'
       }
     ]
   },
