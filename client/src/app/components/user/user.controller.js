@@ -4,11 +4,11 @@
 
   angular
     .module('osborn.user')
-    .controller('UserController', userController);
+    .controller('UserController', UserController);
 
-  userController.$inject = ['$scope', '$state', '$stateParams', 'UserService'];
+  UserController.$inject = ['$scope', '$state', '$stateParams', 'UserService'];
 
-  function userController($scope, $state, $stateParams, UserService) {
+  function UserController($scope, $state, $stateParams, UserService) {
     const vm = this;
     vm.users = [];
     vm.user = $stateParams.id ? UserService.get({id: $stateParams.id}) : new UserService({active: true});
