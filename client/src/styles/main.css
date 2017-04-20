@@ -4,12 +4,19 @@
 	font-weight: normal;
 	font-style: normal
 }
+@font-face {
+	font-family: "OpenSans-Bold";
+	src: url("fonts/OpenSans-Bold.ttf");
+	font-weight: normal;
+	font-style: normal
+}
 
 /*GENERAL*/
 body {
 	color: #131F25;
 	padding-top: 70px;
 	font: 10px "OpenSans-Regular", Helvetica, Arial, sans-serif;
+	background-color: #e8e9ea;
 }
 .form-group label {
 	font-size: 1.3em;
@@ -35,7 +42,25 @@ body {
 	border-radius: 15px;
 	border: 1px solid #D1D8DA;
 	box-shadow: none;
+}
 
+.btn.btn-default {
+	background-color: transparent;
+	border: 3px solid #CCCCCC;
+	font-size: 1.4em;
+	font-family: OpenSans-Bold;
+	color: #CCCCCC;
+}
+.btn-purple {
+	border-color: #9a56d8 !important;
+	color: #9a56d8 !important;
+
+	-webkit-transition: all ease 0.3s;
+	transition: all ease 0.3s;
+}
+.btn-purple:hover {
+	background-color: #9a56d8 !important;
+	color: #FAFAFA !important;
 }
 
 /*TOOLBAR*/
@@ -127,9 +152,191 @@ body {
 }
 
 /*PROJECTS - HOME*/
+
+.welcome-msg {
+	font-size: 3em;
+	padding-top: 28px;
+}
+
 #project-list {
 	/*display: none;*/
 }
+
+/*HOME STICKER CIRCLE STATUS*/
+.home-right-content>.stickers-panel {
+	margin-right: 16px;
+}
+.home-right-content>.stickers-panel a:hover {
+	text-decoration: none;
+}
+.home-right-content>.stickers-panel .panel-primary {
+	width: 105px; 
+	height: 105px; 
+	margin: 0 auto; 
+	border-radius: 70px; 
+	overflow: hidden;
+}
+.home-right-content>.stickers-panel .panel-primary .panel-heading {
+	width: 100%; 
+	height: 74px; 
+	text-align: center;
+}
+.home-right-content>.stickers-panel .panel-primary .panel-heading .counter {
+	font-size: 4em; 
+	margin-top: -8px;
+	margin-bottom: -5px;
+}
+.home-right-content>.stickers-panel .panel-primary .panel-heading .title {
+	font-size: 1.1em;
+}
+.home-right-content>.stickers-panel .panel-primary .panel-heading .title>i {
+	font-size:0.8em; 
+	margin-right: 4px
+}
+.home-right-content>.stickers-panel .panel-footer {
+	height: 40px; 
+	background-color: #F4F4F4; 
+	text-align: center;
+	border-color: #F4F4F4; 
+	padding: 5px 0 0 0;
+}
+.home-right-content>.stickers-panel .panel-footer i {
+	font-size: 1.5em; 
+	margin-top: -6px;
+}
+.home-right-content>.stickers-panel .circle-projects,
+.home-right-content>.stickers-panel .circle-available,
+.home-right-content>.stickers-panel .circle-issues,
+.home-right-content>.stickers-panel .circle-risks {
+	padding: 0;
+}
+.home-right-content>.stickers-panel .circle-projects {
+	z-index: 4;
+}
+.home-right-content>.stickers-panel .circle-projects .panel-primary {
+	background-color: #699ede; 
+	border: 2px solid #699ede; 
+}
+.home-right-content>.stickers-panel .circle-projects .panel-primary .panel-heading {
+	background-color: #699ede; 
+	border-color: #699ede;
+}
+.home-right-content>.stickers-panel .circle-projects .panel-footer i {
+	color: #699ede;
+}
+.home-right-content>.stickers-panel .circle-available {
+	z-index: 3;
+}
+.home-right-content>.stickers-panel .circle-available .panel-primary {
+	background-color: #6ad0b7; 
+	border: 2px solid #6ad0b7; 
+}
+.home-right-content>.stickers-panel .circle-available .panel-primary .panel-heading {
+	background-color: #6ad0b7; 
+	border-color: #6ad0b7;
+}
+.home-right-content>.stickers-panel .circle-available .panel-footer i {
+	color: #6ad0b7;
+}
+.home-right-content>.stickers-panel .circle-issues {
+	z-index: 2;
+}
+.home-right-content>.stickers-panel .circle-issues .panel-primary {
+	background-color: #ecc969; 
+	border: 2px solid #ecc969; 
+}
+.home-right-content>.stickers-panel .circle-issues .panel-primary .panel-heading {
+	background-color: #ecc969; 
+	border-color: #ecc969;
+}
+.home-right-content>.stickers-panel .circle-issues .panel-footer i {
+	color: #ecc969;
+}
+.home-right-content>.stickers-panel .circle-risks {
+	z-index: 1;
+}
+.home-right-content>.stickers-panel .circle-risks .panel-primary {
+	background-color: #ed8768; 
+	border: 2px solid #ed8768; 
+}
+.home-right-content>.stickers-panel .circle-risks .panel-primary .panel-heading {
+	background-color: #ed8768; 
+	border-color: #ed8768;
+}
+.home-right-content>.stickers-panel .circle-risks .panel-footer i {
+	color: #ed8768;
+}
+
+/*GANTT*/
+.gantt-panel {
+	background-color: #FAFAFA;
+	border: 1px solid #DDDDDD;
+	border-radius: 6px;
+	margin-top: 72px;
+	margin-right: 8px;
+	padding: 25px 30px 30px 30px;
+}
+.gantt-panel .title {
+	font-size: 1.6em;
+	font-family: OpenSans-Bold;
+	border-left: 4px solid #9a56d8;
+	padding: 2px 0 2px 6px;
+}
+
+/*HOME ISSUES*/
+.home-issues-panel {
+	background-color: #FAFAFA;
+	border: 1px solid #DDDDDD;
+	border-radius: 6px;
+	margin-top: 20px;
+	margin-right: 8px;
+	padding: 25px 30px 30px 30px;
+}
+.home-issues-panel .title {
+	font-size: 1.6em;
+	font-family: OpenSans-Bold;
+	border-left: 4px solid #9a56d8;
+	padding: 2px 0 2px 6px;
+}
+
+/*NOTIFICATIONS PANEL*/
+.notification-panel {
+	background-color: #FAFAFA;
+	border: 1px solid #DDDDDD;
+	border-radius: 6px;
+	margin-top: 36px;
+	padding: 25px 30px 30px 30px;
+}
+.notification-panel .title{
+	font-size: 1.6em;
+	font-family: OpenSans-Bold;
+	border-left: 4px solid #9a56d8;
+	
+	padding: 2px 0 2px 6px;
+}
+.notification-panel .list-group {
+	background-color: transparent;
+	margin-top: 20px;
+}
+.notification-panel .list-group a {
+	background-color: transparent;
+	font-size: 1.2em;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-bottom: 1px dotted #DDDDDD;
+	border-radius: 0;
+}
+.notification-panel .list-group a:last-child { 
+	border-bottom: none;
+}
+
+.notification-panel .list-group a em {
+	font-size: 10px;
+}
+
+
+
 
 /*RESPONSIVE*/
 @media (max-width: 767px) {
