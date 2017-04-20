@@ -25,10 +25,23 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        exclude: /fonts/,
         loaders: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader?minimize!postcss-loader'
         })
+      },
+      {
+        test: /\.(woff|ttf|woff2|eot|svg)$/,
+        loaders: [
+          'file-loader?name=fonts/[name].[ext]'
+        ]
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loaders: [
+          'file-loader?name=images/[name].[ext]'
+        ]
       },
       {
         test: /\.js$/,
@@ -47,6 +60,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     FailPlugin,

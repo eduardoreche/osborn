@@ -40,9 +40,9 @@
 
     function save() {
       if (vm.resource._id) {
-        _add();
-      } else {
         _update();
+      } else {
+        _add();
       }
 
       _loadResources();  

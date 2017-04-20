@@ -67,9 +67,9 @@
 
     function save() {
       if (vm.project._id) {
-        _add();
-      } else {
         _update();
+      } else {
+        _add();
       }
 
       _loadProjects();  

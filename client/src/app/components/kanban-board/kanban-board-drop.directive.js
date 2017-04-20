@@ -37,14 +37,14 @@
 
             element.bind('dragover', event => {
                 cancel(event);
-                event.originalEvent.dataTransfer.dropEffect = 'move';
+                event.dataTransfer.dropEffect = 'move';
                 element.addClass(dragOverClass);
             });
 
             element.bind('drop', event => {
                 cancel(event);
                 element.removeClass(dragOverClass);
-                const droppedData = angular.fromJson(event.originalEvent.dataTransfer.getData('Text'));
+                const droppedData = angular.fromJson(event.dataTransfer.getData('Text'));
                 scope.onDrop(droppedData, element.attr('id'));
             });
 
