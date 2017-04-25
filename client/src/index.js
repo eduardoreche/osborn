@@ -15,6 +15,9 @@ require('./app/assets');
 require('./app/components/home/home.module');
 require('./app/components/home/home.controller');
 
+require('./app/components/kanban/kanban.module');
+require('./app/components/kanban/kanban.controller');
+
 require('./app/components/project/project.module');
 require('./app/components/project/project.service');
 require('./app/components/project/project.controller');
@@ -67,6 +70,7 @@ angular
     nggooglecharts,
 
     'osborn.home',
+    'osborn.kanban',
     'osborn.project',
     'osborn.resource',
     'osborn.allocation',
