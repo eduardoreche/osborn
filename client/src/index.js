@@ -79,6 +79,10 @@ angular
     'toolbar'
   ])
   .value('_', window._)
+  .constant('SERVER_DATA', {
+    ip: 'localhost',
+    port: '3000'
+  })
   .config(($urlRouterProvider, $httpProvider) => {
     $urlRouterProvider.otherwise('/');
     $httpProvider.defaults.useXDomain = true;

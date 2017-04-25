@@ -6,11 +6,11 @@
     .module('osborn.resource')
     .factory('ResourceService', resourceService);
 
-  angular.$inject = ['$resource'];
+  angular.$inject = ['$resource', 'SERVER_DATA'];
 
-  function resourceService($resource) {
+  function resourceService($resource,SERVER_DATA) {
 
-    const service = $resource('http://localhost:3000/api/v1/resources/:id', {id: '@id'}, {
+    const service = $resource(`http://${SERVER_DATA.ip}:${SERVER_DATA.port}/api/v1/resources/:id`, {id: '@id'}, {
       update: {
         method: 'PUT'
       }

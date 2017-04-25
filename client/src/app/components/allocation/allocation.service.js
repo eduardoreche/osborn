@@ -5,11 +5,11 @@
     .module('osborn.allocation')
     .factory('AllocationService', allocationService);
 
-  angular.$inject = ['$resource'];
+  angular.$inject = ['$resource', 'SERVER_DATA'];
 
-  function allocationService($resource) {
+  function allocationService($resource, SERVER_DATA) {
 
-    const service = $resource('http://localhost:3000/api/v1/allocations/:id', {id: '@id'}, {
+    const service = $resource(`http://${SERVER_DATA.ip}:${SERVER_DATA.port}/api/v1/allocations/:id`, {id: '@id'}, {
       update: {
         method: 'PUT'
       }

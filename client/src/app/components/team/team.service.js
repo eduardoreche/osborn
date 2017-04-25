@@ -5,11 +5,11 @@
         .module('osborn.team')
         .factory('TeamService', teamService);
 
-    teamService.inject = ['$resource'];
+    teamService.inject = ['$resource', 'SERVER_DATA'];
 
-    function teamService($resource) {
+    function teamService($resource, SERVER_DATA) {
 
-        const service = $resource('http://localhost:3000/api/v1/teams/:id', {id: '@id'}, {
+        const service = $resource(`http://${SERVER_DATA.ip}:${SERVER_DATA.port}/api/v1/teams/:id`, {id: '@id'}, {
             update: {
                 method: 'PUT'
             }
