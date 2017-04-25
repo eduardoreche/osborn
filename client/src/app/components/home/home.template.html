@@ -1,108 +1,20 @@
-<h1>Welcome!</h1>
+<!-- <h1>Welcome!</h1> -->
 
-<div class="row">
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i style="font-size:3em;" class="glyphicon glyphicon-folder-open"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">{{home.projects.length}}</div>
-                        <div>Projects</div>
-                    </div>
-                </div>
-            </div>
-            <a ui-sref="projects.list">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i style="font-size:3em;" class="glyphicon glyphicon-user"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">{{home.resources.length}}</div>
-                        <div>Available</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-warning">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i style="font-size:3em;" class="glyphicon glyphicon-alert"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">124</div>
-                        <div>Issues</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-danger">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i style="font-size:3em;" class="glyphicon glyphicon-flash"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">13</div>
-                        <div>Risks</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
+<div class="row" style="margin-top: 30px; margin-bottom: 40px;">
+    <div class="col-sm-8">
+        <p class="welcome-msg">Welcome, <b class="user-name">User Name</b>!</p>
 
-<div class="row">
-    <div class="col-lg-8">
-        <div class="row">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <i class="fa fa-bar-chart-o fa-fw"></i>Gantt
+        <div class="row gantt-panel">
+            <div class="title">Gantt</div>
+            <button type="button" class="btn-actions" data-toggle="dropdown" aria-expanded="false">
+                Actions
+                <span class="caret"></span>
+            </button>
+            <div class="panel-heading">
                     <div class="pull-right">
+
                         <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                Actions
-                                <span class="caret"></span>
-                            </button>
+                            
                             <ul class="dropdown-menu multi-level pull-right" role="menu">
                                 <li class="dropdown-submenu">
                                     <a tabindex="-1" href="#">Filter By</a>
@@ -144,14 +56,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.panel-heading -->
                 <div class="panel-body">
                    <ng-google-charts data="home.ganttChartOptions"></ng-google-charts>
                 </div>
-                <!-- /.panel-body -->
             </div>
-        </div>
-        <div class="row">
+            <div class="row home-issues-panel">
+            <div class="title">Issues</div>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <i class="fa fa-bar-chart-o fa-fw"></i>Issues
@@ -175,70 +85,128 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.panel-heading -->
                 <div class="panel-body">
-                   <!--<ng-google-charts data="home.issuesChartOptions" style="height: 400;"></ng-google-charts>-->
+                   <ng-google-charts data="home.issuesChartOptions" style="height: 400;"></ng-google-charts>
                 </div>
-                <!-- /.panel-body -->
             </div> 
         </div>
+
     </div>
-    <div class="col-lg-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <i class="fa fa-bell fa-fw"></i> Notifications Panel
+    <div class="col-sm-4 home-right-content">
+        <div class="row stickers-panel">
+            <div class="circle-projects col-md-3">
+                <a ui-sref="projects.list">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="counter">{{home.projects.length}}</div>
+                            <div class="title">
+                                <i class="glyphicon glyphicon-folder-open"></i>
+                                Projects
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-                <div class="list-group">
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-comment fa-fw"></i> New Comment
-                        <span class="pull-right text-muted small"><em>4 minutes ago</em>
-                        </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                        <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                        </span>
-                    </a>
-                     <a href="#" class="list-group-item">
-                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                        <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                        </span>
-                    </a>
-                     <a href="#" class="list-group-item">
-                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                        <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                        </span>
-                    </a>
-                     <a href="#" class="list-group-item">
-                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                        <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                        </span>
-                    </a>
-                     <a href="#" class="list-group-item">
-                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                        <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                        </span>
-                    </a>
-                     <a href="#" class="list-group-item">
-                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                        <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                        </span>
-                    </a>
-                     <a href="#" class="list-group-item">
-                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                        <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                        </span>
-                    </a>
-                </div>
-                <!-- /.list-group -->
-                <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+            <div class="circle-available col-md-3">
+                <a ui-sref="projects.list">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="counter">{{home.resources.length}}</div>
+                            <div class="title">
+                                <i class="glyphicon glyphicon-user"></i>
+                                Available
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <!-- /.panel-body -->
+            <div class="circle-issues col-md-3">
+                <a ui-sref="projects.list">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="counter">24</div>
+                            <div class="title">
+                                <i class="glyphicon glyphicon-alert"></i>
+                                Issues
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="circle-risks col-md-3">
+                <a ui-sref="projects.list">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="counter">13</div>
+                            <div class="title">
+                                <i class="glyphicon glyphicon-flash"></i>
+                                Risks
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row notification-panel">
+            <div class="title">Notifications Panel</div>
+            <div class="list-group">
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-comment fa-fw"></i> New Comment
+                    <span class="pull-right text-muted"><em>4 minutes ago</em>
+                    </span>
+                </a>
+                <a href="#" class="list-group-item">
+                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                    <span class="pull-right text-muted"><em>12 minutes ago</em>
+                    </span>
+                </a>
+                 <a href="#" class="list-group-item">
+                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                    <span class="pull-right text-muted"><em>12 minutes ago</em>
+                    </span>
+                </a>
+                 <a href="#" class="list-group-item">
+                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                    <span class="pull-right text-muted"><em>12 minutes ago</em>
+                    </span>
+                </a>
+                 <a href="#" class="list-group-item">
+                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                    <span class="pull-right text-muted"><em>12 minutes ago</em>
+                    </span>
+                </a>
+                 <a href="#" class="list-group-item">
+                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                    <span class="pull-right text-muted"><em>12 minutes ago</em>
+                    </span>
+                </a>
+                 <a href="#" class="list-group-item">
+                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                    <span class="pull-right text-muted"><em>12 minutes ago</em>
+                    </span>
+                </a>
+                 <a href="#" class="list-group-item">
+                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                    <span class="pull-right text-muted"><em>12 minutes ago</em>
+                    </span>
+                </a>
+            </div>
+            <a href="#" class="btn btn-default btn-block btn-purple">View all alerts</a>
+            </div>
         </div>
     </div>
-</div>
 
 <style>
 
