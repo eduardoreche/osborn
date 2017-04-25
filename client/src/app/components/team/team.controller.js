@@ -38,8 +38,8 @@
     }
 
     function remove(team) {
+      vm.teams.splice(vm.teams(team), 1);
       team.$delete({id: team._id});
-      _loadTeams();
     }
 
     const _add = function() {

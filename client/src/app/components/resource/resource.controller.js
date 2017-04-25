@@ -54,8 +54,9 @@
     }
 
     function remove(resource) {
+      vm.resources.splice(vm.resources.indexOf(resource), 1);
+
       resource.$delete({id: resource._id});
-      _loadResources();
     }
   
     const _add = function() {

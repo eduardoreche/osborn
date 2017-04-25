@@ -85,8 +85,8 @@
     }
 
     function remove(project) {
+      vm.projects.splice(vm.projects.indexOf(project), 1);
       project.$delete({id: project._id});
-      _loadProjects();
     }
 
     function addProfile(profileToAdd) {
