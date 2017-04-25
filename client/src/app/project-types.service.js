@@ -5,7 +5,7 @@
         .module('appServices')
         .factory('ProjectTypesService', projectTypesService);
 
-    projectTypesService.inject = ['$resource', '$http', SERVER_DATA];
+    projectTypesService.inject = ['$resource', '$http', 'SERVER_DATA'];
 
     function projectTypesService($resource, $http, SERVER_DATA) {
         
