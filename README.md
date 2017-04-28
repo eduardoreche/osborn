@@ -45,4 +45,4 @@ Enable Team Management (Allocation) among Enterprise Projects.
 3. Run `nodemon index.js` to start server
 4. Open other terminal and enter `osborn/client` folder
 5. Run `npm run serve`
-6. Navigate to `http://localhost:3001`
+6. Navigate to `http://localhost:3000`
