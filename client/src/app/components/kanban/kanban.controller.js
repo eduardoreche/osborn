@@ -32,6 +32,7 @@
       angular.forEach(projects, project => {
 
         const task = {
+          id: project._id,
           title: project.nickname,
           desc: project.name,
           status: project.status,
@@ -47,6 +48,15 @@
         }
         vm.kanbanData.push(task);
       });
-    };    
+    };
+
+    vm.updateProject = $event => {
+      angular.forEach(vm.projects, project => {
+        if (project.id === $event.task.id) {
+          project.status = $event.task.status;
+          project.$update({id: $event.task.id});
+        }
+      });
+    };
   }
 })();

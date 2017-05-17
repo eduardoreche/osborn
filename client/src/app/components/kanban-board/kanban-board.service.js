@@ -47,9 +47,7 @@
         function moveTask(task, targetColIdVal) {
             return $q(resolve => {
                 StatusService.query(status => {
-                    status = status.filter(s => {
-                        return s.step === targetColIdVal;
-                    })[0];
+                    status = status.filter(s => s.step.toString() === targetColIdVal)[0];
                     task.status = status.desc;
                     resolve(task);
                 });

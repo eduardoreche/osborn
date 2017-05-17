@@ -6,15 +6,15 @@
                 ng-class="{'middle-panel': (!$first && !$last), 'left-panel': $first, 'right-panel': $last}"
                 id="{{col.step}}"
                 kanban-board-drop="over"
-                ng-repeat="col in columns">
+                ng-repeat="col in $ctrl.columns">
                 <div class="panel-heading text-center" 
                     style="margin-bottom: 10px;" 
                     ng-class="{'middle-panel': (!$first && !$last), 'left-panel': $first, 'right-panel': $last}">
                     <h5 class="panel-title">{{col.desc}}</h5>
                 </div>
                 <div class="panel-body">
-                    <div class="thumbnail" draggable="true" kanban-board-dragg="task"
-                        ng-repeat="task in tasks" style="margin-bottom: 10px; background-color: {{task.color}};" ng-if="task.status == col.desc">
+                    <div class="thumbnail" draggable="true" kanban-board-drag="task"
+                        ng-repeat="task in $ctrl.tasks" style="margin-bottom: 10px; background-color: {{task.color}};" ng-if="task.status == col.desc">
                         <div class="caption">
                             <h5><strong>{{task.title}}</strong></h5>
                             <p>{{task.desc}}</p>
