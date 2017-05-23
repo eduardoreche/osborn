@@ -25,6 +25,7 @@ module.exports = function(app) {
   v1Routes.use('/status', /* requireAuth, */ require('./controllers/api/v1/status'));
   v1Routes.use('/teams', /* requireAuth, */ require('./controllers/api/v1/teams'));
   v1Routes.use('/project-types', /* requireAuth, */ require('./controllers/api/v1/project-types'));
+  v1Routes.use('/risks', /* requireAuth, */ require('./controllers/api/v1/risks'));
 
   app.use('/api', apiRoutes);
 } 
