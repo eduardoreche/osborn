@@ -1,0 +1,46 @@
+<h1>Risk</h1>
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="cause">Cause</label>
+    <input type="text" class="form-control" id="cause" placeholder="Describe the risk" ng-model="$ctrl.risk.cause">
+  </div>
+
+  <div class="form-group">
+    <label for="effect">Effect</label>
+    <input type="text" class="form-control" id="effect" placeholder="Describe the risk" ng-model="$ctrl.risk.effect">
+  </div>
+
+  <div class="form-group">
+    <label for="probability">Probability</label>
+    <input type="text" class="form-control" id="probability" placeholder="Describe the risk" ng-model="$ctrl.risk.probability">
+  </div>
+
+  <div class="form-group">
+    <label for="impact">Impact</label>
+    <input type="text" class="form-control" id="impact" placeholder="Describe the risk" ng-model="$ctrl.risk.impact">
+  </div>
+
+  <div class="form-group">
+    <label for="action">Action</label>
+    <input type="text" class="form-control" id="action" placeholder="Describe the risk" ng-model="$ctrl.risk.action">
+  </div>
+
+  <div class="form-group">
+    <label for="response">Response</label>
+    <input type="text" class="form-control" id="response" placeholder="Describe the risk" ng-model="$ctrl.risk.response">
+  </div>
+
+  <div class="form-group">
+    <label for="project">Project</label>
+    <input type="text" class="form-control" id="project" placeholder="Describe the risk" ng-model="$ctrl.risk.project">
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-12 text-right">
+      <a ui-sref="risks.list" class="btn btn-default">Cancel</a>
+      &nbsp;
+      <button type="submit" ng-click="$ctrl.save()" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</form>

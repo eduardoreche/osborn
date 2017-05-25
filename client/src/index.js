@@ -32,6 +32,10 @@ require('./app/components/team/team.module');
 require('./app/components/team/team.service');
 require('./app/components/team/team.controller');
 
+require('./app/components/risk/risk.module');
+require('./app/components/risk/risk.service');
+require('./app/components/risk/risk.component');
+
 require('./app/components/user/user.module');
 require('./app/components/user/user.service');
 require('./app/components/user/user.controller');
@@ -76,6 +80,7 @@ angular
     'osborn.allocation',
     'osborn.user',
     'osborn.team',
+    'osborn.risk',
     'toolbar'
   ])
   .value('_', window._)
