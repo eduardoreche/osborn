@@ -5,7 +5,7 @@ import {RiskController} from './risk.controller';
 export const RiskModule = angular
   .module('osborn.risk', [])
   .component('risk', RiskComponent)
-  .service('RiskService', RiskService)
+  .factory('RiskService', RiskService.activate)
   .constant('TYPE_MAPPER', {
     list: 'risk-list.template.html',
     form: 'risk-form.template.html'
@@ -30,7 +30,7 @@ export const RiskModule = angular
           type: () => {
             return 'list';
           },
-          risks: RiskService => RiskService.getRisks()
+          risks: RiskService => RiskService.query()
         }
       })
       .state('risks.new', {

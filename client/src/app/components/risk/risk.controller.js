@@ -1,10 +1,11 @@
 export class RiskController {
-  constructor(TYPE_MAPPER) {
+  constructor(TYPE_MAPPER, $stateParams, $state, RiskService) {
     'ngInject';
     this.TYPE_MAPPER = TYPE_MAPPER;
-  }
-  $onInit($stateParams, RiskService) {
-    this.risk = $stateParams.id ? RiskService.get({id: $stateParams}) : new RiskService();
+    this.stateParams = $stateParams;
+    this.state = $state;
+    this.riskService = RiskService;
+    this.risk = this.stateParams.id ? this.riskService.get({id: this.stateParams}) : this.riskService;
   }
   $onChanges(changes) {
     if (changes.type && this.type) {
@@ -15,14 +16,19 @@ export class RiskController {
     this.risk.$update({id: this.risk._id});
   }
   add() {
-    return this.risk.$save();
+    return this.risk.save();
+  }
+  loadRisks() {
+    this.risks = this.riskService.query();
+
+    this.state.go('risks.list');
   }
   save() {
     if (this.risk._id) {
-      update();
+      this.update();
     } else {
-      add();
+      this.add();
     }
-    loadRisks();
+    this.loadRisks();
   }
 }
