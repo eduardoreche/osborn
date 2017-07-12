@@ -1,4 +1,4 @@
-export class RiskService {
+export default class RiskService {
   constructor($resource, SERVER_DATA) {
     'ngInject';
     return $resource(`http://${SERVER_DATA.ip}:${SERVER_DATA.port}/api/v1/risks/:id`, {
@@ -15,3 +15,5 @@ export class RiskService {
     return RiskService.instance;
   }
 }
+
+RiskService.$inject = ['$resource', 'SERVER_DATA'];

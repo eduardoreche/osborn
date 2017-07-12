@@ -11,4 +11,6 @@ var RiskSchema = new Schema({
   project: { type: Schema.Types.ObjectId, ref: 'Project'}
 });
 
+RiskSchema.set('toJSON', { getters: true});
+
 module.exports = mongoose.model('Risk', RiskSchema);

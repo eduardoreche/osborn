@@ -10,26 +10,29 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-  Risk.findById(req.params.id, function(err, risk) {
-    if (err) res.send(err);
-    res.json(risk);
-  });
+  Risk.findById(req.params.id)
+    .populate({
+      path: 'project',
+      select: '_id name'
+    })
+    .exec((err, risk) => {
+      if (err) res.send(err);
+      res.json(risk);
+    })
 });
 
-router.post('/', (req, res, next) => {
+router.post('/', function(req, res, next) {
   risk = new Risk({
     cause:        req.body.cause,
     effect:       req.body.effect,
     probability:  req.body.probability, 
     impact:       req.body.impact,
     action:       req.body.action,
-    response:     req.body.response,
-    project:      req.body.project
+    response:     req.body.response
   });
-
+  console.log(req.body);
   risk.save((err, data) => {
     if (err) res.send(err);
-
     res.json({ messsage: 'Risk saved successfully!' });
   });
 });
@@ -45,6 +48,12 @@ router.put('/:id', (req, res, next) => {
     risk.action = req.body.action || risk.action;
     risk.response = req.body.response || risk.response;
     risk.project = req.body.project || risk.project;
+
+    risk.save((err) => {
+      if (err) res.send(err);
+
+      res.json({message: 'Risk updated successfuly!'});
+    });
   });
 });
 

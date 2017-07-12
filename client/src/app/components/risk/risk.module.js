@@ -1,9 +1,9 @@
 import {RiskComponent} from './risk.component';
-import {RiskService} from './risk.service';
 import {RiskController} from './risk.controller';
+import RiskService from './risk.service';
 
 export const RiskModule = angular
-  .module('osborn.risk', [])
+  .module('osborn.risk', ['ngResource'])
   .component('risk', RiskComponent)
   .factory('RiskService', RiskService.activate)
   .constant('TYPE_MAPPER', {
