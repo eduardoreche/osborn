@@ -14,7 +14,7 @@ export class RiskController {
     }
   }
   update() {
-    this.risk.update({id: this.risk._id});
+    this.risk.$update({id: this.risk._id});
   }
   add() {
     return this.risk.$save();
@@ -31,5 +31,12 @@ export class RiskController {
       this.add();
     }
     this.loadRisks();
+  }
+  remove(risk) {
+    this.risks.splice(this.risks.indexOf(risk), 1);
+    this.risk.$delete({id: risk._id});
+  }
+  edit(id) {
+    this.state.go('risks.edit', {id});
   }
 }

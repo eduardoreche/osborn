@@ -41,6 +41,15 @@ export const RiskModule = angular
             return 'form';
           }
         }
+      })
+      .state('risks.edit', {
+        url: '/edit/:id',
+        component: 'risk',
+        resolve: {
+          type: () => {
+            return 'form';
+          }
+        }
       });
   })
   .name;

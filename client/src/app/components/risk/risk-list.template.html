@@ -7,8 +7,30 @@
     <div class="panel-heading">
       <a ui-sref="risks.new" class="btn btn-primary">New risk</a>
     </div>
-  </div>
-  <div class="panel-body">
-    <risk-list risks="$ctrl.risks"></risk-list>
+    <div class="panel-body">
+      <div id="risk-list" class="row" ng-if="$ctrl.risks.length > 0">
+          <table class="table table-stripped">
+            <thead>
+              <th class="col-md-2">Cause</th>
+              <th class="col-md-4">Effect</th>
+              <th class="col-md-2">Probability</th>
+              <th class="col-md-1">Impact</th>
+              <th class="col-md-2">&nbsp;</th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="risk in $ctrl.risks">
+                <td>{{risk.cause}}</td>
+                <td>{{risk.effect}}</td>
+                <td>{{risk.probability}}</td>
+                <td>{{risk.impact}}</td>
+                <td class="text-center">
+                  <a ui-sref="risks.edit({id: risk._id})" class="btn btn-primary">Edit</a>
+                  <a ng-confirm="Sure?" href="" ng-click="$ctrl.remove(risk)" class="btn btn-danger">Delete</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
   </div>
 </div>
