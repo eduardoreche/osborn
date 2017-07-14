@@ -3,22 +3,22 @@
 <form class="form-horizontal">
   <div class="form-group">
     <label for="cause">Cause</label>
-    <input type="text" class="form-control" id="cause" placeholder="Describe the risk" ng-model="$ctrl.risk.cause">
+    <input type="text" class="form-control" id="cause" placeholder="Describe the risk" ng-model="risk.cause">
   </div>
 
   <div class="form-group">
     <label for="effect">Effect</label>
-    <input type="text" class="form-control" id="effect" placeholder="Describe the risk" ng-model="$ctrl.risk.effect">
+    <input type="text" class="form-control" id="effect" placeholder="Describe the risk" ng-model="risk.effect">
   </div>
 
   <div class="form-group">
     <label for="probability">Probability</label>
-    <input type="text" class="form-control" id="probability" placeholder="Describe the risk" ng-model="$ctrl.risk.probability">
+    <input type="text" class="form-control" id="probability" placeholder="Describe the risk" ng-model="risk.probability">
   </div>
-
+  
   <div class="form-group">
     <label for="impact">Impact</label>
-    <input type="text" class="form-control" id="impact" placeholder="Describe the risk" ng-model="$ctrl.risk.impact">
+    <select ng-options="impact._id as impact.desc for impact in $ctrl.impactList" ng-model="risk.impact" class="form-control"></select>
   </div>
 
   <div class="form-group">

@@ -64,6 +64,7 @@ require('./app/entity.service');
 require('./app/position.service');
 require('./app/project-types.service');
 require('./app/status.service');
+require('./app/impact.service');
 
 angular
   .module('osborn', [
