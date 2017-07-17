@@ -6,7 +6,8 @@ export class RiskController {
       $state, 
       $resource, 
       RiskService, 
-      ImpactService
+      ImpactService,
+      ProbabilityService
     ) {
     'ngInject';
     this.TYPE_MAPPER = TYPE_MAPPER;
@@ -14,12 +15,15 @@ export class RiskController {
     this.state = $state;
     this.riskService = RiskService;
     this.impactService = ImpactService;
+    this.probabilityService = ProbabilityService;
     this.risk = this.stateParams.id ? this.riskService.get({id: this.stateParams.id}) : new RiskService($resource, SERVER_DATA);
     this.risks = [];
     this.impactList = [];
+    this.probabilityList = [];
   }
   $onInit() {
     this.impactList = this.impactService.query();
+    this.probabilityList = this.probabilityService.query();
   }
   $onChanges(changes) {
     if (changes.type && this.type) {

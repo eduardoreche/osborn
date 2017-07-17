@@ -27,6 +27,7 @@ module.exports = function(app) {
   v1Routes.use('/project-types', /* requireAuth, */ require('./controllers/api/v1/project-types'));
   v1Routes.use('/risks', /* requireAuth, */ require('./controllers/api/v1/risks'));
   v1Routes.use('/impact', /* requireAuth, */ require('./controllers/api/v1/impact'));
+  v1Routes.use('/probability', /* requireAuth, */ require('./controllers/api/v1/probability'));
 
   app.use('/api', apiRoutes);
 } 

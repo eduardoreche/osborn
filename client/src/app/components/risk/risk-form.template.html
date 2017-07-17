@@ -13,12 +13,12 @@
 
   <div class="form-group">
     <label for="probability">Probability</label>
-    <input type="text" class="form-control" id="probability" placeholder="Describe the risk" ng-model="risk.probability">
+    <select id="probability" ng-options="probability._id as probability.desc for probability in $ctrl.probabilityList" ng-model="risk.probability" class="form-control"></select>
   </div>
   
   <div class="form-group">
     <label for="impact">Impact</label>
-    <select ng-options="impact._id as impact.desc for impact in $ctrl.impactList" ng-model="risk.impact" class="form-control"></select>
+    <select id="impact" ng-options="impact._id as impact.desc for impact in $ctrl.impactList" ng-model="risk.impact" class="form-control"></select>
   </div>
 
   <div class="form-group">
