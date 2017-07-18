@@ -1,11 +1,11 @@
 export class RiskController {
   constructor(
-      TYPE_MAPPER, 
-      SERVER_DATA, 
-      $stateParams, 
-      $state, 
-      $resource, 
-      RiskService, 
+      TYPE_MAPPER,
+      SERVER_DATA,
+      $stateParams,
+      $state,
+      $resource,
+      RiskService,
       ImpactService,
       ProbabilityService
     ) {
