@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 var RiskSchema = new Schema({
   cause: String,
   effect: String,
-  probability: Number,
-  impact: Number,
+  probability: String,
+  impact: String,
   action: String,
   response: String,
   project: { type: Schema.Types.ObjectId, ref: 'Project'}
