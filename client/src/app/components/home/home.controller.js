@@ -10,7 +10,8 @@
     'ProjectService', 
     'StatusService', 
     'EntityService', 
-    'TeamService'
+    'TeamService',
+    'RiskService'
   ];
 
   function homeController(
@@ -18,13 +19,15 @@
     ProjectService, 
     StatusService, 
     EntityService, 
-    TeamService
+    TeamService,
+    RiskService
   ) {
     const vm = this;
     vm.projects = [];
     vm.resources = [];
     vm.status = [];
     vm.teams = [];
+    vm.risks = [];
     vm.ganttChartOptions = null;
     vm.issuesChartOptions = null;
 
@@ -37,6 +40,7 @@
       _loadEntities();
       _loadStatus();
       _loadTeams();
+      _loadRisks();
     }
 
     function _loadResouces() {
@@ -80,6 +84,10 @@
 
     function _loadTeams() {
       vm.teams = TeamService.query();
+    }
+
+    function _loadRisks() {
+      vm.risks = RiskService.query();
     }
 
     function _prepareGanttData(projects) {
