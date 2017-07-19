@@ -11,10 +11,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/:id', function(req, res, next) {
   Risk.findById(req.params.id)
-    .populate({
-      path: 'project',
-      select: '_id name'
-    })
     .exec((err, risk) => {
       if (err) res.send(err);
       res.json(risk);
@@ -28,7 +24,8 @@ router.post('/', function(req, res, next) {
     probability:  req.body.probability, 
     impact:       req.body.impact,
     action:       req.body.action,
-    response:     req.body.response
+    response:     req.body.response,
+    project:      req.body.project
   });
   console.log(req.body);
   risk.save((err, data) => {
@@ -41,13 +38,13 @@ router.put('/:id', (req, res, next) => {
   Risk.findById(req.params.id, (err, risk) => {
     if (err) res.send(err);
 
-    risk.cause = req.body.cause || risk.cause;
-    risk.effect = req.body.effect || risk.effect;
-    risk.probability = req.body.probability || risk.probability;
-    risk.impact = req.body.impact || risk.impact;
-    risk.action = req.body.action || risk.action;
-    risk.response = req.body.response || risk.response;
-    risk.project = req.body.project || risk.project;
+    risk.cause        = req.body.cause || risk.cause;
+    risk.effect       = req.body.effect || risk.effect;
+    risk.probability  = req.body.probability || risk.probability;
+    risk.impact       = req.body.impact || risk.impact;
+    risk.action       = req.body.action || risk.action;
+    risk.response     = req.body.response || risk.response;
+    risk.project      = req.body.project || risk.project;
 
     risk.save((err) => {
       if (err) res.send(err);

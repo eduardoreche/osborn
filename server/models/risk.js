@@ -8,7 +8,7 @@ var RiskSchema = new Schema({
   impact: String,
   action: String,
   response: String,
-  project: { type: Schema.Types.ObjectId, ref: 'Project'}
+  project: { type: Schema.Types.ObjectId, ref: 'Project' }
 });
 
 RiskSchema.set('toJSON', { getters: true});

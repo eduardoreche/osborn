@@ -37,7 +37,7 @@
 
   <div class="form-group">
     <label for="project">Project</label>
-    <input type="text" class="form-control" id="project" placeholder="Describe the project" ng-model="$ctrl.risk.project">
+    <select id="project" ng-options="project._id as project.name for project in $ctrl.projects" ng-model="$ctrl.risk.project" class="form-control"></select>
   </div>
 
   <div class="form-group">
