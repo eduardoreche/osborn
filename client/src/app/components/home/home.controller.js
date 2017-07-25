@@ -113,7 +113,7 @@
           const ganttProject = [
             project.nickname,
             project.nickname,
-            '',
+            project.team,
             project.start_date,
             project.end_date,
             80, 50, null
