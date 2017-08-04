@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
   'use strict';
 
@@ -7,26 +7,26 @@
     .controller('ProjectController', projectController);
 
   projectController.$inject = [
-    '$scope', 
-    '$state', 
-    '$stateParams', 
-    'ProjectService', 
-    'StatusService', 
-    'EntityService', 
-    'TeamService', 
+    '$scope',
+    '$state',
+    '$stateParams',
+    'ProjectService',
+    'StatusService',
+    'EntityService',
+    'TeamService',
     'PositionService',
     'ResourceService',
     'ProjectTypesService'
   ];
 
   function projectController(
-    $scope, 
-    $state, 
-    $stateParams, 
-    ProjectService, 
-    StatusService, 
-    EntityService, 
-    TeamService, 
+    $scope,
+    $state,
+    $stateParams,
+    ProjectService,
+    StatusService,
+    EntityService,
+    TeamService,
     PositionService,
     ResourceService,
     ProjectTypesService
@@ -51,8 +51,8 @@
       return project;
       
     }) : new ProjectService();
-    vm.save = save; 
-    vm.delete = remove; 
+    vm.save = save;
+    vm.delete = remove;
     vm.edit = edit;
     vm.addNewProfile = addNewProfile;
     vm.addProfile = addProfile;
@@ -72,7 +72,7 @@
         _add();
       }
 
-      _loadProjects();  
+      _loadProjects();
       $state.go('projects.list');
     }
 
@@ -127,11 +127,11 @@
         default:
           label += 'danger';
           break;
-      } 
+      }
 
       return label;
     }
-  
+
     const _add = function() {
       return vm.project.$save();
     };
@@ -149,7 +149,6 @@
           item.end_date = new Date(item.end_date);
           item.planned_start_date = new Date(item.planned_start_date);
           item.planned_end_date = new Date(item.planned_end_date);
-          
         });
 
         _prepareKanbanData(projects);

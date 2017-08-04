@@ -1,13 +1,13 @@
-(function() {
+(function () {
 
-'use strict';
+  'use strict';
 
   angular
     .module('osborn.team')
     .controller('TeamController', teamController);
 
   teamController.inject = ['$scope', '$state', '$stateParams', 'TeamService'];
-  
+
   function teamController($scope, $state, $stateParams, TeamService) {
     const vm = this;
     vm.teams = [];
@@ -42,11 +42,11 @@
       team.$delete({id: team._id});
     }
 
-    const _add = function() {
+    const _add = function () {
       return vm.team.$save();
     };
 
-    const _update = function() {
+    const _update = function () {
       vm.team.$update({id: vm.team._id});
     };
 

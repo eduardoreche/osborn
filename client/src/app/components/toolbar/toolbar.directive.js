@@ -20,7 +20,7 @@
     const vm = this;
     vm.login = login;
     vm.logout = logout;
-    
+
     function login() {
       $state.go('home');
     }

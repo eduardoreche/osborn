@@ -1,5 +1,5 @@
-(function() {
-'use strict';
+(function () {
+  'use strict';
 
   angular
     .module('osborn.resource')
@@ -38,11 +38,11 @@
             );
 
             if ((new Date(item.project.start_date) <= new Date()) &&
-                (new Date(item.project.end_date) >= new Date()) && 
+                (new Date(item.project.end_date) >= new Date()) &&
                  !vm.allocated) {
-                vm.allocated = true;
-                vm.allocatedLabel = 'Allocated';
-              }
+              vm.allocated = true;
+              vm.allocatedLabel = 'Allocated';
+            }
           }
         });
         if (vm.resource.active) {

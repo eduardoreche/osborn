@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
   'use strict';
 
@@ -7,19 +7,19 @@
     .controller('ResourceController', resourceController);
 
   resourceController.$inject = [
-    '$scope', 
-    '$state', 
-    '$stateParams', 
-    'ResourceService', 
+    '$scope',
+    '$state',
+    '$stateParams',
+    'ResourceService',
     'PositionService',
     'TeamService'
   ];
 
   function resourceController(
-    $scope, 
-    $state, 
-    $stateParams, 
-    ResourceService, 
+    $scope,
+    $state,
+    $stateParams,
+    ResourceService,
     PositionService,
     TeamService
   ) {
@@ -31,7 +31,7 @@
     vm.teams = [];
     vm.leaders = [];
     vm.save = save;
-    vm.delete = remove; 
+    vm.delete = remove;
     vm.edit = edit;
 
     _loadResources();
@@ -45,7 +45,7 @@
         _add();
       }
 
-      _loadResources();  
+      _loadResources();
       $state.go('resources.list');
     }
 
@@ -58,12 +58,12 @@
 
       resource.$delete({id: resource._id});
     }
-  
-    const _add = function() {
+
+    const _add = function () {
       return vm.resource.$save();
     };
 
-    const _update = function() {
+    const _update = function () {
       vm.resource.$update({id: vm.resource._id});
     };
 

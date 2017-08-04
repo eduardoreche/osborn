@@ -2,7 +2,7 @@ const statusTimeline = {
   bindings: {
     current: '@',
     statuslist: '<'
-  }, 
+  },
   templateUrl: './app/components/status-timeline/status-timeline.template.html',
   controller() {
 
@@ -11,7 +11,7 @@ const statusTimeline = {
     this.$onChanges = changesObj => {
       this.statusList = this.statuslist;
       currentStatusItem = changesObj.current.currentValue;
-      
+
       if (!changesObj.statuslist.isFirstChange()) {
         let activeStep = 0;
 
@@ -29,7 +29,7 @@ const statusTimeline = {
           });
 
         });
-      } 
+      }
     };
   }
 };

@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -6,9 +6,9 @@
     .controller('AllocationController', allocationController);
 
   allocationController.$inject = [
-    '$scope', 
-    '$state', 
-    '$stateParams', 
+    '$scope',
+    '$state',
+    '$stateParams',
     'ProjectService',
     'ResourceService',
     'AllocationService'];
@@ -32,7 +32,7 @@
     vm._loadResources();
 
     vm._resetAllocationData = () => {
-      delete vm.data.selectedResource; 
+      delete vm.data.selectedResource;
       delete vm.data.initialDate;
       delete vm.data.finalDate;
       delete vm.data.hours;
@@ -46,7 +46,7 @@
 
     vm.allocate = () => {
       const allocationService = new AllocationService();
-      allocationService.resource = vm.data.selectedResource._id; 
+      allocationService.resource = vm.data.selectedResource._id;
       allocationService.project = vm.data.project._id;
       allocationService.start_date = vm.data.initialDate;
       allocationService.end_date = vm.data.finalDate;

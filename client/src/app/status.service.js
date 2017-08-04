@@ -1,18 +1,18 @@
-(function() {
-    'use strict';
+(function () {
+  'use strict';
 
-    angular
-        .module('appServices')
-        .factory('StatusService', statusService);
+  angular
+    .module('appServices')
+    .factory('StatusService', statusService);
 
-    statusService.inject = ['$resource', '$http', 'SERVER_DATA'];
+  statusService.inject = ['$resource', '$http', 'SERVER_DATA'];
 
-    function statusService($resource, $http, SERVER_DATA) {
-        
-        $http.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('id_token')}`;
+  function statusService($resource, $http, SERVER_DATA) {
 
-        const service = $resource(`http://${SERVER_DATA.ip}:${SERVER_DATA.port}/api/v1/status`);
-        
-        return service;
-    }
+    $http.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('id_token')}`;
+
+    const service = $resource(`http://${SERVER_DATA.ip}:${SERVER_DATA.port}/api/v1/status`);
+
+    return service;
+  }
 })();

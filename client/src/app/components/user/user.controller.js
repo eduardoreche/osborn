@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
   'use strict';
 
@@ -13,7 +13,7 @@
     vm.users = [];
     vm.user = $stateParams.id ? UserService.get({id: $stateParams.id}) : new UserService({active: true});
     vm.save = save;
-    vm.delete = remove; 
+    vm.delete = remove;
     vm.edit = edit;
 
     _loadUsers();
@@ -27,7 +27,7 @@
         _add();
       }
 
-      _loadUsers();  
+      _loadUsers();
       $state.go('users.list');
     }
 
@@ -39,12 +39,12 @@
       user.$delete({id: user._id});
       _loadUsers();
     }
-  
-    const _add = function() {      
+
+    const _add = function () {
       return vm.user.$save();
     };
 
-    const _update = function() {
+    const _update = function () {
       vm.user.$update({id: vm.user._id});
     };
 

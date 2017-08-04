@@ -1,16 +1,16 @@
 export const KanbanBoardDrag = () => {
-    'ngInject';
-    return {
-        link($scope, $element, $attrs) {
-            let dragData = '';
+  'ngInject';
+  return {
+    link($scope, $element, $attrs) {
+      let dragData = '';
 
-            $scope.$watch($attrs.kanbanBoardDrag, newValue => {
-                dragData = newValue;
-            });
+      $scope.$watch($attrs.kanbanBoardDrag, newValue => {
+        dragData = newValue;
+      });
 
-            $element.on('dragstart', event => {
-                event.dataTransfer.setData('Text', angular.toJson(dragData));
-            });
-        }
-    };
+      $element.on('dragstart', event => {
+        event.dataTransfer.setData('Text', angular.toJson(dragData));
+      });
+    }
+  };
 };

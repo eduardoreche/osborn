@@ -1,7 +1,5 @@
-(function() {
+(function () {
   'use strict';
 
-  angular.module('statusBadge', [
-    
-  ]);
+  angular.module('statusBadge', []);
 })();

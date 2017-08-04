@@ -39,7 +39,7 @@
         default:
           label += 'danger';
           break;
-      } 
+      }
 
       return label;
     }
@@ -60,7 +60,7 @@
 
         const alloc = _loadChartData();
         vm.allocationChartLabels = Object.keys(alloc);
-        vm.allocationChartData = vm.allocationChartLabels.map(v => { 
+        vm.allocationChartData = vm.allocationChartLabels.map(v => {
           return alloc[v];
         });
         vm.statuslist = StatusService.query();
@@ -157,12 +157,12 @@
     function _loadChartData() {
       const alloc = {};
       vm.project.allocations.map(item => {
-        alloc[item.resource.position] = (alloc[item.resource.position] ? 
-              alloc[item.resource.position] + 1 : 1); 
+        alloc[item.resource.position] = (alloc[item.resource.position] ?
+              alloc[item.resource.position] + 1 : 1);
         return item;
       });
 
       return alloc;
-    }    
+    }
   }
-})(); 
+})();

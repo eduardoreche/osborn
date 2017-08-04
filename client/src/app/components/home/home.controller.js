@@ -6,19 +6,19 @@
     .controller('HomeController', homeController);
 
   angular.$inject = [
-    'ResourceService', 
-    'ProjectService', 
-    'StatusService', 
-    'EntityService', 
+    'ResourceService',
+    'ProjectService',
+    'StatusService',
+    'EntityService',
     'TeamService',
     'RiskService'
   ];
 
   function homeController(
-    ResourceService, 
-    ProjectService, 
-    StatusService, 
-    EntityService, 
+    ResourceService,
+    ProjectService,
+    StatusService,
+    EntityService,
     TeamService,
     RiskService
   ) {
@@ -130,3 +130,4 @@
     }
   }
 })();
+

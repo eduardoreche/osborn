@@ -13,7 +13,7 @@
     vm.projects = [];
     vm.kanbanData = [];
     vm.status = StatusService.query();
-    
+
     init();
     function init() {
       vm.projects = ProjectService.query(projects => {
