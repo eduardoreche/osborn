@@ -1,9 +1,3 @@
-/* (function() {
-  'use strict';
-
-  angular.module('kanbanBoard', []);
-})(); */
-
 import {KanbanBoardComponent} from './kanban-board.component';
 import {KanbanBoardDrag} from './kanban-board-drag.directive';
 import {KanbanBoardDrop} from './kanban-board-drop.directive';
