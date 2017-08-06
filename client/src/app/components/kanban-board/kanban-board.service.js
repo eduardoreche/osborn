@@ -5,9 +5,9 @@
     .module('kanbanBoard')
     .factory('KanbanBoardService', KanbanBoardService);
 
-  KanbanBoardService.inject = ['$http', '$q', 'StatusService'];
+  KanbanBoardService.inject = ['$q', 'StatusService'];
 
-  function KanbanBoardService($http, $q, StatusService) {
+  function KanbanBoardService($q, StatusService) {
 
     const service = {
       canMoveTask,
