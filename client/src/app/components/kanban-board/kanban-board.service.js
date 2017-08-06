@@ -5,27 +5,16 @@
     .module('kanbanBoard')
     .factory('KanbanBoardService', KanbanBoardService);
 
-  KanbanBoardService.inject = ['$http', '$q', '$rootScope', 'StatusService'];
+  KanbanBoardService.inject = ['$http', '$q', 'StatusService'];
 
-  function KanbanBoardService($http, $q, $rootScope, StatusService) {
+  function KanbanBoardService($http, $q, StatusService) {
 
     const service = {
-      initialize,
-      sendRequest,
       canMoveTask,
       moveTask
     };
 
     return service;
-
-    function initialize() {
-      $rootScope.$broadcast('refreshBoard');
-
-    }
-
-    function sendRequest() {
-      $rootScope.$broadcast('refreshBoard');
-    }
 
     function canMoveTask(sourceColIdVal, targetColIdVal) {
       let s = '';
