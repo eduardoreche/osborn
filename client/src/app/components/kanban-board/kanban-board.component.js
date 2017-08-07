@@ -26,7 +26,7 @@ export const KanbanBoardComponent = {
       );
     }
     onDrop(data, targetColId) {
-      this.KanbanBoardService.moveTask(data, targetColId).then(taskMoved => {
+      this.KanbanBoardService.moveTask(data, targetColId, this.columns).then(taskMoved => {
         angular.forEach(this.tasks, item => {
           if (item.id === taskMoved.id) {
             item.status = taskMoved.status;
